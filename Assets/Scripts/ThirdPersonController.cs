@@ -196,7 +196,7 @@ namespace StarterAssets
             {
                 _speed = targetSpeed;
             }
-            _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
+            _animationBlend = Mathf.Lerp(_animationBlend, _speed, Time.deltaTime * SpeedChangeRate);
 
             // normalise input direction
             Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
@@ -211,22 +211,24 @@ namespace StarterAssets
                 // rotate to face input direction relative to camera position
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
-				_directBlendDelay += Time.deltaTime;
-				if(_directBlendDelay > 1f) _directBlendDelay = 1f;
+                _directBlendDelay += Time.deltaTime;
+                if (_directBlendDelay > 1f) _directBlendDelay = 1f;
             }
-			else
-			{
-				_directBlendDelay -= Time.deltaTime * 2f;
-				if(_directBlendDelay < -0.2f) _directBlendDelay = -0.2f;
-			}
+            else
+            {
+                _directBlendDelay -= Time.deltaTime * 2f;
+                if (_directBlendDelay < -0.2f) _directBlendDelay = -0.2f;
+            }
 
 
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
             Vector3 directMovement = transform.forward;
-			targetDirection = Vector3.Lerp(targetDirection, directMovement, directMoveBlend * _directBlendDelay);
+            targetDirection = Vector3.Lerp(targetDirection, directMovement, directMoveBlend * _directBlendDelay);
+            currentVelocity = Vector3.Lerp(currentVelocity, targetDirection.normalized, 5 * friction * Time.deltaTime);
+
 
             // move the player
-            _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+            _controller.Move(currentVelocity * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
             // update animator if using character
             if (_hasAnimator)
@@ -235,16 +237,37 @@ namespace StarterAssets
                 _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
 
-			leaning.User_DeliverIsAccelerating(_input.move != Vector2.zero);
-			leaning.User_DeliverIsGrounded(Grounded);
-			leaning.User_DeliverAccelerationSpeed(_speed);
+            leaning.User_DeliverIsAccelerating(_input.move != Vector2.zero);
+            leaning.User_DeliverIsGrounded(Grounded);
+            leaning.User_DeliverAccelerationSpeed(_speed);
         }
 
-		float _directBlendDelay = 0f;
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == "Ice")
+            {
+                friction = iceFriction;
+            }
+        }
+
+        void OnTriggerExit(Collider other)
+        {
+            if (other.tag == "Ice")
+            {
+                friction = 10f;
+            }
+        }
+
+        [Range(0f, 3f)]
+        public float iceFriction = 3f;
+        float friction = 10f;
+        Vector3 currentVelocity;
+
+        float _directBlendDelay = 0f;
 
         [Range(0f, 1f)]
         public float directMoveBlend = 0f;
-		public LeaningAnimator leaning;
+        public LeaningAnimator leaning;
 
         private void JumpAndGravity()
         {
