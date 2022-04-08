@@ -30,20 +30,25 @@ public class BattleHUD : MonoBehaviour
 
     public void UpdatePhase(BattleState _state)
     {
+        Animator _optionAnim;
+        Animator _phaseAnim;
+
+        _optionAnim = attackButtons.GetComponent<Animator>();
+        _phaseAnim = phaseText.GetComponentInParent<Animator>();
+
         if (_state == BattleState.ATTACK)
         {
             phaseText.text = "ATTACK PHASE";
-            attackButtons.SetActive(true);
+            _phaseAnim.Play("Slide Down");
+            _optionAnim.Play("Slide Right");
         }
         else if (_state == BattleState.DEFENSE)
         {
             phaseText.text = "DEFENSE PHASE";
-            attackButtons.SetActive(false);
         }
         else
         {
             phaseText.text = "WAITING...";
-            attackButtons.SetActive(false);
         }
     }
 }
