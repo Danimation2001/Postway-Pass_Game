@@ -28,6 +28,11 @@ public class BattleHUD : MonoBehaviour
         enemyHPBar.SetHealth(_health);
     }
 
+    public void UpdatePlayerHP(int _health)
+    {
+        playerHPBar.SetHealth(_health);
+    }
+
     public void UpdatePhase(BattleState _state)
     {
         Animator _optionAnim;
@@ -45,6 +50,7 @@ public class BattleHUD : MonoBehaviour
         else if (_state == BattleState.DEFENSE)
         {
             phaseText.text = "DEFENSE PHASE";
+            _phaseAnim.Play("Slide Down");
         }
         else
         {

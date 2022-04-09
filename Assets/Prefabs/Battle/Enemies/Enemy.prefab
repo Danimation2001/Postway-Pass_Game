@@ -130,10 +130,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Impostor
-  damage: 5
+  damage: 10
   maxHealth: 30
   currentHealth: 30
-  beats: {fileID: 0}
+  beatPatterns:
+  - {fileID: 6898147024455343730, guid: b8418747b149e984abc0d1a84e39c495, type: 3}
+  anim: {fileID: -5144218435853375500}
 --- !u!95 &-5144218435853375500
 Animator:
   serializedVersion: 4

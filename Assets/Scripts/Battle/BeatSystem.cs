@@ -5,10 +5,16 @@ using UnityEngine.InputSystem;
 
 public class BeatSystem : MonoBehaviour
 {
-    public float scrollSpeed;
-    public GameObject scroller;
+    public GameObject fill;
+    public BattleSystem battleSystem;
+    public Transform scrollerSpawn;
     public GameObject striker;
     public InputAction strikeNote;
+    public List<GameObject> attackPatterns;
+    public List<GameObject> enemyPatterns;
+    public GameObject currentPattern;
+    BeatScroller _scroller;
+    public GameObject hittableNote;
 
     void OnEnable()
     {
@@ -24,22 +30,85 @@ public class BeatSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        enemyPatterns = battleSystem.currentEnemy.GetComponent<Unit>().beatPatterns; // Get the enemy patterns from the current unit
     }
 
     // Update is called once per frame
     void Update()
     {
-        Scroll();
+        if (scrollerSpawn.childCount == 0)
+        {
+            battleSystem.beatOnScreen = false;
+            strikeNote.Disable();
+        }
+
+        if (_scroller == null && scrollerSpawn.childCount > 0)
+        {
+            _scroller = scrollerSpawn.GetComponentInChildren<BeatScroller>();
+        }
     }
 
-    void Scroll()
+    public void StartPattern(BattleState _state) // Spawns in the beat pattern for that turn
     {
-        scroller.transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime);
+        strikeNote.Enable();
+
+        if (_state == BattleState.ATTACK)
+        {
+            fill.GetComponent<SpriteRenderer>().color = Color.yellow;
+            currentPattern = Instantiate(attackPatterns[Random.Range(0, attackPatterns.Count)], scrollerSpawn); // Picks a random pattern from a list of possible attack patterns
+        }
+        else if (_state == BattleState.DEFENSE)
+        {
+            fill.GetComponent<SpriteRenderer>().color = Color.magenta;
+            currentPattern = Instantiate(enemyPatterns[Random.Range(0, enemyPatterns.Count)], scrollerSpawn); // Picks a random pattern from a list of possible defense patterns
+        }
+        battleSystem.beatOnScreen = true;
     }
 
-    void StrikeNote(InputAction.CallbackContext context)
+    void StrikeNote(InputAction.CallbackContext context) // Plays the striking animation and controls what happens when the button is pressed
     {
+        BeatStriker _striker = striker.GetComponent<BeatStriker>();
         striker.GetComponent<Animator>().Play("Strike");
+        if (_striker.canHit)
+        {
+            _scroller.RemoveBeat();
+            Destroy(hittableNote);
+
+            if (battleSystem.state == BattleState.ATTACK) // Damage the enemy
+            {
+                if (battleSystem.player.damageBuffed)
+                {
+                    battleSystem.enemyDead = battleSystem.currentEnemy.GetComponent<Unit>().TakeDamage(battleSystem.player.damage * battleSystem.player.damageMultiplier);
+                }
+                else
+                {
+                    battleSystem.enemyDead = battleSystem.currentEnemy.GetComponent<Unit>().TakeDamage(battleSystem.player.damage);
+                }
+                battleSystem.hud.UpdateEnemyHP(battleSystem.currentEnemy.GetComponent<Unit>().currentHealth);
+            }
+
+            else if (battleSystem.state == BattleState.DEFENSE) // Heal the player
+            {
+                if (battleSystem.player.currentHealth < battleSystem.player.maxHealth)
+                {
+                    battleSystem.currentEnemy.GetComponent<Animator>().Play("Attack");
+                    battleSystem.player.currentHealth += battleSystem.player.heal;
+                    battleSystem.hud.UpdatePlayerHP(battleSystem.player.currentHealth);
+                }
+            }
+        }
+        else // Damage the player if they spam the button
+        {
+            battleSystem.currentEnemy.GetComponent<Animator>().Play("Attack");
+            if (battleSystem.player.enemyWeak)
+            {
+                battleSystem.playerDead = battleSystem.player.TakeDamage(battleSystem.currentEnemy.GetComponent<Unit>().damage / battleSystem.player.damageMultiplier);
+            }
+            else
+            {
+                battleSystem.playerDead = battleSystem.player.TakeDamage(battleSystem.currentEnemy.GetComponent<Unit>().damage);
+            }
+            battleSystem.hud.UpdatePlayerHP(battleSystem.player.currentHealth);
+        }
     }
 }

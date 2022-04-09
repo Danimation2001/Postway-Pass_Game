@@ -8,11 +8,13 @@ public class Unit : MonoBehaviour
     public int damage;
     public int maxHealth;
     public int currentHealth;
-    public GameObject beats;
+    public List<GameObject> beatPatterns;
+    public Animator anim;
 
     public bool TakeDamage(int _dmg)
     {
         currentHealth -= _dmg;
+        anim.Play("Hurt");
 
         if (currentHealth <= 0)
         {
