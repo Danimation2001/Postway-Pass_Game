@@ -5,7 +5,7 @@ using UnityEngine;
 public class BeatScroller : MonoBehaviour
 {
     public float scrollSpeed;
-    public List<GameObject> children;
+    public List<GameObject> children = new List<GameObject>();
 
     void Start()
     {

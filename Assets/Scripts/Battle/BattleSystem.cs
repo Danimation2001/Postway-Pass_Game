@@ -29,6 +29,8 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
+        Cursor.lockState = CursorLockMode.None;
+        enemyPrefab = GameManager.Instance.encounteredEnemyCombatPrefab;
         currentEnemy = Instantiate(enemyPrefab, spawnLocation); // Spawn the enemy
         _enemyUnit = currentEnemy.GetComponent<Unit>(); // Get the unit script
         // Set up HUDs
@@ -199,7 +201,10 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.WON)
         {
+            GameManager.Instance.defeatedEnemies.Add(GameManager.Instance.encounteredEnemy);
             Debug.Log("You Won!");
+            GameManager.Instance.inCombat = false;
+            SceneLoader.Instance.LoadOverworldScene(GameManager.Instance.sceneID);
         }
         else if (state == BattleState.LOST)
         {
