@@ -19,21 +19,14 @@ public class OverworldEnemy : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            GameManager.Instance.inCombat = true;
-            GameManager.Instance.needsReposition = true;
             GameManager.Instance.encounteredEnemy = enemyID;
             GameManager.Instance.encounteredEnemyCombatPrefab = combatPrefab;
-            GameManager.Instance.lastPlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+            GameManager.Instance.lastPlayerPosition = other.transform.localPosition;
+            GameManager.Instance.lastPlayerRotation = other.transform.localRotation;
             SceneLoader.Instance.LoadCombatScene();
         }
     }

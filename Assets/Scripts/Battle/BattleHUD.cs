@@ -11,6 +11,7 @@ public class BattleHUD : MonoBehaviour
     public HealthBar enemyHPBar;
     public HealthBar playerHPBar;
     public GameObject attackButtons;
+    public TMP_Text potionText;
 
     public void SetEnemyHUD(Unit _unit)
     {
@@ -31,6 +32,11 @@ public class BattleHUD : MonoBehaviour
     public void UpdatePlayerHP(int _health)
     {
         playerHPBar.SetHealth(_health);
+    }
+
+    public void UpdatePotionCounter()
+    {
+        potionText.text = "Potions: " + GameManager.Instance.potionCount;
     }
 
     public void UpdatePhase(BattleState _state)

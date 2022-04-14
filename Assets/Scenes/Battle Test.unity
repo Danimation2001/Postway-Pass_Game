@@ -1598,7 +1598,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 695348856}
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
-        m_MethodName: OnAttackButton
+        m_MethodName: OnPotionButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2169,6 +2169,7 @@ MonoBehaviour:
   enemyHPBar: {fileID: 717828354}
   playerHPBar: {fileID: 10060934}
   attackButtons: {fileID: 95150885}
+  potionText: {fileID: 1697482933}
 --- !u!1001 &705952684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2480,7 +2481,7 @@ Transform:
   m_Children:
   - {fileID: 833728456}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &760699745
 GameObject:
@@ -3324,8 +3325,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  damage: 10
-  heal: 2
+  damage: 3
+  heal: 0
+  potionStrength: 15
   attackCost: 5
   buffCost: 10
   debuffCost: 5
@@ -3787,7 +3789,7 @@ RectTransform:
   - {fileID: 1311536442}
   - {fileID: 893807698}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3840,7 +3842,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1421131292
 MonoBehaviour:

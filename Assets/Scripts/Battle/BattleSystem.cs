@@ -24,18 +24,19 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.START;
         hud.UpdatePhase(state);
+        GameManager.Instance.needsReposition = true;
         StartCoroutine(SetupBattle());
     }
 
     IEnumerator SetupBattle()
     {
-        Cursor.lockState = CursorLockMode.None;
         enemyPrefab = GameManager.Instance.encounteredEnemyCombatPrefab;
         currentEnemy = Instantiate(enemyPrefab, spawnLocation); // Spawn the enemy
         _enemyUnit = currentEnemy.GetComponent<Unit>(); // Get the unit script
         // Set up HUDs
         hud.SetEnemyHUD(_enemyUnit);
         hud.SetPlayerHUD(player);
+        hud.UpdatePotionCounter();
 
         yield return new WaitForSeconds(entryTime); // Wait for the animation to play
 
@@ -111,7 +112,11 @@ public class BattleSystem : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(1f);
+        if (!enemyDead && !playerDead)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        
         beatSystem.GetComponent<Animator>().Play("Slide Up");
 
         if (player.damageBuffed) // if the player was buffed this turn, turn off the buff at the end of the turn
@@ -196,6 +201,36 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(EnemyTurn());
     }
 
+    public void OnPotionButton()
+    {
+        if (state != BattleState.ATTACK)
+        {
+            return;
+        }
+
+        if (GameManager.Instance.potionCount > 0)
+        {
+            StartCoroutine(PlayerPotion());
+        }
+    }
+
+    IEnumerator PlayerPotion()
+    {
+        GameManager.Instance.potionCount--;
+        player.currentHealth += player.potionStrength;
+        hud.UpdatePlayerHP(player.currentHealth);
+        hud.UpdatePotionCounter();
+
+        hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
+        hud.phaseText.GetComponentInParent<Animator>().Play("Slide Up");
+
+        //enemy turn
+        yield return new WaitForSeconds(1f);
+        state = BattleState.DEFENSE;
+        hud.UpdatePhase(state);
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(EnemyTurn());
+    }
 
     void EndBattle()
     {
@@ -203,7 +238,6 @@ public class BattleSystem : MonoBehaviour
         {
             GameManager.Instance.defeatedEnemies.Add(GameManager.Instance.encounteredEnemy);
             Debug.Log("You Won!");
-            GameManager.Instance.inCombat = false;
             SceneLoader.Instance.LoadOverworldScene(GameManager.Instance.sceneID);
         }
         else if (state == BattleState.LOST)

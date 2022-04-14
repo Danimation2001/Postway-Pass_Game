@@ -119,6 +119,13 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+
+            if (GameManager.Instance.needsReposition)
+            {
+                _controller.enabled = false;
+                GameManager.Instance.RepositionPlayer(transform);
+                _controller.enabled = true;
+            }
         }
 
         private void LateUpdate()

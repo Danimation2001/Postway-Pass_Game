@@ -34,24 +34,18 @@ public class GameManager : MonoBehaviour
 
     public GameObject encounteredEnemyCombatPrefab;
     public Vector3 lastPlayerPosition;
+    public Quaternion lastPlayerRotation;
     public List<int> defeatedEnemies = new List<int>();
+    public List<int> collectedPotions = new List<int>();
     public int encounteredEnemy;
-    public bool inCombat = false;
     public bool needsReposition = false;
     public int sceneID;
-    Transform _playerTransform;
+    public int potionCount;
 
-    void Update()
+    public void RepositionPlayer(Transform _player)
     {
-        if (!inCombat && _playerTransform == null && GameObject.FindGameObjectWithTag("Player") != null)
-        {
-            _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-
-            if (needsReposition)
-            {
-                _playerTransform.position = lastPlayerPosition;
-                needsReposition = false;
-            }
-        }
+        _player.localPosition = lastPlayerPosition;
+        _player.localRotation = lastPlayerRotation;
+        needsReposition = false;
     }
 }

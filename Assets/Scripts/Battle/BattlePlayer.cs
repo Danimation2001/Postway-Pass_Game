@@ -10,6 +10,8 @@ public class BattlePlayer : MonoBehaviour
     public int damage;
     public int heal;
 
+    public int potionStrength;
+
     public int attackCost;
     public int buffCost;
     public int debuffCost;
