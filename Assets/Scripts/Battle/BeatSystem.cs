@@ -69,7 +69,7 @@ public class BeatSystem : MonoBehaviour
     {
         BeatStriker _striker = striker.GetComponent<BeatStriker>();
         striker.GetComponent<Animator>().Play("Strike");
-        if (_striker.canHit)
+        if (_striker.canHitNote)
         {
             _scroller.RemoveBeat();
             Destroy(hittableNote);
@@ -97,6 +97,10 @@ public class BeatSystem : MonoBehaviour
                 }
             }
         }
+        // else if(_striker.canHitHoldNote)
+        // {
+
+        // }
         else // Damage the player if they spam the button
         {
             battleSystem.currentEnemy.GetComponent<Animator>().Play("Attack");

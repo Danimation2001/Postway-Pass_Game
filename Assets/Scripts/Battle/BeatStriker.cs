@@ -4,23 +4,39 @@ using UnityEngine;
 
 public class BeatStriker : MonoBehaviour
 {
-    public bool canHit;
+    public bool canHitNote;
+    // public bool canHitHoldNote;
+    // public bool canReleaseHoldNote;
     public BeatSystem beatSystem;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Beat")
         {
-            canHit = true;
+            canHitNote = true;
             beatSystem.hittableNote = other.gameObject;
         }
+
+        // if (other.tag == "HoldStart")
+        // {
+        //     canHitHoldNote = true;
+        // }
+        // if (other.tag == "HoldEnd")
+        // {
+        //     canReleaseHoldNote = true;
+        // }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Beat")
         {
-            canHit = false;
+            canHitNote = false;
         }
+
+        // if (other.tag == "HoldStart")
+        // {
+        //     canHitHoldNote = false;
+        // }
     }
 }
