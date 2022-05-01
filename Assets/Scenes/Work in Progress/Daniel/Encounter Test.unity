@@ -123,6 +123,96 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 3bd18cc03891ba349b887eba0012d65b, type: 2}
+--- !u!21 &75772957
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LiquidVolumeSimple(Clone)
+  m_Shader: {fileID: 4800000, guid: dceb6298c8f1d4227a4fb2355f0a4ef0, type: 3}
+  m_ShaderKeywords: LIQUID_VOLUME_IRREGULAR LIQUID_VOLUME_NON_AABB
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise2Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 11700000, guid: 41974beaaddc547889b39d0022cb1d07, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex2D:
+        m_Texture: {fileID: 2800000, guid: 2e25f51e1f31e4da8bdac5d08b0f578f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Alpha: 0.9
+    - _AlphaCombined: 0.9
+    - _BasePos: -1
+    - _CullMode: 2
+    - _DeepAtten: 2.66
+    - _DoubleSidedBias: 0.001
+    - _FlaskBlurIntensity: 1
+    - _FlaskThickness: 0.05
+    - _FoamBottom: 1
+    - _FoamDensity: 0.02
+    - _FoamMaxPos: 0.72531337
+    - _FoamRaySteps: 7
+    - _FoamTurbulence: 0.155
+    - _FoamWeight: 11.3
+    - _Glossiness: 0.767
+    - _GlossinessInt: 0.5
+    - _Level: 1
+    - _LevelPos: 0.71824276
+    - _LiquidRaySteps: 10
+    - _LowerLimit: -0.007041915
+    - _Metallic: 0
+    - _Muddy: 0.71
+    - _Radius: 0.5
+    - _SmokeAtten: 2
+    - _SmokeHeightAtten: 0
+    - _SmokeRaySteps: 1
+    - _SmokeSpeed: 5
+    - _Sparkling: 1
+    - _SparklingIntensity: 0
+    - _SparklingThreshold: 1
+    - _Topology: 0
+    - _Turbulence: 1
+    - _Turbulence2: 1
+    - _TurbulenceSpeed: 1
+    - _UpperLimit: 0.007041915
+    - _ZTestMode: 4
+    m_Colors:
+    - _Bounds: {r: 1, g: 1, b: 1, a: 1}
+    - _Center: {r: -1.7130003, g: 0.64999986, b: 7.565, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1: {r: 0.5707547, g: 0.70718586, b: 1, a: 0.5894118}
+    - _Color2: {r: 0.7122642, g: 0.72248274, b: 1, a: 0.6070588}
+    - _EmissionColor: {r: 0.70321167, g: 0.28097185, b: 0.7735849, a: 1}
+    - _FlaskColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FlaskThickness: {r: 0.873, g: 0.8729995, b: 0.8729995, a: 0}
+    - _FoamColor: {r: 0.56, g: 0.56, b: 0.56, a: 0.9}
+    - _LightColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+    - _Scale: {r: 0.62187254, g: 0.73878455, b: 9.02959, a: 8.805716}
+    - _Size: {r: 1.0570863, g: 0.83321905, b: 0.22988734, a: 0.1003462}
+    - _SmokeColor: {r: 0.7, g: 0.7, b: 0.7, a: 0}
+    - _Turbulence: {r: 0.639, g: 0.162, b: 8.293805, a: 2.7646017}
+    - _ViewDir: {r: 0, g: 0, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!43 &126441714
 Mesh:
   m_ObjectHideFlags: 0
@@ -287,6 +377,96 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!21 &247482280
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LiquidVolumeSimple(Clone)
+  m_Shader: {fileID: 4800000, guid: dceb6298c8f1d4227a4fb2355f0a4ef0, type: 3}
+  m_ShaderKeywords: LIQUID_VOLUME_IRREGULAR LIQUID_VOLUME_NON_AABB
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise2Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 11700000, guid: 41974beaaddc547889b39d0022cb1d07, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex2D:
+        m_Texture: {fileID: 2800000, guid: 2e25f51e1f31e4da8bdac5d08b0f578f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Alpha: 0.9
+    - _AlphaCombined: 0.9
+    - _BasePos: -1
+    - _CullMode: 2
+    - _DeepAtten: 2.66
+    - _DoubleSidedBias: 0.001
+    - _FlaskBlurIntensity: 1
+    - _FlaskThickness: 0.05
+    - _FoamBottom: 1
+    - _FoamDensity: 0.02
+    - _FoamMaxPos: 2.9753132
+    - _FoamRaySteps: 7
+    - _FoamTurbulence: 0.155
+    - _FoamWeight: 11.3
+    - _Glossiness: 0.767
+    - _GlossinessInt: 0.5
+    - _Level: 1
+    - _LevelPos: 2.9682426
+    - _LiquidRaySteps: 10
+    - _LowerLimit: -0.007041915
+    - _Metallic: 0
+    - _Muddy: 0.71
+    - _Radius: 0.5
+    - _SmokeAtten: 2
+    - _SmokeHeightAtten: 0
+    - _SmokeRaySteps: 1
+    - _SmokeSpeed: 5
+    - _Sparkling: 1
+    - _SparklingIntensity: 0
+    - _SparklingThreshold: 1
+    - _Topology: 0
+    - _Turbulence: 1
+    - _Turbulence2: 1
+    - _TurbulenceSpeed: 1
+    - _UpperLimit: 0.007041915
+    - _ZTestMode: 4
+    m_Colors:
+    - _Bounds: {r: 1, g: 1, b: 1, a: 1}
+    - _Center: {r: 9.584, g: 2.8999999, b: 5.826, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1: {r: 0.5707547, g: 0.70718586, b: 1, a: 0.5894118}
+    - _Color2: {r: 0.7122642, g: 0.72248274, b: 1, a: 0.6070588}
+    - _EmissionColor: {r: 0.70321167, g: 0.28097185, b: 0.7735849, a: 1}
+    - _FlaskColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FlaskThickness: {r: 0.873, g: 0.8729995, b: 0.8729995, a: 0}
+    - _FoamColor: {r: 0.56, g: 0.56, b: 0.56, a: 0.9}
+    - _LightColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+    - _Scale: {r: 0.62187254, g: 0.73878455, b: 9.02959, a: 8.805716}
+    - _Size: {r: 1.0570867, g: 0.83321905, b: 0.22988734, a: 0.1003462}
+    - _SmokeColor: {r: 0.7, g: 0.7, b: 0.7, a: 0}
+    - _Turbulence: {r: 0.639, g: 0.162, b: 8.293805, a: 2.7646017}
+    - _ViewDir: {r: 0, g: 0, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!43 &320555354
 Mesh:
   m_ObjectHideFlags: 0
@@ -599,98 +779,98 @@ PrefabInstance:
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.x
-      value: 0.26933858
+      value: -0.17323004
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.y
-      value: -0.4
+      value: -0.19994621
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.z
-      value: 0.014060198
+      value: -0.072296016
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.x
-      value: -0.013213481
+      value: -0.049080484
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.y
-      value: 0.07629454
+      value: -0.0031237751
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.z
-      value: 0.24561124
+      value: -0.005443623
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.x
-      value: -0.11700167
+      value: 0.14897694
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.y
-      value: -0.107376434
+      value: -0.061181873
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.z
-      value: 0.19260687
+      value: -0.071573034
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.x
-      value: 0.21961132
+      value: -0.27831334
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.y
-      value: -0.01608108
+      value: -0.3021617
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.z
-      value: 0.089076646
+      value: -0.17141846
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.x
-      value: 0.08634204
+      value: -0.30434632
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.y
-      value: -0.4
+      value: -0.2651366
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.z
-      value: 0.12880279
+      value: -0.18923655
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.x
-      value: 0.098583356
+      value: -0.26134378
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.y
-      value: 0.086797714
+      value: 0.0903877
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.z
-      value: 0.20186923
+      value: 0.01632717
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195491, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2055039829}
+      objectReference: {fileID: 247482280}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5bb904c4d782c64f90bf17757c29d02, type: 3}
 --- !u!4 &644913846 stripped
@@ -699,6 +879,186 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 644913845}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &710426578
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LiquidVolumeSimple(Clone)
+  m_Shader: {fileID: 4800000, guid: dceb6298c8f1d4227a4fb2355f0a4ef0, type: 3}
+  m_ShaderKeywords: LIQUID_VOLUME_IRREGULAR LIQUID_VOLUME_NON_AABB
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise2Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 11700000, guid: 41974beaaddc547889b39d0022cb1d07, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex2D:
+        m_Texture: {fileID: 2800000, guid: 2e25f51e1f31e4da8bdac5d08b0f578f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Alpha: 0.9
+    - _AlphaCombined: 0.9
+    - _BasePos: -1
+    - _CullMode: 2
+    - _DeepAtten: 2.66
+    - _DoubleSidedBias: 0.001
+    - _FlaskBlurIntensity: 1
+    - _FlaskThickness: 0.05
+    - _FoamBottom: 1
+    - _FoamDensity: 0.02
+    - _FoamMaxPos: 0.72531337
+    - _FoamRaySteps: 7
+    - _FoamTurbulence: 0.155
+    - _FoamWeight: 11.3
+    - _Glossiness: 0.767
+    - _GlossinessInt: 0.5
+    - _Level: 1
+    - _LevelPos: 0.71824276
+    - _LiquidRaySteps: 10
+    - _LowerLimit: -0.007041915
+    - _Metallic: 0
+    - _Muddy: 0.71
+    - _Radius: 0.5
+    - _SmokeAtten: 2
+    - _SmokeHeightAtten: 0
+    - _SmokeRaySteps: 1
+    - _SmokeSpeed: 5
+    - _Sparkling: 1
+    - _SparklingIntensity: 0
+    - _SparklingThreshold: 1
+    - _Topology: 0
+    - _Turbulence: 1
+    - _Turbulence2: 1
+    - _TurbulenceSpeed: 1
+    - _UpperLimit: 0.007041915
+    - _ZTestMode: 4
+    m_Colors:
+    - _Bounds: {r: 1, g: 1, b: 1, a: 1}
+    - _Center: {r: 1.9940004, g: 0.64999986, b: 13.398, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1: {r: 0.5707547, g: 0.70718586, b: 1, a: 0.5894118}
+    - _Color2: {r: 0.7122642, g: 0.72248274, b: 1, a: 0.6070588}
+    - _EmissionColor: {r: 0.70321167, g: 0.28097185, b: 0.7735849, a: 1}
+    - _FlaskColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FlaskThickness: {r: 0.873, g: 0.8729995, b: 0.8729995, a: 0}
+    - _FoamColor: {r: 0.56, g: 0.56, b: 0.56, a: 0.9}
+    - _LightColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+    - _Scale: {r: 0.62187254, g: 0.73878455, b: 9.02959, a: 8.805716}
+    - _Size: {r: 1.0570863, g: 0.83321905, b: 0.22988734, a: 0.1003462}
+    - _SmokeColor: {r: 0.7, g: 0.7, b: 0.7, a: 0}
+    - _Turbulence: {r: 0.639, g: 0.162, b: 8.293805, a: 2.7646017}
+    - _ViewDir: {r: 0, g: 0, b: 1, a: 1}
+  m_BuildTextureStacks: []
+--- !u!21 &776011695
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LiquidVolumeSimple(Clone)
+  m_Shader: {fileID: 4800000, guid: dceb6298c8f1d4227a4fb2355f0a4ef0, type: 3}
+  m_ShaderKeywords: LIQUID_VOLUME_IRREGULAR LIQUID_VOLUME_NON_AABB
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise2Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 11700000, guid: 41974beaaddc547889b39d0022cb1d07, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex2D:
+        m_Texture: {fileID: 2800000, guid: 2e25f51e1f31e4da8bdac5d08b0f578f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Alpha: 0.9
+    - _AlphaCombined: 0.9
+    - _BasePos: -1
+    - _CullMode: 2
+    - _DeepAtten: 2.66
+    - _DoubleSidedBias: 0.001
+    - _FlaskBlurIntensity: 1
+    - _FlaskThickness: 0.05
+    - _FoamBottom: 1
+    - _FoamDensity: 0.02
+    - _FoamMaxPos: 0.72531337
+    - _FoamRaySteps: 7
+    - _FoamTurbulence: 0.155
+    - _FoamWeight: 11.3
+    - _Glossiness: 0.767
+    - _GlossinessInt: 0.5
+    - _Level: 1
+    - _LevelPos: 0.71824276
+    - _LiquidRaySteps: 10
+    - _LowerLimit: -0.007041915
+    - _Metallic: 0
+    - _Muddy: 0.71
+    - _Radius: 0.5
+    - _SmokeAtten: 2
+    - _SmokeHeightAtten: 0
+    - _SmokeRaySteps: 1
+    - _SmokeSpeed: 5
+    - _Sparkling: 1
+    - _SparklingIntensity: 0
+    - _SparklingThreshold: 1
+    - _Topology: 0
+    - _Turbulence: 1
+    - _Turbulence2: 1
+    - _TurbulenceSpeed: 1
+    - _UpperLimit: 0.007041915
+    - _ZTestMode: 4
+    m_Colors:
+    - _Bounds: {r: 1, g: 1, b: 1, a: 1}
+    - _Center: {r: 2.8500004, g: 0.64999986, b: -1.77, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1: {r: 0.5707547, g: 0.70718586, b: 1, a: 0.5894118}
+    - _Color2: {r: 0.7122642, g: 0.72248274, b: 1, a: 0.6070588}
+    - _EmissionColor: {r: 0.70321167, g: 0.28097185, b: 0.7735849, a: 1}
+    - _FlaskColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FlaskThickness: {r: 0.873, g: 0.8729995, b: 0.8729995, a: 0}
+    - _FoamColor: {r: 0.56, g: 0.56, b: 0.56, a: 0.9}
+    - _LightColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+    - _Scale: {r: 0.62187254, g: 0.73878455, b: 9.02959, a: 8.805716}
+    - _Size: {r: 1.0570863, g: 0.83321905, b: 0.22988734, a: 0.1003462}
+    - _SmokeColor: {r: 0.7, g: 0.7, b: 0.7, a: 0}
+    - _Turbulence: {r: 0.639, g: 0.162, b: 8.293805, a: 2.7646017}
+    - _ViewDir: {r: 0, g: 0, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!43 &780047826
 Mesh:
   m_ObjectHideFlags: 0
@@ -943,98 +1303,98 @@ PrefabInstance:
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.x
-      value: -0.08294799
+      value: 0.04225664
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.y
-      value: -0.4
+      value: -0.043236464
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.z
-      value: -0.05136273
+      value: -0.004426842
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.x
-      value: -0.15461098
+      value: -0.073349014
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.y
-      value: -0.4
+      value: 0.15589988
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.z
-      value: -0.07336303
+      value: -0.11161675
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.x
-      value: 0.2848518
+      value: 0.17874254
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.y
-      value: -0.4
+      value: -0.24325281
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.z
-      value: 0.025408184
+      value: -0.06513012
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.x
-      value: -0.27141175
+      value: 0.21354869
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.y
-      value: -0.2909186
+      value: -0.32589784
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.z
-      value: 0.060656723
+      value: -0.20679298
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.x
-      value: -0.0016725397
+      value: -0.17693011
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.y
-      value: 0.16598403
+      value: 0.05766207
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.z
-      value: 0.13538724
+      value: -0.015143083
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.x
-      value: 0.07667106
+      value: -0.26880828
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.y
-      value: 0.03629251
+      value: -0.27961165
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.z
-      value: -0.1522778
+      value: -0.20282328
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195491, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1635383999}
+      objectReference: {fileID: 710426578}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5bb904c4d782c64f90bf17757c29d02, type: 3}
 --- !u!4 &878128764 stripped
@@ -6952,96 +7312,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1484448669
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: LiquidVolumeSimple(Clone)
-  m_Shader: {fileID: 4800000, guid: dceb6298c8f1d4227a4fb2355f0a4ef0, type: 3}
-  m_ShaderKeywords: LIQUID_VOLUME_IRREGULAR LIQUID_VOLUME_NON_AABB
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Noise2Tex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 11700000, guid: 41974beaaddc547889b39d0022cb1d07, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex2D:
-        m_Texture: {fileID: 2800000, guid: 2e25f51e1f31e4da8bdac5d08b0f578f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Alpha: 0.9
-    - _AlphaCombined: 0.9
-    - _BasePos: -1
-    - _CullMode: 2
-    - _DeepAtten: 2.66
-    - _DoubleSidedBias: 0.001
-    - _FlaskBlurIntensity: 1
-    - _FlaskThickness: 0.05
-    - _FoamBottom: 1
-    - _FoamDensity: 0.02
-    - _FoamMaxPos: 0.72531337
-    - _FoamRaySteps: 7
-    - _FoamTurbulence: 0.155
-    - _FoamWeight: 11.3
-    - _Glossiness: 0.767
-    - _GlossinessInt: 0.5
-    - _Level: 1
-    - _LevelPos: 0.71824276
-    - _LiquidRaySteps: 10
-    - _LowerLimit: -0.007041915
-    - _Metallic: 0
-    - _Muddy: 0.71
-    - _Radius: 0.5
-    - _SmokeAtten: 2
-    - _SmokeHeightAtten: 0
-    - _SmokeRaySteps: 1
-    - _SmokeSpeed: 5
-    - _Sparkling: 1
-    - _SparklingIntensity: 0
-    - _SparklingThreshold: 1
-    - _Topology: 0
-    - _Turbulence: 1
-    - _Turbulence2: 1
-    - _TurbulenceSpeed: 1
-    - _UpperLimit: 0.007041915
-    - _ZTestMode: 4
-    m_Colors:
-    - _Bounds: {r: 1, g: 1, b: 1, a: 1}
-    - _Center: {r: -1.7130003, g: 0.64999986, b: 7.565, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.5707547, g: 0.70718586, b: 1, a: 0.5894118}
-    - _Color2: {r: 0.7122642, g: 0.72248274, b: 1, a: 0.6070588}
-    - _EmissionColor: {r: 0.70321167, g: 0.28097185, b: 0.7735849, a: 1}
-    - _FlaskColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlaskThickness: {r: 0.873, g: 0.8729995, b: 0.8729995, a: 0}
-    - _FoamColor: {r: 0.56, g: 0.56, b: 0.56, a: 0.9}
-    - _LightColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-    - _Scale: {r: 0.62187254, g: 0.73878455, b: 9.02959, a: 8.805716}
-    - _Size: {r: 1.0570863, g: 0.83321905, b: 0.22988734, a: 0.1003462}
-    - _SmokeColor: {r: 0.7, g: 0.7, b: 0.7, a: 0}
-    - _Turbulence: {r: 0.639, g: 0.162, b: 8.293805, a: 2.7646017}
-    - _ViewDir: {r: 0, g: 0, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1485810120
 GameObject:
   m_ObjectHideFlags: 0
@@ -7425,96 +7695,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &1635383999
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: LiquidVolumeSimple(Clone)
-  m_Shader: {fileID: 4800000, guid: dceb6298c8f1d4227a4fb2355f0a4ef0, type: 3}
-  m_ShaderKeywords: LIQUID_VOLUME_IRREGULAR LIQUID_VOLUME_NON_AABB
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Noise2Tex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 11700000, guid: 41974beaaddc547889b39d0022cb1d07, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex2D:
-        m_Texture: {fileID: 2800000, guid: 2e25f51e1f31e4da8bdac5d08b0f578f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Alpha: 0.9
-    - _AlphaCombined: 0.9
-    - _BasePos: -1
-    - _CullMode: 2
-    - _DeepAtten: 2.66
-    - _DoubleSidedBias: 0.001
-    - _FlaskBlurIntensity: 1
-    - _FlaskThickness: 0.05
-    - _FoamBottom: 1
-    - _FoamDensity: 0.02
-    - _FoamMaxPos: 0.72531337
-    - _FoamRaySteps: 7
-    - _FoamTurbulence: 0.155
-    - _FoamWeight: 11.3
-    - _Glossiness: 0.767
-    - _GlossinessInt: 0.5
-    - _Level: 1
-    - _LevelPos: 0.71824276
-    - _LiquidRaySteps: 10
-    - _LowerLimit: -0.007041915
-    - _Metallic: 0
-    - _Muddy: 0.71
-    - _Radius: 0.5
-    - _SmokeAtten: 2
-    - _SmokeHeightAtten: 0
-    - _SmokeRaySteps: 1
-    - _SmokeSpeed: 5
-    - _Sparkling: 1
-    - _SparklingIntensity: 0
-    - _SparklingThreshold: 1
-    - _Topology: 0
-    - _Turbulence: 1
-    - _Turbulence2: 1
-    - _TurbulenceSpeed: 1
-    - _UpperLimit: 0.007041915
-    - _ZTestMode: 4
-    m_Colors:
-    - _Bounds: {r: 1, g: 1, b: 1, a: 1}
-    - _Center: {r: 1.9940004, g: 0.64999986, b: 13.398, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.5707547, g: 0.70718586, b: 1, a: 0.5894118}
-    - _Color2: {r: 0.7122642, g: 0.72248274, b: 1, a: 0.6070588}
-    - _EmissionColor: {r: 0.70321167, g: 0.28097185, b: 0.7735849, a: 1}
-    - _FlaskColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlaskThickness: {r: 0.873, g: 0.8729995, b: 0.8729995, a: 0}
-    - _FoamColor: {r: 0.56, g: 0.56, b: 0.56, a: 0.9}
-    - _LightColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-    - _Scale: {r: 0.62187254, g: 0.73878455, b: 9.02959, a: 8.805716}
-    - _Size: {r: 1.0570863, g: 0.83321905, b: 0.22988734, a: 0.1003462}
-    - _SmokeColor: {r: 0.7, g: 0.7, b: 0.7, a: 0}
-    - _Turbulence: {r: 0.639, g: 0.162, b: 8.293805, a: 2.7646017}
-    - _ViewDir: {r: 0, g: 0, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1723461643
 GameObject:
   m_ObjectHideFlags: 0
@@ -7939,98 +8119,98 @@ PrefabInstance:
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.x
-      value: 0.1790142
+      value: 0.15409799
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.y
-      value: -0.08173967
+      value: -0.21341124
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.z
-      value: -0.15317307
+      value: -0.039032053
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.x
-      value: -0.21174262
+      value: 0.0023524247
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.y
-      value: 0.087907195
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.z
-      value: 0.09128418
+      value: 0.16048789
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.x
-      value: 0.068040214
+      value: 0.06642418
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.y
-      value: -0.19942503
+      value: -0.14368653
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.z
-      value: -0.19131552
+      value: -0.33003297
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.x
-      value: -0.137888
+      value: -0.048133083
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.y
-      value: 0.019706145
+      value: -0.08541599
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.z
-      value: -0.17107596
+      value: 0.22741969
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.x
-      value: 0.12029747
+      value: -0.29710257
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.y
-      value: 0.11557415
+      value: -0.07920412
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.z
-      value: -0.08044144
+      value: 0.14117426
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.x
-      value: -0.12251665
+      value: 0.3069341
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.y
-      value: -0.33087233
+      value: -0.09070257
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.z
-      value: -0.12858926
+      value: 0.1052686
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195491, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1484448669}
+      objectReference: {fileID: 75772957}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5bb904c4d782c64f90bf17757c29d02, type: 3}
 --- !u!4 &1765408774 stripped
@@ -8039,186 +8219,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1765408773}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1825580061
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: LiquidVolumeSimple(Clone)
-  m_Shader: {fileID: 4800000, guid: dceb6298c8f1d4227a4fb2355f0a4ef0, type: 3}
-  m_ShaderKeywords: LIQUID_VOLUME_IRREGULAR LIQUID_VOLUME_NON_AABB
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Noise2Tex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 11700000, guid: 41974beaaddc547889b39d0022cb1d07, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex2D:
-        m_Texture: {fileID: 2800000, guid: 2e25f51e1f31e4da8bdac5d08b0f578f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Alpha: 0.9
-    - _AlphaCombined: 0.9
-    - _BasePos: -1
-    - _CullMode: 2
-    - _DeepAtten: 2.66
-    - _DoubleSidedBias: 0.001
-    - _FlaskBlurIntensity: 1
-    - _FlaskThickness: 0.05
-    - _FoamBottom: 1
-    - _FoamDensity: 0.02
-    - _FoamMaxPos: 0.72531337
-    - _FoamRaySteps: 7
-    - _FoamTurbulence: 0.155
-    - _FoamWeight: 11.3
-    - _Glossiness: 0.767
-    - _GlossinessInt: 0.5
-    - _Level: 1
-    - _LevelPos: 0.71824276
-    - _LiquidRaySteps: 10
-    - _LowerLimit: -0.007041915
-    - _Metallic: 0
-    - _Muddy: 0.71
-    - _Radius: 0.5
-    - _SmokeAtten: 2
-    - _SmokeHeightAtten: 0
-    - _SmokeRaySteps: 1
-    - _SmokeSpeed: 5
-    - _Sparkling: 1
-    - _SparklingIntensity: 0
-    - _SparklingThreshold: 1
-    - _Topology: 0
-    - _Turbulence: 1
-    - _Turbulence2: 1
-    - _TurbulenceSpeed: 1
-    - _UpperLimit: 0.007041915
-    - _ZTestMode: 4
-    m_Colors:
-    - _Bounds: {r: 1, g: 1, b: 1, a: 1}
-    - _Center: {r: 2.8500004, g: 0.64999986, b: -1.77, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.5707547, g: 0.70718586, b: 1, a: 0.5894118}
-    - _Color2: {r: 0.7122642, g: 0.72248274, b: 1, a: 0.6070588}
-    - _EmissionColor: {r: 0.70321167, g: 0.28097185, b: 0.7735849, a: 1}
-    - _FlaskColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlaskThickness: {r: 0.873, g: 0.8729995, b: 0.8729995, a: 0}
-    - _FoamColor: {r: 0.56, g: 0.56, b: 0.56, a: 0.9}
-    - _LightColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-    - _Scale: {r: 0.62187254, g: 0.73878455, b: 9.02959, a: 8.805716}
-    - _Size: {r: 1.0570863, g: 0.83321905, b: 0.22988734, a: 0.1003462}
-    - _SmokeColor: {r: 0.7, g: 0.7, b: 0.7, a: 0}
-    - _Turbulence: {r: 0.639, g: 0.162, b: 8.293805, a: 2.7646017}
-    - _ViewDir: {r: 0, g: 0, b: 1, a: 1}
-  m_BuildTextureStacks: []
---- !u!21 &2055039829
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: LiquidVolumeSimple(Clone)
-  m_Shader: {fileID: 4800000, guid: dceb6298c8f1d4227a4fb2355f0a4ef0, type: 3}
-  m_ShaderKeywords: LIQUID_VOLUME_IRREGULAR LIQUID_VOLUME_NON_AABB
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Noise2Tex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 11700000, guid: 41974beaaddc547889b39d0022cb1d07, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex2D:
-        m_Texture: {fileID: 2800000, guid: 2e25f51e1f31e4da8bdac5d08b0f578f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Alpha: 0.9
-    - _AlphaCombined: 0.9
-    - _BasePos: -1
-    - _CullMode: 2
-    - _DeepAtten: 2.66
-    - _DoubleSidedBias: 0.001
-    - _FlaskBlurIntensity: 1
-    - _FlaskThickness: 0.05
-    - _FoamBottom: 1
-    - _FoamDensity: 0.02
-    - _FoamMaxPos: 2.9753132
-    - _FoamRaySteps: 7
-    - _FoamTurbulence: 0.155
-    - _FoamWeight: 11.3
-    - _Glossiness: 0.767
-    - _GlossinessInt: 0.5
-    - _Level: 1
-    - _LevelPos: 2.9682426
-    - _LiquidRaySteps: 10
-    - _LowerLimit: -0.007041915
-    - _Metallic: 0
-    - _Muddy: 0.71
-    - _Radius: 0.5
-    - _SmokeAtten: 2
-    - _SmokeHeightAtten: 0
-    - _SmokeRaySteps: 1
-    - _SmokeSpeed: 5
-    - _Sparkling: 1
-    - _SparklingIntensity: 0
-    - _SparklingThreshold: 1
-    - _Topology: 0
-    - _Turbulence: 1
-    - _Turbulence2: 1
-    - _TurbulenceSpeed: 1
-    - _UpperLimit: 0.007041915
-    - _ZTestMode: 4
-    m_Colors:
-    - _Bounds: {r: 1, g: 1, b: 1, a: 1}
-    - _Center: {r: 9.584, g: 2.8999999, b: 5.826, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color1: {r: 0.5707547, g: 0.70718586, b: 1, a: 0.5894118}
-    - _Color2: {r: 0.7122642, g: 0.72248274, b: 1, a: 0.6070588}
-    - _EmissionColor: {r: 0.70321167, g: 0.28097185, b: 0.7735849, a: 1}
-    - _FlaskColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlaskThickness: {r: 0.873, g: 0.8729995, b: 0.8729995, a: 0}
-    - _FoamColor: {r: 0.56, g: 0.56, b: 0.56, a: 0.9}
-    - _LightColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-    - _Scale: {r: 0.62187254, g: 0.73878455, b: 9.02959, a: 8.805716}
-    - _Size: {r: 1.0570867, g: 0.83321905, b: 0.22988734, a: 0.1003462}
-    - _SmokeColor: {r: 0.7, g: 0.7, b: 0.7, a: 0}
-    - _Turbulence: {r: 0.639, g: 0.162, b: 8.293805, a: 2.7646017}
-    - _ViewDir: {r: 0, g: 0, b: 1, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &2097984394
 GameObject:
   m_ObjectHideFlags: 0
@@ -8455,98 +8455,98 @@ PrefabInstance:
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.x
-      value: 0.119507276
+      value: 0.03417722
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.y
-      value: -0.052829757
+      value: -0.10370872
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[0].targetPos.z
-      value: -0.029700547
+      value: 0.11970647
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.x
-      value: 0.11827467
+      value: -0.17377669
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.y
-      value: -0.3964069
+      value: -0.36376947
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[1].targetPos.z
-      value: 0.17574574
+      value: -0.12010113
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.x
-      value: -0.0854749
+      value: 0.070849635
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.y
-      value: 0.15743673
+      value: -0.3116981
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[2].targetPos.z
-      value: -0.11213078
+      value: 0.14835851
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.x
-      value: -0.029022077
+      value: 0.16373967
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.y
-      value: -0.4
+      value: -0.2871077
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[3].targetPos.z
-      value: 0.23435931
+      value: -0.19290875
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.x
-      value: 0.12573293
+      value: 0.17044003
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.y
-      value: -0.1263444
+      value: 0.12933773
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[4].targetPos.z
-      value: 0.04474772
+      value: -0.017989842
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.x
-      value: 0.30385903
+      value: -0.05880163
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.y
-      value: -0.19867481
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195490, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: pointLightParams.Array.data[5].targetPos.z
-      value: -0.043154895
+      value: 0.06956128
       objectReference: {fileID: 0}
     - target: {fileID: 6768357163965195491, guid: f5bb904c4d782c64f90bf17757c29d02,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1825580061}
+      objectReference: {fileID: 776011695}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5bb904c4d782c64f90bf17757c29d02, type: 3}
 --- !u!1001 &4885832474541780791
