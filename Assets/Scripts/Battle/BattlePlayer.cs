@@ -26,30 +26,24 @@ public class BattlePlayer : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void CastAttack()
+    public void CastAttack() //pay the cost of casting the attack
     {
         currentHealth -= attackCost;
     }
 
-    public void CastBuff()
+    public void CastBuff() //pay the cost of casting the buff
     {
         currentHealth -= buffCost;
         damageBuffed = true;
     }
 
-    public void CastDebuff()
+    public void CastDebuff() //pay the cost of casting the debuff
     {
         currentHealth -= debuffCost;
         enemyWeak = true;
     }
 
-    public bool TakeDamage(int _damage)
+    public bool TakeDamage(int _damage) // take damage
     {
         currentHealth -= _damage;
         if (currentHealth <= 0)

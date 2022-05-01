@@ -89,7 +89,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    public void OnAttackButton()
+    public void OnAttackButton() //when pressing the attack button
     {
         if (state != BattleState.ATTACK)
         {
@@ -98,7 +98,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerAttack());
     }
 
-    IEnumerator PlayerAttack()
+    IEnumerator PlayerAttack() //the player attack
     {
         hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
         hud.phaseText.GetComponentInParent<Animator>().Play("Slide Up");
@@ -151,7 +151,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    public void OnBuffButton()
+    public void OnBuffButton() // when pressing the buff button
     {
         if (state != BattleState.ATTACK)
         {
@@ -160,10 +160,10 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerBuff());
     }
 
-    IEnumerator PlayerBuff()
+    IEnumerator PlayerBuff() //the buff effect
     {
-        player.CastBuff();
-        hud.UpdatePlayerHP(player.currentHealth);
+        player.CastBuff(); // pay the cost
+        hud.UpdatePlayerHP(player.currentHealth); //update the hud
 
         hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
         hud.phaseText.GetComponentInParent<Animator>().Play("Slide Up");
@@ -176,7 +176,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(EnemyTurn());
     }
 
-    public void OnDebuffButton()
+    public void OnDebuffButton() // when pressing the debuff button
     {
         if (state != BattleState.ATTACK)
         {
@@ -185,10 +185,10 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerDebuff());
     }
 
-    IEnumerator PlayerDebuff()
+    IEnumerator PlayerDebuff() //the debuff effect
     {
-        player.CastDebuff();
-        hud.UpdatePlayerHP(player.currentHealth);
+        player.CastDebuff(); // pay the cost
+        hud.UpdatePlayerHP(player.currentHealth); //update the hud
 
         hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
         hud.phaseText.GetComponentInParent<Animator>().Play("Slide Up");
@@ -201,7 +201,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(EnemyTurn());
     }
 
-    public void OnPotionButton()
+    public void OnPotionButton() // when pressing the potion button
     {
         if (state != BattleState.ATTACK)
         {
@@ -214,11 +214,11 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    IEnumerator PlayerPotion()
+    IEnumerator PlayerPotion() //the potion effect
     {
-        GameManager.Instance.potionCount--;
-        player.currentHealth += player.potionStrength;
-        hud.UpdatePlayerHP(player.currentHealth);
+        GameManager.Instance.potionCount--; // take away a potion
+        player.currentHealth += player.potionStrength; // restore health
+        hud.UpdatePlayerHP(player.currentHealth); // update huds
         hud.UpdatePotionCounter();
 
         hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
