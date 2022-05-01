@@ -1,0 +1,955 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1068585855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1068585856}
+  - component: {fileID: 1068585858}
+  - component: {fileID: 1068585857}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1068585856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068585855}
+  m_LocalRotation: {x: -0, y: -0, z: 0.24178766, w: 0.9703292}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.011268611, y: 0.011268611, z: 0.011268611}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2357988939769578057}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1068585858
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068585855}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 0.25882354, g: 0.2784314, b: 0.6392157, a: 1}
+  m_Intensity: 2.59
+  m_Range: 0.86766887
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 0
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!114 &1068585857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068585855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &3624718335732363615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3624718335732363614}
+  - component: {fileID: 3624718335732363587}
+  - component: {fileID: 3624718335732363584}
+  - component: {fileID: 3624718335732363585}
+  - component: {fileID: 7852543077387595513}
+  m_Layer: 0
+  m_Name: Potion
+  m_TagString: Potion
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3624718335732363614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624718335732363615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2357988939769578057}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3624718335732363587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624718335732363615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6149146f7a5310648b25e0bea6b3fb04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionID: 0
+--- !u!135 &3624718335732363584
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624718335732363615}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.32
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3624718335732363585
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624718335732363615}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!95 &7852543077387595513
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624718335732363615}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7eba25c745c376b48beb4671a3827211, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &3422837664843253483
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3624718335732363614}
+    m_Modifications:
+    - target: {fileID: 320545463817936408, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_Name
+      value: InkCrystal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 88.74209
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 88.74209
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 88.74209
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.97032917
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.24178764
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -27.984
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969800, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightsIntensity
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightInsideAtten
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightsScatteringAmount
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].color1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].color1.b
+      value: 0.012384178
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].color1.g
+      value: 0.7081041
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].color1.r
+      value: 0.68121463
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].color2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].color2.b
+      value: 0.028732423
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].color2.g
+      value: 0.41317123
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].color2.r
+      value: 0.57687694
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].color1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].color1.b
+      value: 0.5448436
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].color1.g
+      value: 0.2914715
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].color1.r
+      value: 0.7141605
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].color2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].color2.b
+      value: 0.44105297
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].color2.g
+      value: 0.71005744
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].color2.r
+      value: 0.9448533
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].color1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].color1.b
+      value: 0.7545912
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].color1.g
+      value: 0.005359054
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].color1.r
+      value: 0.6582435
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].color2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].color2.b
+      value: 0.18792966
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].color2.g
+      value: 0.6179678
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].color2.r
+      value: 0.20346084
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].color1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].color1.b
+      value: 0.8493979
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].color1.g
+      value: 0.49124783
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].color1.r
+      value: 0.64728457
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].color2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].color2.b
+      value: 0.026626948
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].color2.g
+      value: 0.6688754
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].color2.r
+      value: 0.37948626
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].color1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].color1.b
+      value: 0.9058374
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].color1.g
+      value: 0.5440163
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].color1.r
+      value: 0.8078176
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].color2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].color2.b
+      value: 0.5654376
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].color2.g
+      value: 0.9149139
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].color2.r
+      value: 0.083427675
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].color1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].color1.b
+      value: 0.64242536
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].color1.g
+      value: 0.45602912
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].color1.r
+      value: 0.06756795
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].color2.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].color2.b
+      value: 0.36226013
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].color2.g
+      value: 0.17215039
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].color2.r
+      value: 0.14096393
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].moveSpeed
+      value: 0.059566002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].moveSpeed
+      value: 0.0255806
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].moveSpeed
+      value: 0.02338535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].moveSpeed
+      value: 0.016062392
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].moveSpeed
+      value: 0.059351213
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].moveSpeed
+      value: 0.06490561
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].colorSpeed
+      value: 1.174613
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].lightRange
+      value: 0.034369495
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].colorSpeed
+      value: 1.0037858
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].lightRange
+      value: 0.05524076
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].colorSpeed
+      value: 1.7907805
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].lightRange
+      value: 0.04581078
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].colorSpeed
+      value: 1.7892995
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].lightRange
+      value: 0.022772744
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].colorSpeed
+      value: 0.8958019
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].lightRange
+      value: 0.0339661
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].colorSpeed
+      value: 0.66857505
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].lightRange
+      value: 0.07931257
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].targetPos.x
+      value: 0.061844558
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].targetPos.y
+      value: -0.23339409
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].targetPos.z
+      value: -0.33027336
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].targetPos.x
+      value: 0.09577714
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].targetPos.y
+      value: 0.1394403
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].targetPos.z
+      value: 0.09338208
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].targetPos.x
+      value: 0.2811251
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].targetPos.y
+      value: -0.39464673
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].targetPos.z
+      value: -0.18551774
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].targetPos.x
+      value: -0.27846667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].targetPos.y
+      value: -0.2226233
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].targetPos.z
+      value: -0.15924555
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].targetPos.x
+      value: -0.051813908
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].targetPos.y
+      value: -0.31536365
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].targetPos.z
+      value: -0.06247854
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].targetPos.x
+      value: 0.15452278
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].targetPos.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].targetPos.z
+      value: 0.13468163
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].intensityMax
+      value: 1.3518565
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].intensityMin
+      value: 0.530365
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].randomTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].intensityMax
+      value: 2.3739238
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].intensityMin
+      value: 1.4726524
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].randomTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].intensityMax
+      value: 2.0116081
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].intensityMin
+      value: 0.66329277
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].randomTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].intensityMax
+      value: 2.4247065
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].intensityMin
+      value: 1.4899623
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].randomTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].intensityMax
+      value: 1.3550891
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].intensityMin
+      value: 0.5823469
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].randomTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].intensityMax
+      value: 2.8502598
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].intensityMin
+      value: 1.4217762
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].randomTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].intensitySpeed
+      value: 0.50816
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].intensitySpeed
+      value: 0.5063021
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].intensitySpeed
+      value: 1.7671412
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].intensitySpeed
+      value: 1.5262917
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].intensitySpeed
+      value: 1.755848
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].intensitySpeed
+      value: 1.3479084
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].nextTargetInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].randomTargetRadius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].nextTargetInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].randomTargetRadius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].nextTargetInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].randomTargetRadius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].nextTargetInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].randomTargetRadius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].nextTargetInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].randomTargetRadius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].nextTargetInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].randomTargetRadius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[0].randomTargetCenter.y
+      value: -0.2035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[1].randomTargetCenter.y
+      value: -0.2035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[2].randomTargetCenter.y
+      value: -0.2035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[3].randomTargetCenter.y
+      value: -0.2035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[4].randomTargetCenter.y
+      value: -0.2035
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245620611679969801, guid: 71a1d17171810cf4a87431a766e11635,
+        type: 3}
+      propertyPath: pointLightParams.Array.data[5].randomTargetCenter.y
+      value: -0.2035
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 71a1d17171810cf4a87431a766e11635, type: 3}
+--- !u!4 &2357988939769578057 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1096941838038418594, guid: 71a1d17171810cf4a87431a766e11635,
+    type: 3}
+  m_PrefabInstance: {fileID: 3422837664843253483}
+  m_PrefabAsset: {fileID: 0}

@@ -36,7 +36,7 @@ public class BattleHUD : MonoBehaviour
 
     public void UpdatePotionCounter()
     {
-        potionText.text = "Potions: " + GameManager.Instance.potionCount;
+        potionText.text = GameManager.Instance.potionCount.ToString();
     }
 
     public void UpdatePhase(BattleState _state)
