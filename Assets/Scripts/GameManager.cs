@@ -37,10 +37,12 @@ public class GameManager : MonoBehaviour
     public Quaternion lastPlayerRotation;
     public List<int> defeatedEnemies = new List<int>();
     public List<int> collectedPotions = new List<int>();
+    public List<int> collectedMail = new List<int>();
     public int encounteredEnemy;
     public bool needsReposition = false;
     public int sceneID;
     public int potionCount;
+    public int mailCount;
 
     public void RepositionPlayer(Transform _player)
     {
