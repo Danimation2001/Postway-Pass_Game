@@ -20,6 +20,8 @@ public class BattlePlayer : MonoBehaviour
     public bool damageBuffed;
     public bool enemyWeak;
 
+    public Animator playerAnim;
+
     // Start is called before the first frame update
     void Start()
     {

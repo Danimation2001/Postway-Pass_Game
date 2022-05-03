@@ -116,7 +116,7 @@ public class BattleSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
         }
-        
+
         beatSystem.GetComponent<Animator>().Play("Slide Up");
 
         if (player.damageBuffed) // if the player was buffed this turn, turn off the buff at the end of the turn
@@ -164,6 +164,7 @@ public class BattleSystem : MonoBehaviour
     {
         player.CastBuff(); // pay the cost
         hud.UpdatePlayerHP(player.currentHealth); //update the hud
+        player.playerAnim.Play("Buff", -1, 0f);
 
         hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
         hud.phaseText.GetComponentInParent<Animator>().Play("Slide Up");
@@ -189,6 +190,7 @@ public class BattleSystem : MonoBehaviour
     {
         player.CastDebuff(); // pay the cost
         hud.UpdatePlayerHP(player.currentHealth); //update the hud
+        player.playerAnim.Play("Debuff", -1, 0f);
 
         hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
         hud.phaseText.GetComponentInParent<Animator>().Play("Slide Up");

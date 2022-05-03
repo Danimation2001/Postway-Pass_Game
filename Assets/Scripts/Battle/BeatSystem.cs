@@ -15,6 +15,7 @@ public class BeatSystem : MonoBehaviour
     public GameObject currentPattern;
     BeatScroller _scroller;
     public GameObject hittableNote;
+    public Animator playerAnim;
 
     void OnEnable()
     {
@@ -69,13 +70,15 @@ public class BeatSystem : MonoBehaviour
     {
         BeatStriker _striker = striker.GetComponent<BeatStriker>();
         striker.GetComponent<Animator>().Play("Strike");
-        if (_striker.canHitNote)
+        if (_striker.canHitNote) // if you hit the note
         {
             _scroller.RemoveBeat();
             Destroy(hittableNote);
 
             if (battleSystem.state == BattleState.ATTACK) // Damage the enemy
             {
+                playerAnim.Play("Attack", -1, 0f);
+
                 if (battleSystem.player.damageBuffed)
                 {
                     battleSystem.enemyDead = battleSystem.currentEnemy.GetComponent<Unit>().TakeDamage(battleSystem.player.damage * battleSystem.player.damageMultiplier);
