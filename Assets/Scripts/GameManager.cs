@@ -50,4 +50,18 @@ public class GameManager : MonoBehaviour
         _player.localRotation = lastPlayerRotation;
         needsReposition = false;
     }
+
+    public void ResetAll()
+    {
+        encounteredEnemyCombatPrefab = null;
+        lastPlayerPosition = Vector3.zero;
+        lastPlayerRotation = Quaternion.Euler(Vector3.zero);
+        defeatedEnemies.Clear();
+        collectedPotions.Clear();
+        collectedMail.Clear();
+        encounteredEnemy = 0;
+        needsReposition = false;
+        potionCount = 0;
+        mailCount = 0;
+    }
 }

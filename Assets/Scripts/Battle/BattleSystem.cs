@@ -18,6 +18,12 @@ public class BattleSystem : MonoBehaviour
     public float entryTime;
     public bool beatOnScreen;
     public GameObject currentEnemy;
+    public Animator gameOverAnim;
+
+    public GameObject attackButton;
+    public GameObject buffButton;
+    public GameObject debuffButton;
+    public GameObject potionButton;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +53,35 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerTurn()
     {
+        // reactivate buttons
+        attackButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
 
+        if (player.damageBuffed)
+        {
+            buffButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
+        else
+        {
+            buffButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
+        }
+
+        if (player.enemyWeak)
+        {
+            debuffButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
+        else
+        {
+            debuffButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
+        }
+
+        if (GameManager.Instance.potionCount > 0)
+        {
+            potionButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
+        }
+        else
+        {
+            potionButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
+        }
     }
 
     IEnumerator EnemyTurn()
@@ -116,7 +150,7 @@ public class BattleSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
         }
-        
+
         beatSystem.GetComponent<Animator>().Play("Slide Up");
 
         if (player.damageBuffed) // if the player was buffed this turn, turn off the buff at the end of the turn
@@ -243,6 +277,20 @@ public class BattleSystem : MonoBehaviour
         else if (state == BattleState.LOST)
         {
             Debug.Log("You Lost!");
+            StartCoroutine(GameOver());
         }
+    }
+
+    IEnumerator GameOver()
+    {
+        GameManager.Instance.ResetAll();
+        yield return new WaitForSeconds(2f);
+
+        gameOverAnim.Play("Fade In");
+    }
+
+    public void OnRetryButton()
+    {
+        SceneLoader.Instance.LoadOverworldScene(GameManager.Instance.sceneID);
     }
 }
