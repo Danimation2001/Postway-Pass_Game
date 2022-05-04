@@ -14,15 +14,15 @@ public class Unit : MonoBehaviour
     public bool TakeDamage(int _dmg)
     {
         currentHealth -= _dmg;
-        anim.Play("Hurt");
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0) //if the enemy ran out of health
         {
-            return true;
+            return true; //they are dead
         }
         else
         {
-            return false;
+            anim.Play("Hurt", -1, 0);
+            return false; // they are not dead
         }
     }
 }

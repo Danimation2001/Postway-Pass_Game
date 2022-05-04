@@ -54,6 +54,7 @@ public class BattlePlayer : MonoBehaviour
         }
         else
         {
+            playerAnim.Play("Hurt", -1, 0f);
             return false;
         }
     }

@@ -94,7 +94,8 @@ public class BeatSystem : MonoBehaviour
             {
                 if (battleSystem.player.currentHealth < battleSystem.player.maxHealth)
                 {
-                    battleSystem.currentEnemy.GetComponent<Animator>().Play("Attack");
+                    playerAnim.Play("Block", -1, 0f);
+                    battleSystem.currentEnemy.GetComponent<Animator>().Play("Attack", -1, 0);
                     battleSystem.player.currentHealth += battleSystem.player.heal;
                     battleSystem.hud.UpdatePlayerHP(battleSystem.player.currentHealth);
                 }
@@ -106,7 +107,7 @@ public class BeatSystem : MonoBehaviour
         // }
         else // Damage the player if they spam the button
         {
-            battleSystem.currentEnemy.GetComponent<Animator>().Play("Attack");
+            battleSystem.currentEnemy.GetComponent<Animator>().Play("Attack", -1, 0);
             if (battleSystem.player.enemyWeak)
             {
                 battleSystem.playerDead = battleSystem.player.TakeDamage(battleSystem.currentEnemy.GetComponent<Unit>().damage / battleSystem.player.damageMultiplier);
