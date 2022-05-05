@@ -36,24 +36,26 @@ public class SceneLoader : MonoBehaviour
     public float transitionTime;
     Scene _overworldScene;
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void LoadCombatScene()
     {
         Cursor.lockState = CursorLockMode.None;
         _overworldScene = SceneManager.GetActiveScene();
         GameManager.Instance.sceneID = _overworldScene.buildIndex;
-        StartCoroutine(LoadLevel(0));
+        StartCoroutine(LoadLevel(2));
     }
 
     public void LoadOverworldScene(int _index)
     {
         Cursor.lockState = CursorLockMode.Locked;
         StartCoroutine(LoadLevel(_index));
+    }
+
+    public void LoadMainMenu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        GameManager.Instance.ResetAll();
+        GameManager.Instance.sceneID = 0;
+        StartCoroutine(LoadLevel(0));
     }
 
     IEnumerator LoadLevel(int _levelIndex)
