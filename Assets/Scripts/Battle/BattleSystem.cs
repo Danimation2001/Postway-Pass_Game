@@ -95,8 +95,11 @@ public class BattleSystem : MonoBehaviour
         {
             yield return null;
         }
+        if (!playerDead)
+        {
+            yield return new WaitForSeconds(1f);
+        }
 
-        yield return new WaitForSeconds(1f);
         beatSystem.GetComponent<Animator>().Play("Slide Up");
 
         if (player.enemyWeak) // if the enemy was weakened this turn, turn off the debuff at the end of the turn
@@ -272,9 +275,8 @@ public class BattleSystem : MonoBehaviour
     {
         if (state == BattleState.WON)
         {
-            GameManager.Instance.defeatedEnemies.Add(GameManager.Instance.encounteredEnemy);
             Debug.Log("You Won!");
-            SceneLoader.Instance.LoadOverworldScene(GameManager.Instance.sceneID);
+            StartCoroutine(YouWin());
         }
         else if (state == BattleState.LOST)
         {
@@ -283,9 +285,22 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    IEnumerator YouWin()
+    {
+        GameManager.Instance.defeatedEnemies.Add(GameManager.Instance.encounteredEnemy);
+        currentEnemy.GetComponent<Animator>().Play("Die");
+        currentEnemy.GetComponent<Animator>().SetBool("isDead", true);
+        yield return new WaitForSeconds(1.5f);
+        player.playerAnim.Play("Buff");
+        yield return new WaitForSeconds(2f);
+        SceneLoader.Instance.LoadOverworldScene(GameManager.Instance.sceneID);
+    }
+
     IEnumerator GameOver()
     {
         GameManager.Instance.ResetAll();
+        player.playerAnim.Play("Die");
+        player.playerAnim.SetBool("isDead", true);
         yield return new WaitForSeconds(2f);
 
         gameOverAnim.Play("Fade In");
