@@ -81,7 +81,7 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
-        private Animator _animator;
+        public Animator animator;
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
@@ -101,7 +101,7 @@ namespace StarterAssets
 
         private void Start()
         {
-            _hasAnimator = TryGetComponent(out _animator);
+            _hasAnimator = TryGetComponent(out animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
 
@@ -114,7 +114,7 @@ namespace StarterAssets
 
         private void Update()
         {
-            _hasAnimator = TryGetComponent(out _animator);
+            _hasAnimator = TryGetComponent(out animator);
 
             JumpAndGravity();
             GroundedCheck();
@@ -151,7 +151,7 @@ namespace StarterAssets
             // update animator if using character
             if (_hasAnimator)
             {
-                _animator.SetBool(_animIDGrounded, Grounded);
+                animator.SetBool(_animIDGrounded, Grounded);
             }
         }
 
@@ -240,8 +240,8 @@ namespace StarterAssets
             // update animator if using character
             if (_hasAnimator)
             {
-                _animator.SetFloat(_animIDSpeed, _animationBlend);
-                _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+                animator.SetFloat(_animIDSpeed, _animationBlend);
+                animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
 
             leaning.User_DeliverIsAccelerating(_input.move != Vector2.zero);
@@ -286,8 +286,8 @@ namespace StarterAssets
                 // update animator if using character
                 if (_hasAnimator)
                 {
-                    _animator.SetBool(_animIDJump, false);
-                    _animator.SetBool(_animIDFreeFall, false);
+                    animator.SetBool(_animIDJump, false);
+                    animator.SetBool(_animIDFreeFall, false);
                 }
 
                 // stop our velocity dropping infinitely when grounded
@@ -305,7 +305,7 @@ namespace StarterAssets
                     // update animator if using character
                     if (_hasAnimator)
                     {
-                        _animator.SetBool(_animIDJump, true);
+                        animator.SetBool(_animIDJump, true);
                     }
                 }
 
@@ -330,7 +330,7 @@ namespace StarterAssets
                     // update animator if using character
                     if (_hasAnimator)
                     {
-                        _animator.SetBool(_animIDFreeFall, true);
+                        animator.SetBool(_animIDFreeFall, true);
                     }
                 }
 
