@@ -101,7 +101,10 @@ namespace StarterAssets
 
         private void Start()
         {
-            _hasAnimator = TryGetComponent(out animator);
+            if(animator != null)
+            {
+                _hasAnimator = true;
+            }
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
 
@@ -114,7 +117,10 @@ namespace StarterAssets
 
         private void Update()
         {
-            _hasAnimator = TryGetComponent(out animator);
+            if(animator != null)
+            {
+                _hasAnimator = true;
+            }
 
             JumpAndGravity();
             GroundedCheck();

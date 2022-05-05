@@ -346,7 +346,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7804878, y: 1}
+    m_SensorSize: {x: 1.7758007, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6365,7 +6365,6 @@ GameObject:
   - component: {fileID: 5707943067538002377}
   - component: {fileID: 5707943067538002376}
   - component: {fileID: 5618306844407914166}
-  - component: {fileID: 4308885298999744501}
   - component: {fileID: 5707943067538002382}
   - component: {fileID: 8329672315161234878}
   m_Layer: 3
@@ -6458,7 +6457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163d2c8446aa6ae42a718abaa805b8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _EditorDrawSetup: 0
+  _EditorDrawSetup: 1
   Leaning:
     UpdateMode: 0
     Calibrate: 1
@@ -6571,22 +6570,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     AdjustForwAndSide: {x: 1, y: 0.75}
---- !u!114 &4308885298999744501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5707943067538002370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71cccec17fffc7c408d569097f2e246c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _groundLayer:
-    serializedVersion: 2
-    m_Bits: 65
-  _distanceToGround: 0.09
 --- !u!114 &5707943067538002382
 MonoBehaviour:
   m_ObjectHideFlags: 0
