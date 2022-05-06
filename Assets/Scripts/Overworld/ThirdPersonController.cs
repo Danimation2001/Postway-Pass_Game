@@ -30,6 +30,8 @@ namespace StarterAssets
         [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
         public float Gravity = -15.0f;
 
+        public int maxJumps = 2;
+
         [Space(10)]
         [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
         public float JumpTimeout = 0.50f;
@@ -282,8 +284,7 @@ namespace StarterAssets
         public float directMoveBlend = 0f;
         public LeaningAnimator leaning;
 
-        public int jumps = 0;
-        int _maxJumps = 2;
+        int _jumps = 0;
 
         private void JumpAndGravity()
         {
@@ -309,7 +310,7 @@ namespace StarterAssets
                 if (_jumpTimeoutDelta >= 0.0f)
                 {
                     _jumpTimeoutDelta -= Time.deltaTime;
-                    jumps = 0;
+                    _jumps = 0;
                 }
             }
             else
@@ -332,16 +333,16 @@ namespace StarterAssets
                 }
 
                 // if we are not grounded, do not jump
-                if (jumps == _maxJumps)
+                if (_jumps == maxJumps)
                 {
                     _input.jump = false;
                 }
             }
 
             // Jump
-            if (_input.jump && (_jumpTimeoutDelta <= 0.0f || jumps < _maxJumps))
+            if (_input.jump && (_jumpTimeoutDelta <= 0.0f || _jumps < maxJumps))
             {
-                jumps++;
+                _jumps++;
                 _input.jump = false;
 
                 // the square root of H * -2 * G = how much velocity needed to reach desired height
