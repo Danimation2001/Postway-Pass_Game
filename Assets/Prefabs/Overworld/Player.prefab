@@ -125,7 +125,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.6411856, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3105,16 +3105,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e022f8d54c0e48c4a8ecd85306eb9cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 12
+  MoveSpeed: 7
   RotationSmoothTime: 0.06
   SpeedChangeRate: 10
-  JumpHeight: 2
+  JumpHeight: 2.5
   Gravity: -30
-  JumpTimeout: 0.23
-  FallTimeout: 0.15
+  JumpTimeout: 0.1
+  FallTimeout: 0.1
   Grounded: 1
   GroundedOffset: -0.14
-  GroundedRadius: 0.28
+  GroundedRadius: 0.31
   GroundLayers:
     serializedVersion: 2
     m_Bits: 65
