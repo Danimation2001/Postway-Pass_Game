@@ -56,7 +56,7 @@ public class BattleSystem : MonoBehaviour
         // reactivate buttons
         attackButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
 
-        if (player.damageBuffed)
+        if (player.damageBuffed || (player.currentHealth - player.buffCost) <= 0)
         {
             buffButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
         }
@@ -65,7 +65,7 @@ public class BattleSystem : MonoBehaviour
             buffButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
         }
 
-        if (player.enemyWeak)
+        if (player.enemyWeak || (player.currentHealth - player.debuffCost) <= 0)
         {
             debuffButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
         }
@@ -142,6 +142,12 @@ public class BattleSystem : MonoBehaviour
         beatSystem.GetComponent<Animator>().Play("Slide Down");
         beatSystem.StartPattern(state);
         player.CastAttack();
+
+        if(player.currentHealth <= 0) // if casting the attack lowered the player's health to 0, set their health to 1
+        {
+            player.currentHealth = 1;
+        }
+
         hud.UpdatePlayerHP(player.currentHealth);
 
         while (beatOnScreen && !enemyDead && !playerDead) // wait until beats are finished
