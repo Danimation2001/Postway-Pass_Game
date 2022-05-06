@@ -125,7 +125,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6411856, y: 1}
+    m_SensorSize: {x: 0.7909516, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3108,12 +3108,12 @@ MonoBehaviour:
   MoveSpeed: 7.5
   RotationSmoothTime: 0.06
   SpeedChangeRate: 10
-  JumpHeight: 3.25
+  JumpHeight: 2.5
   Gravity: -60
   JumpTimeout: 0.1
   FallTimeout: 0.1
   Grounded: 1
-  GroundedOffset: -0.14
+  GroundedOffset: -0.27
   GroundedRadius: 0.31
   GroundLayers:
     serializedVersion: 2
@@ -3127,6 +3127,7 @@ MonoBehaviour:
   iceFriction: 0.82
   directMoveBlend: 0.2
   leaning: {fileID: 5618306844407914166}
+  jumps: 0
 --- !u!143 &5707943067538002376
 CharacterController:
   m_ObjectHideFlags: 0
