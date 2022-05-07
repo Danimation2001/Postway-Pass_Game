@@ -38,11 +38,13 @@ public class GameManager : MonoBehaviour
     public List<int> defeatedEnemies = new List<int>();
     public List<int> collectedPotions = new List<int>();
     public List<int> collectedMail = new List<int>();
+    public List<int> collectedGoldMail = new List<int>();
     public int encounteredEnemy;
     public bool needsReposition = false;
     public int sceneID;
     public int potionCount;
     public int mailCount;
+    public int goldMailCount;
 
     public void RepositionPlayer(Transform _player)
     {

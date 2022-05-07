@@ -88,7 +88,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201431855501803309}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.369, z: -6}
+  m_LocalPosition: {x: 0, y: 1.369, z: -6.0000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -125,7 +125,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.7909516, y: 1}
+    m_SensorSize: {x: 1.875195, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1551,7 +1551,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2234545198791764668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.369, z: -6}
+  m_LocalPosition: {x: 0, y: 1.369, z: -6.0000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3110,6 +3110,7 @@ MonoBehaviour:
   SpeedChangeRate: 10
   JumpHeight: 2.5
   Gravity: -60
+  maxJumps: 2
   JumpTimeout: 0.1
   FallTimeout: 0.1
   Grounded: 1
@@ -3127,7 +3128,6 @@ MonoBehaviour:
   iceFriction: 0.82
   directMoveBlend: 0.2
   leaning: {fileID: 5618306844407914166}
-  jumps: 0
 --- !u!143 &5707943067538002376
 CharacterController:
   m_ObjectHideFlags: 0

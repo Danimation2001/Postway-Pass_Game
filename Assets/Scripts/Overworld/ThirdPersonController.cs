@@ -296,7 +296,6 @@ namespace StarterAssets
                 // update animator if using character
                 if (_hasAnimator)
                 {
-                    animator.SetBool(_animIDJump, false);
                     animator.SetBool(_animIDFreeFall, false);
                 }
 
@@ -351,7 +350,7 @@ namespace StarterAssets
                 // update animator if using character
                 if (_hasAnimator)
                 {
-                    animator.SetBool(_animIDJump, true);
+                    animator.SetTrigger(_animIDJump);
                 }
             }
 

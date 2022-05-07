@@ -171,7 +171,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""id"": ""ed66cbff-2900-4a62-8896-696503cfcd31"",
                     ""path"": ""<Pointer>/delta"",
                     ""interactions"": """",
-                    ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=5,y=5)"",
+                    ""processors"": ""InvertVector2(invertX=false),ScaleVector2(x=10,y=10)"",
                     ""groups"": ""KeyboardMouse"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
