@@ -125,7 +125,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9846898, y: 1}
+    m_SensorSize: {x: 1.6286982, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3114,8 +3114,8 @@ MonoBehaviour:
   JumpTimeout: 0.1
   FallTimeout: 0.1
   Grounded: 1
-  GroundedOffset: -0.27
-  GroundedRadius: 0.31
+  GroundedOffset: -0.23
+  GroundedRadius: 0.25
   GroundLayers:
     serializedVersion: 2
     m_Bits: 65
@@ -3142,10 +3142,10 @@ CharacterController:
   m_Height: 1.64
   m_Radius: 0.31
   m_SlopeLimit: 50
-  m_StepOffset: 0.4
-  m_SkinWidth: 0.001
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.818, z: 0}
+  m_StepOffset: 0.35
+  m_SkinWidth: 0.05
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.868, z: 0}
 --- !u!114 &5618306844407914166
 MonoBehaviour:
   m_ObjectHideFlags: 0
