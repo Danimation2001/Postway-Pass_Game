@@ -294,8 +294,8 @@ public class BattleSystem : MonoBehaviour
     IEnumerator YouWin()
     {
         GameManager.Instance.defeatedEnemies.Add(GameManager.Instance.encounteredEnemy);
-        currentEnemy.GetComponent<Animator>().Play("Die");
-        currentEnemy.GetComponent<Animator>().SetBool("isDead", true);
+        currentEnemy.GetComponentInChildren<Animator>().Play("Die");
+        currentEnemy.GetComponentInChildren<Animator>().SetBool("isDead", true);
         yield return new WaitForSeconds(1.5f);
         player.playerAnim.Play("Buff");
         yield return new WaitForSeconds(2f);
