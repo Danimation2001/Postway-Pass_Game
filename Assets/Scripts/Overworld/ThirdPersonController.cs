@@ -117,6 +117,8 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
         }
 
+        public GameObject groundPos;
+
         private void Update()
         {
             if (animator != null)
@@ -133,6 +135,15 @@ namespace StarterAssets
                 _controller.enabled = false;
                 GameManager.Instance.RepositionPlayer(transform);
                 _controller.enabled = true;
+            }
+
+            if (!Grounded)
+            {
+                groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = false;
+            }
+            else
+            {
+                groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = true;
             }
         }
 
