@@ -13,6 +13,9 @@ public class BattleHUD : MonoBehaviour
     public GameObject attackButtons;
     public TMP_Text potionText;
 
+    public GameObject enemyStatus;
+    public GameObject playerStatus;
+
     public void SetEnemyHUD(Unit _unit)
     {
         enemyNameText.text = _unit.unitName;

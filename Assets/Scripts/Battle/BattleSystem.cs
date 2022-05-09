@@ -82,6 +82,9 @@ public class BattleSystem : MonoBehaviour
         {
             potionButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
         }
+
+        hud.enemyStatus.SetActive(player.enemyWeak);
+        hud.playerStatus.SetActive(player.damageBuffed);
     }
 
     IEnumerator EnemyTurn()
