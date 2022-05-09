@@ -74,7 +74,7 @@ public class BattleSystem : MonoBehaviour
             debuffButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
         }
 
-        if (GameManager.Instance.potionCount > 0)
+        if (GameManager.Instance.potionCount > 0 && player.currentHealth < player.maxHealth)
         {
             potionButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
         }
@@ -266,6 +266,10 @@ public class BattleSystem : MonoBehaviour
     {
         GameManager.Instance.potionCount--; // take away a potion
         player.currentHealth += player.potionStrength; // restore health
+        if(player.currentHealth > player.maxHealth)
+        {
+            player.currentHealth = player.maxHealth;
+        }
         hud.UpdatePlayerHP(player.currentHealth); // update huds
         hud.UpdatePotionCounter();
 

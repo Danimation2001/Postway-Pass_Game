@@ -90,15 +90,10 @@ public class BeatSystem : MonoBehaviour
                 battleSystem.hud.UpdateEnemyHP(battleSystem.currentEnemy.GetComponent<Unit>().currentHealth);
             }
 
-            else if (battleSystem.state == BattleState.DEFENSE) // Heal the player
+            else if (battleSystem.state == BattleState.DEFENSE) // block attacks
             {
-                if (battleSystem.player.currentHealth < battleSystem.player.maxHealth)
-                {
-                    playerAnim.Play("Block", -1, 0f);
-                    battleSystem.currentEnemy.GetComponentInChildren<Animator>().Play("Attack", -1, 0);
-                    battleSystem.player.currentHealth += battleSystem.player.heal;
-                    battleSystem.hud.UpdatePlayerHP(battleSystem.player.currentHealth);
-                }
+                playerAnim.Play("Block", -1, 0f);
+                battleSystem.currentEnemy.GetComponentInChildren<Animator>().Play("Attack", -1, 0);
             }
         }
         // else if(_striker.canHitHoldNote)
