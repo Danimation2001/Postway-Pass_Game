@@ -61,15 +61,14 @@ public class PauseMenu : MonoBehaviour
         _isPaused = false;
     }
 
+    public void BackToMenu()
+    {
+        SceneLoader.Instance.LoadMainMenu();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         _pauseGroup = pauseScreen.GetComponent<CanvasGroup>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
