@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 434087213374166588}
   - component: {fileID: 397206211300443875}
   m_Layer: 0
-  m_Name: Ghost Enemy
+  m_Name: Ghost Enemy Red Neutral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ Transform:
   m_GameObject: {fileID: 4013475569665820578}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0.156, z: 4.432}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2316475217578745862}
@@ -198,8 +198,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.2250913
+  m_Center: {x: -0.0012604577, y: 0.08492642, z: -0.012083417}
 --- !u!1 &7119708774298344768
 GameObject:
   m_ObjectHideFlags: 0
