@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 434087213374166588}
   - component: {fileID: 397206211300443875}
   m_Layer: 0
-  m_Name: Ghost Enemy Brown Neutral
+  m_Name: Ghost Enemy Brown Happy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyID: 0
-  combatPrefab: {fileID: 4810545190763945128, guid: 1d0f8fd7d3d69ce4396490670158673c,
+  combatPrefab: {fileID: 4810545190763945128, guid: b395e03f10105c740afc43862e82a45e,
     type: 3}
 --- !u!54 &397206211300443875
 Rigidbody:
@@ -312,12 +312,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9d5ee311cdd09e14ca68bd8a9514315a, type: 2}
+      objectReference: {fileID: 2100000, guid: a90084a8fd6b07c408a762a22a5b8237, type: 2}
     - target: {fileID: 8766350721611299175, guid: 36f7404d41e18f54cbcccfb8cde81769,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b8c5a12dbd7a45740b8e689e56eb512e, type: 2}
+      objectReference: {fileID: 2100000, guid: b9124b444750ca248986383b87d14905, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36f7404d41e18f54cbcccfb8cde81769, type: 3}
 --- !u!1 &6124910386610778375 stripped
