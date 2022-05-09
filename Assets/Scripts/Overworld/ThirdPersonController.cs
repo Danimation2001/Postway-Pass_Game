@@ -141,7 +141,7 @@ namespace StarterAssets
             {
                 groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = false;
             }
-            else
+            else if(!_inWaterZone)
             {
                 groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = true;
             }
@@ -268,11 +268,19 @@ namespace StarterAssets
             leaning.User_DeliverAccelerationSpeed(_speed);
         }
 
+        bool _inWaterZone;
+
         void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Ice")
             {
                 friction = iceFriction;
+            }
+
+            if (other.CompareTag("WaterZone"))
+            {
+                _inWaterZone = true;
+                groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = false;
             }
         }
 
@@ -281,6 +289,12 @@ namespace StarterAssets
             if (other.tag == "Ice")
             {
                 friction = 10f;
+            }
+
+            if (other.CompareTag("WaterZone"))
+            {
+                _inWaterZone = false;
+                groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = true;
             }
         }
 
