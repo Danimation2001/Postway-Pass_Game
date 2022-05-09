@@ -85,7 +85,27 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a333d87f73b229643b17ab9f4932bcc9,
         type: 3}
       propertyPath: m_Name
-      value: MushroomModel_1
+      value: MushroomOrange
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a333d87f73b229643b17ab9f4932bcc9, type: 3}
+--- !u!1 &4688284707112716951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a333d87f73b229643b17ab9f4932bcc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5607346333843503046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &840289513676261458
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4688284707112716951}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4727738915892571143, guid: a333d87f73b229643b17ab9f4932bcc9, type: 3}
