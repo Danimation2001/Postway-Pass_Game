@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public InputAction pause;
     public GameObject pauseScreen;
+    public GameObject overworldCounters;
     CanvasGroup _pauseGroup;
     bool _isPaused;
 
@@ -41,6 +42,7 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
+        overworldCounters.SetActive(false);
         _pauseGroup.alpha = 1;
         _pauseGroup.blocksRaycasts = true;
         _pauseGroup.interactable = true;
@@ -54,6 +56,7 @@ public class PauseMenu : MonoBehaviour
     public void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        overworldCounters.SetActive(true);
         _pauseGroup.alpha = 0;
         _pauseGroup.blocksRaycasts = false;
         _pauseGroup.interactable = false;
