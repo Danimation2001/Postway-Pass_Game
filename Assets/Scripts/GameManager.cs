@@ -66,10 +66,4 @@ public class GameManager : MonoBehaviour
         potionCount = 0;
         mailCount = 0;
     }
-
-    public void QuitGame()
-    {
-        Debug.Log("Quitting");
-        Application.Quit();
-    }
 }
