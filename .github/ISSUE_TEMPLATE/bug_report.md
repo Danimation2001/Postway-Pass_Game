@@ -31,5 +31,5 @@ If applicable, add screenshots to help explain your problem.
 **Desktop System (please complete the following information):**
 - OS: [e.g. Windows10, Windows8.1, MacOSX]
 
-**Additional context**
-Add any other context about the problem here.
+**Relevant Wiki**
+[wiki page name](url)
