@@ -118,6 +118,8 @@ namespace StarterAssets
         }
 
         public GameObject groundPos;
+        RaycastHit groundHit;
+        bool _hitGround;
 
         private void Update()
         {
@@ -137,11 +139,23 @@ namespace StarterAssets
                 _controller.enabled = true;
             }
 
-            if (!Grounded)
+            // if (Physics.Raycast(groundPos.transform.position, -groundPos.transform.up, out groundHit, Mathf.Infinity, GroundLayers))
+            // {
+            //     _hitGround = true;
+            //     Debug.DrawRay(groundPos.transform.position, -groundPos.transform.up * groundHit.distance, Color.blue);
+            //     Debug.Log("Hitting ground");
+            // }
+            // else
+            // {
+            //     _hitGround = false;
+            //     Debug.Log("Not hitting ground");
+            // }
+
+            if (!Grounded || _inHazardZone)
             {
                 groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = false;
             }
-            else if(!_inWaterZone)
+            else
             {
                 groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = true;
             }
@@ -268,7 +282,7 @@ namespace StarterAssets
             leaning.User_DeliverAccelerationSpeed(_speed);
         }
 
-        bool _inWaterZone;
+        bool _inHazardZone;
 
         void OnTriggerEnter(Collider other)
         {
@@ -277,9 +291,9 @@ namespace StarterAssets
                 friction = iceFriction;
             }
 
-            if (other.CompareTag("WaterZone"))
+            if (other.CompareTag("HazardZone"))
             {
-                _inWaterZone = true;
+                _inHazardZone = true;
                 groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = false;
             }
         }
@@ -291,12 +305,13 @@ namespace StarterAssets
                 friction = 10f;
             }
 
-            if (other.CompareTag("WaterZone"))
+            if (other.CompareTag("HazardZone"))
             {
-                _inWaterZone = false;
+                _inHazardZone = false;
                 groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = true;
             }
         }
+
 
         [Range(0f, 3f)]
         public float iceFriction = 3f;
@@ -378,7 +393,6 @@ namespace StarterAssets
                     animator.SetTrigger(_animIDJump);
                 }
             }
-
 
             // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
             if (_verticalVelocity < _terminalVelocity)
