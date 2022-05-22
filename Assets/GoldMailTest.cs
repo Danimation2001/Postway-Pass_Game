@@ -8,47 +8,55 @@ using TMPro;
 public class GoldMailTest : MonoBehaviour
 {
     public GameObject UiObject;
+    public TMP_Text messageText;
     public GameObject GoldMail;
-    public Animator _anim;
+    public Animator anim;
     public int mailID;
+    public TextAsset message;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        UiObject.SetActive(false);
-        foreach (int id in GameManager.Instance.collectedMail) // check if this mail is marked as been collected
+        foreach (int id in GameManager.Instance.collectedGoldMail) // check if this mail is marked as been collected
         {
             if (id == mailID)
             {
                 gameObject.SetActive(false);
             }
         }
-        _anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
-  
-    void OnTriggerEnter(Collider other) {
-        if(other.tag == "Player")
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
         {
-            GameManager.Instance.mailCount++;
-            GameManager.Instance.collectedMail.Add(mailID);
-            // StartCoroutine(CollectMail());
-            _anim.Play("Collect");
+            Time.timeScale = 0f;
             UiObject.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+
+            if (message != null)
+            {
+                messageText.text = message.text;
+            }
         }
     }
 
-    void OnTriggerExit(Collider other) {
-        UiObject.SetActive(false);
+    public void Collect()
+    {
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        StartCoroutine(CollectGoldMail());
     }
 
-    // void OnTriggerExit(Collider other){
-    //     if(other.tag == "Player")
-    //     {
-    //         UiObject.SetActive(false);
-    //         // Destroy(GoldMail);
-            
-    //     }
-    // }
+    IEnumerator CollectGoldMail()
+    {
+        GameManager.Instance.goldMailCount++;
+        GameManager.Instance.collectedGoldMail.Add(mailID);
+        anim.Play("Collect");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
 }

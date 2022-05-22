@@ -61,9 +61,11 @@ public class GameManager : MonoBehaviour
         defeatedEnemies.Clear();
         collectedPotions.Clear();
         collectedMail.Clear();
+        collectedGoldMail.Clear();
         encounteredEnemy = 0;
         needsReposition = false;
         potionCount = 0;
         mailCount = 0;
+        goldMailCount = 0;
     }
 }
