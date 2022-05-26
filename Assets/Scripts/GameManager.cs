@@ -45,6 +45,17 @@ public class GameManager : MonoBehaviour
     public int potionCount;
     public int mailCount;
     public int goldMailCount;
+    public int maxMail;
+    public int maxGoldMail;
+
+    public void CollectMaxMails()
+    {
+        GameObject[] mail = GameObject.FindGameObjectsWithTag("Mail");
+        maxMail = mail.Length;
+
+        GameObject[] goldMail = GameObject.FindGameObjectsWithTag("GoldMail");
+        maxGoldMail = goldMail.Length;
+    }
 
     public void RepositionPlayer(Transform _player)
     {

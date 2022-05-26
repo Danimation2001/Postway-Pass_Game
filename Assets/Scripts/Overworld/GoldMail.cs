@@ -43,6 +43,13 @@ public class GoldMail : MonoBehaviour
         }
     }
 
+    public void Collect()
+    {
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        StartCoroutine(CollectGoldMail());
+    }
+
     IEnumerator CollectGoldMail()
     {
         GameManager.Instance.goldMailCount++;

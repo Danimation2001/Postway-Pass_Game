@@ -115,6 +115,8 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            GameManager.Instance.CollectMaxMails();
         }
 
         public GameObject groundPos;
