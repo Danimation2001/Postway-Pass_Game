@@ -34,8 +34,8 @@ public class GoldMailTestTilly : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameManager.Instance.mailCount++;
-            GameManager.Instance.collectedMail.Add(mailID);
+            GameManager.Instance.goldMailCount++;
+            GameManager.Instance.collectedGoldMail.Add(mailID);
             // StartCoroutine(CollectMail());
             _anim.Play("Collect");
             playSound.Play();

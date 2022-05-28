@@ -14,6 +14,6 @@ public class OverworldUI : MonoBehaviour
     {
         mailText.text = GameManager.Instance.mailCount.ToString();
         potionText.text = GameManager.Instance.potionCount.ToString();
-        //goldMailText.text = GameManager.Instance.goldMailCount.ToString();
+        goldMailText.text = GameManager.Instance.goldMailCount.ToString();
     }
 }
