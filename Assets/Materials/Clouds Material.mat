@@ -23,13 +23,16 @@ Material:
   m_Name: Clouds Material
   m_Shader: {fileID: -6465566751694194690, guid: 6a12aa92037bcdd46a1c0f7918db1fb1,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - SHADOWCASTER
+  - DepthOnly
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -47,11 +50,36 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Noise_Height: 35
-    - _Noise_Scale: 0.01
-    - _Noise_Speed: 22
+    - _AlphaClip: 0
+    - _Base_Scale: 0.01
+    - _Base_Speed: 20
+    - _Base_Strength: 2
+    - _Blend: 0
+    - _CastShadows: 0
+    - _Cloud_Density: 100
+    - _Cull: 0
+    - _Curvature_Radius: -200
+    - _DstBlend: 10
+    - _Emission: 2
+    - _Fade_Depth: 100
+    - _Fresnel_Power: 8
+    - _Fresnel_opacity: 1
+    - _Noise_Edge_1: -1
+    - _Noise_Edge_2: 2
+    - _Noise_Height: 30
+    - _Noise_Power: 2
+    - _Noise_Scale: 0.02
+    - _Noise_Speed: 30
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _SrcBlend: 5
+    - _Surface: 1
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _ZWriteControl: 0
     m_Colors:
+    - _Colour_Peak: {r: 0.2877536, g: 0.22091489, b: 0.5943396, a: 0}
+    - _Colour_Valley: {r: 0.8784314, g: 0.78039217, b: 0.6392157, a: 0}
+    - _Noise_Remap: {r: 0, g: 0, b: -0.3, a: 2.7}
     - _Rotate_Projection: {r: 1, g: 0, b: 0, a: 90}
   m_BuildTextureStacks: []
