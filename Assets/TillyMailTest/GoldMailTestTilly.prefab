@@ -272,8 +272,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 945581889}
-        m_TargetAssemblyTypeName: GoldMailTest, Assembly-CSharp
-        m_MethodName: Collect
+        m_TargetAssemblyTypeName: GoldMailTestTilly, Assembly-CSharp
+        m_MethodName: Close
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -629,15 +629,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5148913172168022534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2285cd15452a1ed4f89e6882fdfbee62, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f50ef913d73a4fdfb7bdd19128a55d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UiObject: {fileID: 1275228228}
-  messageText: {fileID: 1469801948}
   GoldMail: {fileID: 5148913172168022534}
-  anim: {fileID: 1855726536048002464}
+  _anim: {fileID: 1855726536048002464}
   mailID: 0
-  message: {fileID: 0}
 --- !u!1 &6877340339001341671
 GameObject:
   m_ObjectHideFlags: 0

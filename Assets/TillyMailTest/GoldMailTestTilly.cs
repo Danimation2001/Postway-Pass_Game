@@ -42,7 +42,7 @@ public class GoldMailTestTilly : MonoBehaviour
             Time.timeScale = 0;
         }
     }
-    public void Unpause()
+    public void Close()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
