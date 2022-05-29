@@ -18,8 +18,7 @@ public class GoldMailTestTilly : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UiObject.SetActive(false);
-        foreach (int id in GameManager.Instance.collectedMail) // check if this mail is marked as been collected
+        foreach (int id in GameManager.Instance.collectedGoldMail) // check if this mail is marked as been collected
         {
             if (id == mailID)
             {
@@ -34,33 +33,26 @@ public class GoldMailTestTilly : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameManager.Instance.goldMailCount++;
-            GameManager.Instance.collectedGoldMail.Add(mailID);
-            // StartCoroutine(CollectMail());
-            _anim.Play("Collect");
             playSound.Play();
             UiObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
         }
     }
+
     public void Close()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
+        StartCoroutine(CollectGold());
     }
 
-    void OnTriggerExit(Collider other)
+    IEnumerator CollectGold()
     {
-        UiObject.SetActive(false);
+        GameManager.Instance.goldMailCount++;
+        GameManager.Instance.collectedGoldMail.Add(mailID);
+        _anim.Play("Collect");
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
-
-    // void OnTriggerExit(Collider other){
-    //     if(other.tag == "Player")
-    //     {
-    //         UiObject.SetActive(false);
-    //         // Destroy(GoldMail);
-
-    //     }
-    // }
 }
