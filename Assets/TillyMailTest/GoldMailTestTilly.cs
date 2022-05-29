@@ -13,7 +13,7 @@ public class GoldMailTestTilly : MonoBehaviour
     public GameObject GoldMail;
     public Animator _anim;
     public int mailID;
-    public AudioSource playSound;
+    AudioSource _source;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,7 @@ public class GoldMailTestTilly : MonoBehaviour
             }
         }
         _anim = GetComponent<Animator>();
+        _source = GetComponentInChildren<AudioSource>();
     }
 
 
@@ -33,7 +34,7 @@ public class GoldMailTestTilly : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            playSound.Play();
+            _source.Play();
             UiObject.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
