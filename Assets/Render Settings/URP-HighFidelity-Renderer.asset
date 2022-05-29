@@ -39,6 +39,21 @@ MonoBehaviour:
     DirectLightingStrength: 0.25
     Radius: 0.25
     SampleCount: 12
+--- !u!114 &-1610630409054364554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7179ce5e0366e4e08817f6996541064d, type: 3}
+  m_Name: Projector Renderer Feature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_stencilMask: 255
+  m_replaceProjectorMaterialForDebug: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,7 +72,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: -4931922947414365623}
-  m_RendererFeatureMap: adc0de57c6d2eee549eac4b3354a8ebb
+  - {fileID: -1610630409054364554}
+  m_RendererFeatureMap: adc0de57c6d2eee549eac4b3354a8ebb765cdf2b2de4a5e9
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
