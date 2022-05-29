@@ -42,7 +42,7 @@ public class BattleHUD : MonoBehaviour
         potionText.text = GameManager.Instance.potionCount.ToString();
     }
 
-    public void UpdatePhase(BattleState _state)
+    public IEnumerator UpdatePhase(BattleState _state)
     {
         Animator _optionAnim;
         Animator _phaseAnim;
@@ -53,13 +53,14 @@ public class BattleHUD : MonoBehaviour
         if (_state == BattleState.ATTACK)
         {
             phaseText.text = "ATTACK PHASE";
-            _phaseAnim.Play("Slide Down");
+            _phaseAnim.Play("Phase Change");
+            yield return new WaitForSeconds(2f);
             _optionAnim.Play("Slide Right");
         }
         else if (_state == BattleState.DEFENSE)
         {
             phaseText.text = "DEFENSE PHASE";
-            _phaseAnim.Play("Slide Down");
+            _phaseAnim.Play("Phase Change");
         }
         else
         {

@@ -29,7 +29,7 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         state = BattleState.START;
-        hud.UpdatePhase(state);
+        StartCoroutine(hud.UpdatePhase(state));
         GameManager.Instance.needsReposition = true;
         StartCoroutine(SetupBattle());
     }
@@ -47,7 +47,7 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(entryTime); // Wait for the animation to play
 
         state = BattleState.ATTACK;
-        hud.UpdatePhase(state);
+        StartCoroutine(hud.UpdatePhase(state));
         PlayerTurn();
     }
 
@@ -89,7 +89,6 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        hud.phaseText.GetComponentInParent<Animator>().Play("Slide Up");
         yield return new WaitForSeconds(1f);
         beatSystem.GetComponent<Animator>().Play("Slide Down");
         beatSystem.StartPattern(state);
@@ -123,7 +122,7 @@ public class BattleSystem : MonoBehaviour
             //player's turn
             yield return new WaitForSeconds(1f);
             state = BattleState.ATTACK;
-            hud.UpdatePhase(state);
+        StartCoroutine(hud.UpdatePhase(state));
             yield return new WaitForSeconds(1f);
             PlayerTurn();
         }
@@ -141,7 +140,6 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerAttack() //the player attack
     {
         hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
-        hud.phaseText.GetComponentInParent<Animator>().Play("Slide Up");
         beatSystem.GetComponent<Animator>().Play("Slide Down");
         beatSystem.StartPattern(state);
         player.CastAttack();
@@ -191,7 +189,7 @@ public class BattleSystem : MonoBehaviour
             //enemy turn
             yield return new WaitForSeconds(1f);
             state = BattleState.DEFENSE;
-            hud.UpdatePhase(state);
+        StartCoroutine(hud.UpdatePhase(state));
             yield return new WaitForSeconds(2f);
             StartCoroutine(EnemyTurn());
         }
@@ -213,12 +211,11 @@ public class BattleSystem : MonoBehaviour
         player.playerAnim.Play("Buff", -1, 0f);
 
         hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
-        hud.phaseText.GetComponentInParent<Animator>().Play("Slide Up");
 
         //enemy turn
         yield return new WaitForSeconds(1f);
         state = BattleState.DEFENSE;
-        hud.UpdatePhase(state);
+        StartCoroutine(hud.UpdatePhase(state));
         yield return new WaitForSeconds(2f);
         StartCoroutine(EnemyTurn());
     }
@@ -239,12 +236,11 @@ public class BattleSystem : MonoBehaviour
         player.playerAnim.Play("Debuff", -1, 0f);
 
         hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
-        hud.phaseText.GetComponentInParent<Animator>().Play("Slide Up");
 
         //enemy turn
         yield return new WaitForSeconds(1f);
         state = BattleState.DEFENSE;
-        hud.UpdatePhase(state);
+        StartCoroutine(hud.UpdatePhase(state));
         yield return new WaitForSeconds(2f);
         StartCoroutine(EnemyTurn());
     }
@@ -274,12 +270,11 @@ public class BattleSystem : MonoBehaviour
         hud.UpdatePotionCounter();
 
         hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
-        hud.phaseText.GetComponentInParent<Animator>().Play("Slide Up");
 
         //enemy turn
         yield return new WaitForSeconds(1f);
         state = BattleState.DEFENSE;
-        hud.UpdatePhase(state);
+        StartCoroutine(hud.UpdatePhase(state));
         yield return new WaitForSeconds(2f);
         StartCoroutine(EnemyTurn());
     }
