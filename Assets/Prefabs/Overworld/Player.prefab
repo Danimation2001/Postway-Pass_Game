@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1037207485}
-  - component: {fileID: 1037207486}
   m_Layer: 3
   m_Name: GroundPos
   m_TagString: Untagged
@@ -32,32 +31,6 @@ Transform:
   m_Father: {fileID: 2293737875901738038}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1773428102 &1037207486
-ParentConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037207484}
-  m_Enabled: 1
-  m_Weight: 1
-  m_TranslationAtRest: {x: 0.616, y: -0.781, z: -1.218}
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_TranslationOffsets:
-  - {x: 0.61599994, y: -0.7750006, z: -1.2179985}
-  m_RotationOffsets:
-  - {x: 0, y: 0, z: 0}
-  m_AffectTranslationX: 1
-  m_AffectTranslationY: 1
-  m_AffectTranslationZ: 1
-  m_AffectRotationX: 1
-  m_AffectRotationY: 1
-  m_AffectRotationZ: 1
-  m_IsContraintActive: 1
-  m_IsLocked: 0
-  m_Sources:
-  - sourceTransform: {fileID: 4935240777240529784}
-    weight: 1
 --- !u!1 &118793870254358130
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +156,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9238477, y: 1}
+    m_SensorSize: {x: 1.6696696, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3242,8 +3215,8 @@ MonoBehaviour:
   MoveSpeed: 7.5
   RotationSmoothTime: 0.06
   SpeedChangeRate: 10
-  JumpHeight: 2
-  Gravity: -60
+  JumpHeight: 2.5
+  Gravity: -50
   maxJumps: 2
   JumpTimeout: 0.1
   FallTimeout: 0.1

@@ -115,8 +115,6 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
-
-            GameManager.Instance.CollectMaxMails();
         }
 
         public GameObject groundPos;
@@ -139,27 +137,7 @@ namespace StarterAssets
                 _controller.enabled = false;
                 GameManager.Instance.RepositionPlayer(transform);
                 _controller.enabled = true;
-            }
-
-            // if (Physics.Raycast(groundPos.transform.position, -groundPos.transform.up, out groundHit, Mathf.Infinity, GroundLayers))
-            // {
-            //     _hitGround = true;
-            //     Debug.DrawRay(groundPos.transform.position, -groundPos.transform.up * groundHit.distance, Color.blue);
-            //     Debug.Log("Hitting ground");
-            // }
-            // else
-            // {
-            //     _hitGround = false;
-            //     Debug.Log("Not hitting ground");
-            // }
-
-            if (!Grounded || _inHazardZone)
-            {
-                groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = false;
-            }
-            else
-            {
-                groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = true;
+                groundPos.transform.position = transform.position;
             }
         }
 
@@ -284,8 +262,6 @@ namespace StarterAssets
             leaning.User_DeliverAccelerationSpeed(_speed);
         }
 
-        bool _inHazardZone;
-
         void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Ice")
@@ -295,8 +271,7 @@ namespace StarterAssets
 
             if (other.CompareTag("HazardZone"))
             {
-                _inHazardZone = true;
-                groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = false;
+                groundPos.transform.position = other.transform.position;
             }
         }
 
@@ -305,12 +280,6 @@ namespace StarterAssets
             if (other.tag == "Ice")
             {
                 friction = 10f;
-            }
-
-            if (other.CompareTag("HazardZone"))
-            {
-                _inHazardZone = false;
-                groundPos.GetComponent<UnityEngine.Animations.ParentConstraint>().constraintActive = true;
             }
         }
 
