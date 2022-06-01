@@ -7,38 +7,48 @@ public class AudioZone : MonoBehaviour
     //variables to hold audio objects
     public AudioSource mazeAudio;
     public AudioSource overworldAudio;
+    public float fadeTime;
 
-    void Start() 
+    IEnumerator FadeAudio(AudioSource source1, AudioSource source2)
     {
-        //Finding audio source files and objects on Start
-        mazeAudio = gameObject.GetComponent<AudioSource>();
-        GameObject overworldAudio = GameObject.Find("OverworldBGM");
-        AudioSource audioSource = overworldAudio.GetComponent<AudioSource>();
+        float startVolume1 = source1.volume;
+        float startVolume2 = source2.volume;
+
+        while (source1.volume > 0)
+        {
+            source1.volume -= startVolume1 * Time.deltaTime / fadeTime;
+
+            yield return null;
+        }
+        source1.Stop();
+        source1.volume = startVolume1;
+
+        source2.volume = 0;
+        source2.Play();
+        while (source2.volume < startVolume2)
+        {
+            source2.volume += startVolume2 * Time.deltaTime / fadeTime;
+
+            yield return null;
+        }
     }
 
     //when object with the Player tag enters the maze audio zone trigger, overworld music
     //will be stopped and maze audio will be played
-    void OnTriggerEnter(Collider col) 
+    void OnTriggerEnter(Collider col)
     {
         if ((col.gameObject.CompareTag("Player")) && (overworldAudio.isPlaying))
-       
         {
-            overworldAudio.Pause();
-            GetComponent<AudioSource>().Play();
-            GetComponent<AudioSource>().loop = true;
+            StartCoroutine(FadeAudio(overworldAudio, mazeAudio));
         }
- }
+    }
     //when player moves out of maze audio zone the maze audio stops and overworld
     //music plays again 
-    void OnTriggerExit(Collider col) 
+    void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.CompareTag("Player"))  
-    {
-        overworldAudio.Play();
-        mazeAudio.Pause();
-        GetComponent<AudioSource>().Stop();
-        GetComponent<AudioSource>().loop = false;
+        if (col.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(FadeAudio(mazeAudio, overworldAudio));
+        }
     }
- }
-
 }

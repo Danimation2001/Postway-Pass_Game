@@ -47,6 +47,8 @@ public class Mailbox : MonoBehaviour
         }
     }
 
+    public UnityEngine.UI.Button endLevelButton;
+
     void Interact(InputAction.CallbackContext context)
     {
         if (!popupUI.activeSelf)
@@ -56,11 +58,21 @@ public class Mailbox : MonoBehaviour
                 _canWin = true;
             }
 
+            if (_canWin == true)
+            {
+                endLevelButton.interactable = true;
+            }
+
             UpdateText();
             popupUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
         }
+    }
+
+    public void EndLevel()
+    {
+        SceneLoader.Instance.LoadMainMenu();
     }
 
     public void ClosePopup()
