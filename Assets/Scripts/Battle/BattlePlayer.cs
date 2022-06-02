@@ -8,7 +8,7 @@ public class BattlePlayer : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public int damage;
-    public int heal;
+    public int blockStrength;
 
     public int potionStrength;
 
@@ -54,7 +54,6 @@ public class BattlePlayer : MonoBehaviour
         }
         else
         {
-            playerAnim.Play("Hurt", -1, 0f);
             return false;
         }
     }

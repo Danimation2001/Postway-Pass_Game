@@ -26,7 +26,9 @@ public class MissLine : MonoBehaviour
 
             if (battleSystem.state == BattleState.DEFENSE)
             {
+                battleSystem.player.playerAnim.Play("Hurt", -1, 0f);
                 battleSystem.currentEnemy.GetComponentInChildren<Animator>().Play("Attack", -1, 0f);
+
                 if (battleSystem.player.enemyWeak)
                 {
                     battleSystem.playerDead = battleSystem.player.TakeDamage(battleSystem.currentEnemy.GetComponent<Unit>().damage / battleSystem.player.damageMultiplier);

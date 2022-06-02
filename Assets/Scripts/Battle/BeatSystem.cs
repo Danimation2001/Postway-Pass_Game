@@ -94,6 +94,16 @@ public class BeatSystem : MonoBehaviour
             {
                 playerAnim.Play("Block", -1, 0f);
                 battleSystem.currentEnemy.GetComponentInChildren<Animator>().Play("Attack", -1, 0);
+                
+                if (battleSystem.player.enemyWeak)
+                {
+                    battleSystem.playerDead = battleSystem.player.TakeDamage(battleSystem.currentEnemy.GetComponent<Unit>().damage / battleSystem.player.damageMultiplier / battleSystem.player.blockStrength);
+                }
+                else
+                {
+                    battleSystem.playerDead = battleSystem.player.TakeDamage(battleSystem.currentEnemy.GetComponent<Unit>().damage / battleSystem.player.blockStrength);
+                }
+                battleSystem.hud.UpdatePlayerHP(battleSystem.player.currentHealth);
             }
         }
         // else if(_striker.canHitHoldNote)
@@ -102,7 +112,9 @@ public class BeatSystem : MonoBehaviour
         // }
         else // Damage the player if they spam the button
         {
+            playerAnim.Play("Hurt", -1, 0f);
             battleSystem.currentEnemy.GetComponentInChildren<Animator>().Play("Attack", -1, 0);
+
             if (battleSystem.player.enemyWeak)
             {
                 battleSystem.playerDead = battleSystem.player.TakeDamage(battleSystem.currentEnemy.GetComponent<Unit>().damage / battleSystem.player.damageMultiplier);

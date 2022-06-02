@@ -122,7 +122,7 @@ public class BattleSystem : MonoBehaviour
             //player's turn
             yield return new WaitForSeconds(1f);
             state = BattleState.ATTACK;
-        StartCoroutine(hud.UpdatePhase(state));
+            StartCoroutine(hud.UpdatePhase(state));
             yield return new WaitForSeconds(1f);
             PlayerTurn();
         }
@@ -144,7 +144,7 @@ public class BattleSystem : MonoBehaviour
         beatSystem.StartPattern(state);
         player.CastAttack();
 
-        if(player.currentHealth <= 0) // if casting the attack lowered the player's health to 0, set their health to 1
+        if (player.currentHealth <= 0) // if casting the attack lowered the player's health to 0, set their health to 1
         {
             player.currentHealth = 1;
         }
@@ -189,7 +189,7 @@ public class BattleSystem : MonoBehaviour
             //enemy turn
             yield return new WaitForSeconds(1f);
             state = BattleState.DEFENSE;
-        StartCoroutine(hud.UpdatePhase(state));
+            StartCoroutine(hud.UpdatePhase(state));
             yield return new WaitForSeconds(2f);
             StartCoroutine(EnemyTurn());
         }
@@ -262,7 +262,7 @@ public class BattleSystem : MonoBehaviour
     {
         GameManager.Instance.potionCount--; // take away a potion
         player.currentHealth += player.potionStrength; // restore health
-        if(player.currentHealth > player.maxHealth)
+        if (player.currentHealth > player.maxHealth)
         {
             player.currentHealth = player.maxHealth;
         }
