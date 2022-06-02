@@ -16,6 +16,8 @@ public class BeatSystem : MonoBehaviour
     BeatScroller _scroller;
     public GameObject hittableNote;
     public Animator playerAnim;
+    public AudioSource soundFX;
+
 
     void OnEnable()
     {
@@ -74,6 +76,8 @@ public class BeatSystem : MonoBehaviour
         {
             _scroller.RemoveBeat();
             Destroy(hittableNote);
+            soundFX.Play();
+           
 
             if (battleSystem.state == BattleState.ATTACK) // Damage the enemy
             {
