@@ -55,7 +55,7 @@ public class BattleHUD : MonoBehaviour
             phaseText.text = "ATTACK PHASE";
             _phaseAnim.Play("Phase Change");
             yield return new WaitForSeconds(2f);
-            _optionAnim.Play("Slide Right");
+            _optionAnim.Play("Slide Up");
         }
         else if (_state == BattleState.DEFENSE)
         {

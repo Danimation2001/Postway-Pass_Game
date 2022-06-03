@@ -139,7 +139,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack() //the player attack
     {
-        hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
+        hud.attackButtons.GetComponent<Animator>().Play("Slide Down");
         beatSystem.GetComponent<Animator>().Play("Slide Down");
         beatSystem.StartPattern(state);
         player.CastAttack();
@@ -210,7 +210,7 @@ public class BattleSystem : MonoBehaviour
         hud.UpdatePlayerHP(player.currentHealth); //update the hud
         player.playerAnim.Play("Buff", -1, 0f);
 
-        hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
+        hud.attackButtons.GetComponent<Animator>().Play("Slide Down");
 
         //enemy turn
         yield return new WaitForSeconds(1f);
@@ -235,7 +235,7 @@ public class BattleSystem : MonoBehaviour
         hud.UpdatePlayerHP(player.currentHealth); //update the hud
         player.playerAnim.Play("Debuff", -1, 0f);
 
-        hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
+        hud.attackButtons.GetComponent<Animator>().Play("Slide Down");
 
         //enemy turn
         yield return new WaitForSeconds(1f);
@@ -269,7 +269,7 @@ public class BattleSystem : MonoBehaviour
         hud.UpdatePlayerHP(player.currentHealth); // update huds
         hud.UpdatePotionCounter();
 
-        hud.attackButtons.GetComponent<Animator>().Play("Slide Left");
+        hud.attackButtons.GetComponent<Animator>().Play("Slide Down");
 
         //enemy turn
         yield return new WaitForSeconds(1f);
