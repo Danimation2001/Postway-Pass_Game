@@ -78,7 +78,6 @@ public class BeatSystem : MonoBehaviour
             Destroy(hittableNote);
             soundFX.Play();
            
-
             if (battleSystem.state == BattleState.ATTACK) // Damage the enemy
             {
                 playerAnim.Play("Attack", -1, 0f);
