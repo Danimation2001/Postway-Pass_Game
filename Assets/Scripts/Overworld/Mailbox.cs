@@ -16,7 +16,8 @@ public class Mailbox : MonoBehaviour
     public TMP_Text mailCountText;
     public TMP_Text goldMailCountText;
     public TMP_Text canWinText;
-    public TMP_Text minimumText;
+    // public TMP_Text minimumText;
+
 
     void OnEnable()
     {
@@ -101,16 +102,16 @@ public class Mailbox : MonoBehaviour
     {
         if (_canWin)
         {
-            canWinText.text = "Collected Minimum: True";
+            canWinText.text = "great work! you've collected enough mail for the day!";
         }
         else
         {
-            canWinText.text = "Collected Minimum: False";
+            canWinText.text = "Wilbur's words echo in your head: 'You need atleast 4 pieces of mail to finish work for the day'";
         }
 
         mailCountText.text = "Mail: " + GameManager.Instance.mailCount.ToString() + "/" + GameManager.Instance.maxMail.ToString();
         goldMailCountText.text = "Gold Mail: " + GameManager.Instance.goldMailCount.ToString() + "/" + GameManager.Instance.maxGoldMail.ToString();
 
-        minimumText.text = "You need " + minMail + " pieces of mail to continue!";
+        // minimumText.text = "You need " + minMail + " pieces of mail to continue!";
     }
 }
