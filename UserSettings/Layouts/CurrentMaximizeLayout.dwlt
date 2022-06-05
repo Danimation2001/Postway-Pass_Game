@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 145009
+  controlID: 173500
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -84,8 +84,8 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
+    m_HSlider: 1
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
       y: 21
       width: 480
       height: 663
-    m_Scale: {x: 0.5, y: 0.5}
+    m_Scale: {x: 1.4111826, y: 1.4111826}
     m_Translation: {x: 240, y: 331.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -106,10 +106,10 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -480
-      y: -663
-      width: 960
-      height: 1326
+      x: -170.07011
+      y: -234.90935
+      width: 340.14023
+      height: 469.8187
     m_MinimalGUI: 1
   m_defaultScale: 0.5
   m_LastWindowPixelSize: {x: 960, y: 1368}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 145010
+  controlID: 173501
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 145011
+  controlID: 173502
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -229,7 +229,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6abbe9ff8abbe9ffcccf0600d4cf0600f6cf0600fecf060004d00600
+      m_ExpandedIDs: c0cbe6ff72cce7ff1e2f0700222f0700482f0700842f0700a62f0700aa2f0700
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -359,8 +359,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: 0, y: 25}
+      snapOffset: {x: 0, y: 25}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
       index: 0
@@ -510,7 +510,7 @@ MonoBehaviour:
       layout: 4
   m_WindowGUID: 1cb111ac721a84173a9c9b70156a57d8
   m_Gizmos: 1
-  m_OverrideSceneCullingMask: 4611686018427387905
+  m_OverrideSceneCullingMask: 4611686018427387906
   m_SceneIsLit: 1
   m_SceneLighting: 1
   m_2DMode: 0
@@ -518,9 +518,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.4300003, y: 10.77, z: 40.1}
+    m_Target: {x: 777, y: 479.00003, z: -0.000038146973}
     speed: 2
-    m_Value: {x: 5.4300003, y: 10.77, z: 40.1}
+    m_Value: {x: 777, y: 479.00003, z: -0.000038146973}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -567,13 +567,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.3860633, y: 0.07775129, z: -0.032610673, w: 0.91872}
+    m_Target: {x: 0.0048092157, y: -0.0026057337, z: 0.00008848382, w: 1.0000868}
     speed: 2
-    m_Value: {x: 0.3860247, y: 0.07774351, z: -0.032607414, w: 0.91862816}
+    m_Value: {x: 0.0048087267, y: -0.0026054687, z: 0.00008847483, w: 0.9999851}
   m_Size:
-    m_Target: 13.861487
+    m_Target: 735.95557
     speed: 2
-    m_Value: 13.861487
+    m_Value: 735.95557
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -2741,21 +2741,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/TillyMailTest
+    - Assets/UI
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/TillyMailTest
+  - Assets/UI
   m_LastFoldersGridSize: 16
   m_LastProjectPath: /Users/tillyjowle/Documents/GitHub/Postway-Pass_Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 875}
-    m_SelectedIDs: d8840000
-    m_LastClickedID: 34008
+    m_SelectedIDs: f0830000
+    m_LastClickedID: 33776
     m_ExpandedIDs: 00000000da830000dc830000de830000e0830000e2830000e4830000e6830000e8830000ea830000ec830000ee830000f0830000f2830000f4830000f6830000f8830000fa830000fc830000fe83000000840000028400000484000006840000088400000a8400000c8400000e84000010840000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -2809,8 +2809,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: fecf0600
-    m_LastClickedInstanceID: 446462
+    m_SelectedInstanceIDs: 222f0700
+    m_LastClickedInstanceID: 470818
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300009ef9000000000000c0040100
     m_RenameOverlay:
@@ -2900,7 +2900,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 383556
+  m_LastSelectedObjectID: -1651774
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2963,7 +2963,7 @@ MonoBehaviour:
     m_CachedPref: -160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 446462
+  m_LastInspectedObjectInstanceID: 470818
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
