@@ -89,7 +89,10 @@ public class Mailbox : MonoBehaviour
     void Start()
     {
         interact.Disable();
-        GameManager.Instance.CollectMaxMails();
+        if (!GameManager.Instance.maxCounted)
+        {
+            GameManager.Instance.CollectMaxMails();
+        }
 
         _constraintSource.sourceTransform = Camera.main.transform;
         _constraintSource.weight = 1;

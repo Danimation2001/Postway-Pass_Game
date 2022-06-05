@@ -43,13 +43,14 @@ public class GoldMailTestTilly : MonoBehaviour
 
     public void Close()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
         StartCoroutine(CollectGold());
     }
 
     IEnumerator CollectGold()
     {
+        UiObject.SetActive(false);
         GameManager.Instance.goldMailCount++;
         GameManager.Instance.collectedGoldMail.Add(mailID);
         _anim.Play("Collect");

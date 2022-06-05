@@ -36,6 +36,12 @@ public class SceneLoader : MonoBehaviour
     public float transitionTime;
     Scene _overworldScene;
 
+    IEnumerator Start()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GetComponentInChildren<Animator>().SetTrigger("Start");
+    }
+
     public void LoadCombatScene()
     {
         Cursor.lockState = CursorLockMode.None;
