@@ -50,6 +50,18 @@ public class RBController : MonoBehaviour
     Quaternion _uprightJointTargetRot;
     Vector3 _groundVel;
 
+    [Header("Animation")]
+    public Animator animator;
+    public float animationTransition;
+    float _animationBlend;
+    private bool _hasAnimator;
+    // animation IDs
+    private int _animIDSpeed;
+    private int _animIDGrounded;
+    private int _animIDJump;
+    private int _animIDFreeFall;
+    private int _animIDMotionSpeed;
+
     void Awake()
     {
         if (_mainCamera == null)
@@ -61,10 +73,22 @@ public class RBController : MonoBehaviour
     {
         _RB = GetComponent<Rigidbody>();
         _input = GetComponent<StarterAssetsInputs>();
+
+        if (animator != null)
+        {
+            _hasAnimator = true;
+        }
+
+        AssignAnimationIDs();
     }
 
     void Update()
     {
+        if (animator != null)
+        {
+            _hasAnimator = true;
+        }
+
         if (_input.jump && _jumps < maxJumps)
         {
             _jumps++;
@@ -76,6 +100,14 @@ public class RBController : MonoBehaviour
         if (_isAirborne)
         {
             _timer += Time.deltaTime;
+
+            // update animator if using character
+            if (_hasAnimator)
+            {
+                animator.SetBool(_animIDGrounded, false);
+                if(_RB.velocity.y < 0) animator.SetBool(_animIDFreeFall, true);
+                else animator.SetBool(_animIDFreeFall, false);
+            }
         }
 
         if (_timer >= jumpDuration)
@@ -130,7 +162,7 @@ public class RBController : MonoBehaviour
         Vector3 worldMove = CameraRelativeFlatten(inputDirection, Vector3.up);
 
         if (_input.move != Vector2.zero)
-        {
+        { 
             _uprightJointTargetRot = Quaternion.LookRotation(worldMove, Vector3.up);
         }
 
@@ -145,10 +177,23 @@ public class RBController : MonoBehaviour
         float maxAccel = maxAccelForce * maxAccelerationForceFactorFromDot.Evaluate(velDot) * maxAccelForceFactor;
         neededAccel = Vector3.ClampMagnitude(neededAccel, maxAccel);
         _RB.AddForce(Vector3.Scale(neededAccel * _RB.mass, forceScale));
+        float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
+        _animationBlend = Mathf.Lerp(_animationBlend, _RB.velocity.magnitude, animationTransition * Time.deltaTime);
+
+        if (_hasAnimator)
+        {
+            animator.SetFloat(_animIDSpeed, _animationBlend);
+            animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+        }
     }
 
     void Jump()
     {
+        if (_hasAnimator)
+        {
+            animator.SetTrigger(_animIDJump);
+        }
+
         _timer = 0;
         Vector3 verticalVel = _RB.velocity;
         verticalVel.y = jumpUpVel;
@@ -188,6 +233,13 @@ public class RBController : MonoBehaviour
         {
             hitBody.AddForceAtPosition(rayDir * -springForce, _rayHit.point);
         }
+
+        // update animator if using character
+        if (_hasAnimator)
+        {
+            animator.SetBool(_animIDGrounded, true);
+            animator.SetBool(_animIDFreeFall, false);
+        }
     }
 
     public void UpdateUprightForce()
@@ -213,5 +265,14 @@ public class RBController : MonoBehaviour
         Quaternion flatten = Quaternion.LookRotation(-localUp, cam.forward) * Quaternion.Euler(Vector3.right * -90f);
 
         return flatten * input;
+    }
+
+    private void AssignAnimationIDs()
+    {
+        _animIDSpeed = Animator.StringToHash("Speed");
+        _animIDGrounded = Animator.StringToHash("Grounded");
+        _animIDJump = Animator.StringToHash("Jump");
+        _animIDFreeFall = Animator.StringToHash("FreeFall");
+        _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
     }
 }
