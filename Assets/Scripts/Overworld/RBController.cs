@@ -35,6 +35,9 @@ public class RBController : MonoBehaviour
     private float _cinemachineTargetYaw;
     private float _cinemachineTargetPitch;
 
+    [Header("Respawning")]
+    public GameObject groundPos;
+
     [Header("Physics/Spring")]
     public float rideHeight = 1;
     public float rideSpringStrength = 2000;
@@ -43,6 +46,7 @@ public class RBController : MonoBehaviour
     public LayerMask groundMask;
     Rigidbody _RB;
     public float rayLength = 1.5f;
+    float _activeLength;
     RaycastHit _rayHit;
     bool _rayDidHit;
     float _uprightJointSpringStrength = 2000;
@@ -53,6 +57,8 @@ public class RBController : MonoBehaviour
     [Header("Animation")]
     public Animator animator;
     public float animationTransition;
+    public ParticleSystem dustEmitterR;
+    public ParticleSystem dustEmitterL;
     float _animationBlend;
     private bool _hasAnimator;
     // animation IDs
@@ -73,6 +79,7 @@ public class RBController : MonoBehaviour
     {
         _RB = GetComponent<Rigidbody>();
         _input = GetComponent<StarterAssetsInputs>();
+        _activeLength = rayLength;
 
         if (animator != null)
         {
@@ -84,19 +91,29 @@ public class RBController : MonoBehaviour
 
     void Update()
     {
+        //reposition the player if they need to be
+        if (GameManager.Instance.needsReposition)
+        {
+            GameManager.Instance.RepositionPlayer(transform);
+            groundPos.transform.position = transform.position;
+        }
+
+        //check if there is an animator
         if (animator != null)
         {
             _hasAnimator = true;
         }
 
+        //if we jump, disabled the ground spring system and count up our jumps
         if (_input.jump && _jumps < maxJumps)
         {
-            _jumps++;
+            _timer = 0;
+            rayLength = 0;
             _input.jump = false;
-            rayLength = 0f;
             Jump();
         }
 
+        //start a timer while we are in the air
         if (_isAirborne)
         {
             _timer += Time.deltaTime;
@@ -105,21 +122,27 @@ public class RBController : MonoBehaviour
             if (_hasAnimator)
             {
                 animator.SetBool(_animIDGrounded, false);
-                if(_RB.velocity.y < 0) animator.SetBool(_animIDFreeFall, true);
+                if (_RB.velocity.y < 0) animator.SetBool(_animIDFreeFall, true);
                 else animator.SetBool(_animIDFreeFall, false);
             }
         }
 
-        if (_timer >= jumpDuration)
+        //re-enable the spring system once the timer exceeds our set limit
+        if (_timer >= jumpDuration) rayLength = _activeLength;
+
+        _rayDidHit = Physics.SphereCast(transform.position, 0.05f, Vector3.down, out _rayHit, rayLength, groundMask);
+        if (_rayDidHit)
         {
-            rayLength = 1.5f;
+            _isAirborne = false;
+            _jumps = 0;
         }
+        else _isAirborne = true;
     }
 
     void FixedUpdate()
     {
-        _rayDidHit = Physics.Raycast(transform.position, Vector3.down, out _rayHit, rayLength, groundMask);
-        if (_rayDidHit) GroundingSpringPhysics();
+        if (!_isAirborne) GroundingSpringPhysics();
+
         UpdateUprightForce();
         PlayerMovement();
     }
@@ -148,6 +171,7 @@ public class RBController : MonoBehaviour
 
     private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
     {
+        //clamps the camera angle between min and max
         if (lfAngle < -360f) lfAngle += 360f;
         if (lfAngle > 360f) lfAngle -= 360f;
         return Mathf.Clamp(lfAngle, lfMin, lfMax);
@@ -162,7 +186,7 @@ public class RBController : MonoBehaviour
         Vector3 worldMove = CameraRelativeFlatten(inputDirection, Vector3.up);
 
         if (_input.move != Vector2.zero)
-        { 
+        {
             _uprightJointTargetRot = Quaternion.LookRotation(worldMove, Vector3.up);
         }
 
@@ -182,9 +206,18 @@ public class RBController : MonoBehaviour
 
         if (_hasAnimator)
         {
-            animator.SetFloat(_animIDSpeed, _animationBlend);
-            animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+            if (_input.move != Vector2.zero)
+            {
+                animator.SetFloat(_animIDSpeed, _animationBlend);
+                animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+            }
+            else
+            {
+                animator.SetFloat(_animIDSpeed, 0);
+                animator.SetFloat(_animIDMotionSpeed, 0);
+            }
         }
+
     }
 
     void Jump()
@@ -194,22 +227,21 @@ public class RBController : MonoBehaviour
             animator.SetTrigger(_animIDJump);
         }
 
-        _timer = 0;
         Vector3 verticalVel = _RB.velocity;
         verticalVel.y = jumpUpVel;
         _RB.velocity = verticalVel;
-        _isAirborne = true;
+        _jumps++;
     }
 
     public void GroundingSpringPhysics()
     {
-        _isAirborne = false;
-        _jumps = 0;
+        // a spring system for grounding the player. allow for more bounciness and enables the use of a floating controller
         Vector3 vel = _RB.velocity;
         Vector3 rayDir = transform.TransformDirection(downDir);
 
         Vector3 otherVel = Vector3.zero;
         Rigidbody hitBody = _rayHit.rigidbody;
+
         if (hitBody != null)
         {
             otherVel = hitBody.velocity;
@@ -244,6 +276,7 @@ public class RBController : MonoBehaviour
 
     public void UpdateUprightForce()
     {
+        // keeps the player upright using a spring system so they can still be knocked around but will be able to correct themselves
         Quaternion characterCurrent = transform.rotation;
         Quaternion toGoal = UtilsMath.ShortestRotation(_uprightJointTargetRot, characterCurrent);
 
@@ -260,6 +293,7 @@ public class RBController : MonoBehaviour
 
     Vector3 CameraRelativeFlatten(Vector3 input, Vector3 localUp)
     {
+        //remove the Y transform when moving relative to the camera (only use x and z)
         Transform cam = Camera.main.transform;
 
         Quaternion flatten = Quaternion.LookRotation(-localUp, cam.forward) * Quaternion.Euler(Vector3.right * -90f);
@@ -274,5 +308,14 @@ public class RBController : MonoBehaviour
         _animIDJump = Animator.StringToHash("Jump");
         _animIDFreeFall = Animator.StringToHash("FreeFall");
         _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // set the new respawn position if you enter a hazard zone
+        if (other.CompareTag("HazardZone"))
+        {
+            groundPos.transform.position = other.transform.position;
+        }
     }
 }
