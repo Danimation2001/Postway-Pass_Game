@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonController : MonoBehaviour
 {
 
-    private SpriteRenderer sr;
+    private SpriteRenderer theSR;
     public Sprite defaultImage;
     public Sprite pressedImage;
 
@@ -15,7 +15,7 @@ public class ButtonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        theSR = GetComponent<SpriteRenderer>();
 
     }
 
@@ -23,11 +23,11 @@ public class ButtonController : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(keyToPress)){
-            sr.sprite = pressedImage;
+            theSR.sprite = pressedImage;
         }
 
         if(Input.GetKeyUp(keyToPress)){
-            sr.sprite = defaultImage;
+            theSR.sprite = defaultImage;
         }
 
     }
