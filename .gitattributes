@@ -2,7 +2,6 @@
 *.cginc              text
 *.cs                 text diff=csharp
 *.shader             text
-*.bundle	     text eol=lf
 
 # Unity YAML
 *.mat                merge=unityyamlmerge eol=lf
@@ -123,4 +122,6 @@
 *.unity             linguist-generated
 
 # Spine export file for Unity
-*.skel.bytes        binary
+*.skel.bytes        binary'
+
+*.bundle text eol=lf
