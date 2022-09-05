@@ -175,7 +175,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.32
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3624718335732363585
 Rigidbody:
@@ -251,6 +251,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 7255921777405022701}
     m_Modifications:
     - target: {fileID: 320545463817936408, guid: 71a1d17171810cf4a87431a766e11635,
@@ -979,6 +980,7 @@ PrefabInstance:
       value: -0.2035
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 71a1d17171810cf4a87431a766e11635, type: 3}
 --- !u!4 &2357988939769578057 stripped
 Transform:
