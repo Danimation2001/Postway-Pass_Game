@@ -25,7 +25,7 @@ public class Mail : MonoBehaviour
         GameManager.Instance.collectedMail.Add(mailID);
         _anim.Play("Collect");
         yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)

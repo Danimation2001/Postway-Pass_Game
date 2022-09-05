@@ -7,54 +7,91 @@ using TMPro;
 
 public class HiddenMail : MonoBehaviour
 {
-    [SerializeField] private bool triggerActive = false;
+    //[SerializeField] private bool triggerActive = false;
 
     //set up sphere collider to be the trigger collider
-    public Collider triggerCollider; 
+    // public Collider triggerCollider;
+
+    public InputAction interact;
+    ConstraintSource _constraintSource;
+    public GameObject interactCanvas;
 
     //holds mail object to be revealed
-    public GameObject hiddenMail;
-    
-        //starts with the mail object not visible
-        void Start()
-        {
-            hiddenMail.SetActive(false);
-        }
+    public Mail hiddenMail;
+    public GameObject facadeObject;
 
-        //entering trigger radius
-        public void OnTriggerEnter(Collider triggerCollider)
-        {
-            if (triggerCollider.tag == "Player")
-            {
-                triggerActive = true;
-                Debug.Log("ENTERED trigger radius");
-            }
-        }
- 
-        public void OnTriggerExit(Collider triggerCollider)
-        {
-            if (triggerCollider.tag == "Player")
-            {
-                triggerActive = false;
-                Debug.Log("LEFT trigger radius");
-            }
-        }
- 
-        private void Update()
-        {
-            if (triggerActive && Input.GetKeyDown(KeyCode.E))
-            {
-                mailAppear();
-            }
-        }
+    void OnEnable()
+    {
+        interact.Enable();
+        interact.performed += Interact;
+    }
 
-        //makes object disappear when interacted with
-        public void mailAppear()
+    void OnDisable()
+    {
+        interact.Disable();
+    }
+
+    void OnAwake()
+    {
+        foreach (int id in GameManager.Instance.collectedMail) // check if this mail is marked as been collected
         {
-            gameObject.SetActive(false);
-            hiddenMail.SetActive(true);
-            Debug.Log("mail appeared");
+            if (id == hiddenMail.mailID)
+            {
+                gameObject.SetActive(false);
+            }
         }
+    }
+
+    //starts with the mail object not visible
+    void Start()
+    {
+        interact.Disable();
+        _constraintSource.sourceTransform = Camera.main.transform;
+        _constraintSource.weight = 1;
+
+        GetComponentInChildren<LookAtConstraint>().AddSource(_constraintSource);
+    }
+
+    //entering trigger radius
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            //triggerActive = true;
+            interact.Enable();
+            interactCanvas.GetComponent<Animator>().Play("Fade In");
+            Debug.Log("ENTERED trigger radius");
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            //triggerActive = false;
+            interact.Disable();
+            interactCanvas.GetComponent<Animator>().Play("Fade Out");
+            Debug.Log("LEFT trigger radius");
+
+            foreach (int id in GameManager.Instance.collectedMail) // check if this mail is marked as been collected
+            {
+                if (id == hiddenMail.mailID)
+                {
+                    gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
+    void Interact(InputAction.CallbackContext context)
+    {
+        facadeObject.SetActive(false);
+        hiddenMail.gameObject.SetActive(true);
+        interact.Disable();
+        interactCanvas.GetComponent<Animator>().Play("Fade Out");
+        GetComponentInChildren<ParticleSystem>().Stop();
+        Debug.Log("mail appeared");
+    }
 }
 
 
