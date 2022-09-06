@@ -7,7 +7,7 @@ using TMPro;
 
 public class HiddenMail : MonoBehaviour
 {
-    //[SerializeField] private bool triggerActive = false;
+    public GameObject smokePoof;
 
     //set up sphere collider to be the trigger collider
     // public Collider triggerCollider;
@@ -85,6 +85,7 @@ public class HiddenMail : MonoBehaviour
 
     void Interact(InputAction.CallbackContext context)
     {
+        smokePoof.GetComponent<ParticleSystem>().Play(); 
         facadeObject.SetActive(false);
         hiddenMail.gameObject.SetActive(true);
         interact.Disable();
