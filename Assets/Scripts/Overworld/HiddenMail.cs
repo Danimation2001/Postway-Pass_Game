@@ -87,6 +87,7 @@ public class HiddenMail : MonoBehaviour
 
     IEnumerator ObjectDisappear()
     {
+        interact.Disable();
         //transition animation and poof for facade object to disappear
         _anim.Play("PoofDisappear");
         yield return new WaitForSeconds(1.5f);
@@ -96,7 +97,6 @@ public class HiddenMail : MonoBehaviour
 
         //hidden mail appears
         hiddenMail.gameObject.SetActive(true);
-        interact.Disable();
         interactCanvas.GetComponent<Animator>().Play("Fade Out");
         //yield return new WaitForSeconds(2.5f);
         GetComponentInChildren<ParticleSystem>().Stop();
