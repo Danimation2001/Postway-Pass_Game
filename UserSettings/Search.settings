@@ -1,6 +1,6 @@
 trackSelection = true
 fetchPreview = true
-wantsMore = false
+defaultFlags = 0
 keepOpen = false
 queryFolder = "Assets"
 onBoardingDoNotAskAgain = true
@@ -10,6 +10,12 @@ scopes = {
 	"last_search.7F95D817" = ""
 	"OpenInspectorPreview.7F95D817" = "0"
 	"currentGroup.7F95D817" = "scene"
+	"last_search.8BEC98E7" = ""
+	"OpenInspectorPreview.8BEC98E7" = "0"
+	"currentGroup.8BEC98E7" = "scene"
+	"last_search.E4EB812F" = "particle"
+	"OpenInspectorPreview.E4EB812F" = "0"
+	"currentGroup.E4EB812F" = "all"
 }
 providers = {
 	find = {
@@ -57,6 +63,8 @@ providers = {
 		priority = 210
 		defaultAction = null
 	}
+}
+objectSelectors = {
 }
 recentSearches = [
 ]
