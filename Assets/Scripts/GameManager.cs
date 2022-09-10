@@ -32,22 +32,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int sceneID;
+
+    [Header ("Enemy Tracking")]
     public GameObject encounteredEnemyCombatPrefab;
+    public List<int> defeatedEnemies = new List<int>();
+    public int encounteredEnemy;
+
+    [Header ("Respawning")]
+    public bool needsReposition = false;
     public Vector3 lastPlayerPosition;
     public Quaternion lastPlayerRotation;
-    public List<int> defeatedEnemies = new List<int>();
-    public List<int> collectedPotions = new List<int>();
-    public List<int> collectedMail = new List<int>();
-    public List<int> collectedGoldMail = new List<int>();
-    public int encounteredEnemy;
-    public bool needsReposition = false;
-    public int sceneID;
+    
+    [Header ("Collectables")]
     public int potionCount;
     public int mailCount;
     public int goldMailCount;
     public int maxMail;
     public int maxGoldMail;
     public bool maxCounted;
+    public List<int> collectedPotions = new List<int>();
+    public List<int> collectedMail = new List<int>();
+    public List<int> collectedGoldMail = new List<int>();
+
+    [Header ("Winter Level")]
+    public bool hasKey;
 
     public void CollectMaxMails()
     {

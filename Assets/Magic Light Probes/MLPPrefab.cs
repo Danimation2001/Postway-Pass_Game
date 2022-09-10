@@ -8,7 +8,7 @@ namespace MagicLightProbes
     [ExecuteInEditMode]
     public class MLPPrefab : MonoBehaviour
     {
-        public string name;
+        public new string name;
         public string uid;
 
         private void OnEnable()

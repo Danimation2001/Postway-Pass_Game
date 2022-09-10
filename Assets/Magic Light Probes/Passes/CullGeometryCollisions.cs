@@ -62,7 +62,7 @@ namespace MagicLightProbes
                     };
 
                     bool aboveInfinity = false;
-                    int freeRays = 0;
+                    //int freeRays = 0;
                     int hitRays = 0;
 
                     for (var index = 0; index < checkRays.Length; index++)
