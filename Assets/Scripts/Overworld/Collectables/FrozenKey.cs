@@ -12,7 +12,7 @@ public class FrozenKey : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (GameManager.Instance.hasKey)
+        if (GameManager.Instance.hasFrozenKey)
             Destroy(gameObject);
     }
 
@@ -32,7 +32,7 @@ public class FrozenKey : MonoBehaviour
         //_anim.Play("Collect");
         yield return new WaitForSeconds(0f);
         gameObject.SetActive(false);
-        GameManager.Instance.hasKey = true;
+        GameManager.Instance.hasFrozenKey = true;
     }
 
     void OnTriggerEnter(Collider other)

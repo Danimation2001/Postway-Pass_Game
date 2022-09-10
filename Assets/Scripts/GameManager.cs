@@ -56,7 +56,8 @@ public class GameManager : MonoBehaviour
     public List<int> collectedGoldMail = new List<int>();
 
     [Header ("Winter Level")]
-    public bool hasKey;
+    public bool hasFrozenKey;
+    public bool unlockedCemeteryGate;
 
     public void CollectMaxMails()
     {
