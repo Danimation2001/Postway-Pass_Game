@@ -1,8 +1,8 @@
-﻿************************************************
-*               LIQUID VOLUME PRO              *
-*            By Ramiro Oliva (Kronnect)        *   
-*                  README FILE                 *
-************************************************
+﻿***********************************************
+*              LIQUID VOLUME PRO              *
+*           By Ramiro Oliva (Kronnect)        *   
+*                 README FILE                 *
+***********************************************
 
 
 How to use this asset
@@ -16,9 +16,9 @@ Important: please read the brief quick start guide located in LiquidVolumePro/Do
 Support
 -------
 
-* Email support: contact@kronnect.com
-* Website-Forum Support: http://kronnect.com
+* Website-Forum Support: http://kronnect.com/support
 * Twitter: @Kronnect
+* Email (non support): contact@kronnect.com
 
 
 Other Cool Assets!
@@ -29,9 +29,21 @@ https://www.assetstore.unity3d.com/en/#!/search/page=1/sortby=popularity/query=p
 
 
 
-Version history
-
 Current version
+- [Fix] Fixed issue rendering irregular topology in Single Pass Instanced VR mode when interleaved rendering option is disabled
+
+Version 4.5
+- Minimum Unity version required is now 2020.3.16
+- Some shader optimizations related to point light support
+- [Fix] Fixed issue when ignoring gravity and using multiple layers
+
+Version 4.4
+- API: added GetMeshVolumeWS, GetMeshVolumeWSUnderLevel, GetMeshVolumeWSFast, GetMeshVolumeWSUnderLevelFast methods. They return approximations of the mesh volume
+- API: added optional "rotationCompensation" parameter to GetSpillPoint method
+- [Fix] Fixed inspector overlap issue in Unity 2021.3.3 due to a reorderable list bug
+
+Version 4.3.2
+- API: added onPropertiesChanged event
 - Added "Interleaved Rendering" to depth prepass render feature. This option improves results when overlapping irregular liquid volumes.
 
 Version 4.2

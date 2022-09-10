@@ -22,6 +22,9 @@ using UnityEditor;
 #endif
 
 namespace LiquidVolumeFX {
+
+    public delegate void PropertiesChangedEvent(LiquidVolume lv);
+
     public enum TOPOLOGY {
         Sphere = 0,
         Cylinder = 1,
@@ -151,6 +154,8 @@ namespace LiquidVolumeFX {
 
         }
 
+        public event PropertiesChangedEvent onPropertiesChanged;
+
 
         [SerializeField]
         TOPOLOGY _topology = TOPOLOGY.Sphere;
@@ -212,6 +217,9 @@ namespace LiquidVolumeFX {
         }
 
 
+#if UNITY_2020_2_OR_NEWER
+        [NonReorderable]
+#endif
         [SerializeField]
         LiquidLayer[] _liquidLayers;
 
@@ -1989,6 +1997,7 @@ namespace LiquidVolumeFX {
                 pointLightPositionBuffer = new Vector4[6];
             }
             float range, multiplier;
+            int pointLightCount = 0;
             for (int k = 0; k < 6; k++) {
                 range = multiplier = 0;
                 if (_pointLightsEnabled && k < pointLightParams.Length) {
@@ -2001,9 +2010,7 @@ namespace LiquidVolumeFX {
                 if (range > 0 && multiplier > 0) {
                     // Apply attenuation if light is affected by fog distance & falloff
                     Color pointLightColor = Color.Lerp(pointLightParams[k].color1, pointLightParams[k].color2, Mathf.PingPong(Time.time * pointLightParams[k].colorSpeed, 1f));
-                    pointLightColorBuffer[k] = new Vector4(pointLightColor.r * multiplier, pointLightColor.g * multiplier, pointLightColor.b * multiplier, range);
-                } else {
-                    pointLightColorBuffer[k] = Color.black;
+                    pointLightColorBuffer[pointLightCount++] = new Vector4(pointLightColor.r * multiplier, pointLightColor.g * multiplier, pointLightColor.b * multiplier, range);
                 }
             }
 
@@ -2011,6 +2018,7 @@ namespace LiquidVolumeFX {
                 liqMat.SetFloat(ShaderParams.PointLightInsideAtten, pointLightInsideAtten);
                 liqMat.SetColorArray(ShaderParams.PointLightColorArray, pointLightColorBuffer);
                 liqMat.SetVectorArray(ShaderParams.PointLightPositionArray, pointLightPositionBuffer);
+                liqMat.SetInt(ShaderParams.PointLightCount, pointLightCount);
             }
 
         }
@@ -2070,7 +2078,7 @@ namespace LiquidVolumeFX {
             }
 
             UpdateLevels();
-            if (mr == null) 
+            if (mr == null)
                 return;
 
             // Try to compute submesh index heuristically if this is the first time the liquid has been added to a multi-material mesh
@@ -2102,7 +2110,7 @@ namespace LiquidVolumeFX {
                 bool shouldUseFlaskMaterial = _detail.usesFlask();
                 if (shouldUseFlaskMaterial && !mrSharedMaterials.Contains(_flaskMaterial)) {
                     // empty slot?
-                    for (int k=0;k<mrSharedMaterials.Count;k++) {
+                    for (int k = 0; k < mrSharedMaterials.Count; k++) {
                         if (mrSharedMaterials[k] == null) {
                             mrSharedMaterials[k] = _flaskMaterial;
                             shouldUseFlaskMaterial = false;
@@ -2236,6 +2244,9 @@ namespace LiquidVolumeFX {
                     prevThickness = _flaskThickness;
                 }
             }
+
+            onPropertiesChanged?.Invoke(this);
+
         }
 
         Color ApplyGlobalAlpha(Color originalColor) {
@@ -2317,7 +2328,6 @@ namespace LiquidVolumeFX {
                     exitIterations = 10;
                 }
 
-                Vector3 mrCenter = mr.bounds.center;
                 if (lastLevelVolumeRef != thisLevel) {
                     lastLevelVolumeRef = thisLevel;
 
@@ -2334,7 +2344,7 @@ namespace LiquidVolumeFX {
                         tempExtentY *= _extentsScale.y;
 
                         RotateVertices();
-                        volumeRef = volumeFunction(thisLevel, mrCenter, tempExtentY);
+                        volumeRef = volumeFunction(thisLevel, tempExtentY);
                         transform.rotation = q;
                     }
                 }
@@ -2347,12 +2357,12 @@ namespace LiquidVolumeFX {
                 float minLevel = Mathf.Clamp01(thisLevel - 0.5f);
                 for (int i = 0; i < 12; i++) {
                     thisLevel = (minLevel + maxLevel) * 0.5f;
-                    float volume = volumeFunction(thisLevel, mrCenter, extents.y);
+                    float volume = volumeFunction(thisLevel, extents.y);
                     float volumeDiff = Mathf.Abs(volumeRef - volume);
                     if (volumeDiff < minVolumeDiff) {
-                        #if DEBUG_SLICE
+#if DEBUG_SLICE
                             approxVolume = volume;
-                        #endif
+#endif
                         minVolumeDiff = volumeDiff;
                         nearestLevel = thisLevel;
                     }
@@ -2405,7 +2415,7 @@ namespace LiquidVolumeFX {
             }
 
             if (_detail.isMultiple()) {
-                liqMat.SetFloat(ShaderParams.SizeWorld, mr.bounds.size.y);
+                liqMat.SetFloat(ShaderParams.SizeWorld, _ignoreGravity ? size.y : mr.bounds.size.y);
             }
 
             if (_depthAware) {
@@ -2479,13 +2489,22 @@ namespace LiquidVolumeFX {
         }
 
 
-        delegate float MeshVolumeCalcFunction(float level01, Vector3 zeroPoint, float yExtent);
+        delegate float MeshVolumeCalcFunction(float level01, float yExtent);
 
-        float GetMeshVolumeUnderLevelFast(float level01, Vector3 zeroPoint, float yExtent) {
+        public float GetMeshVolumeUnderLevelFast(float level01, float yExtent) {
 
             float level = mr.bounds.center.y - yExtent;
             level += yExtent * 2f * level01;
+            return GetMeshVolumeUnderLevelWSFast(level);
+        }
 
+        public float GetMeshVolumeWSFast() {
+            return GetMeshVolumeUnderLevelWSFast(float.MaxValue);
+        }
+
+        public float GetMeshVolumeUnderLevelWSFast(float level) {
+
+            Vector3 zeroPoint = mr.bounds.center;
             float vol = 0;
             for (int k = 0; k < verticesIndices.Length; k += 3) {
                 Vector3 p1 = rotatedVertices[verticesIndices[k]];
@@ -2513,11 +2532,28 @@ namespace LiquidVolumeFX {
         readonly List<Vector3> cutPoints = new List<Vector3>();
         Vector3 cutPlaneCenter;
 
-        float GetMeshVolumeUnderLevel(float level01, Vector3 zeroPoint, float yExtent) {
+        /// Approximates the mesh volume under a fill level expressed in 0-1 range
+        /// </summary>
+        /// <param name="level01"></param>
+        /// <param name="zeroPoint"></param>
+        /// <param name="yExtent"></param>
+        /// <returns></returns>
+        public float GetMeshVolumeUnderLevel(float level01, float yExtent) {
 
             float level = mr.bounds.center.y - yExtent;
             level += yExtent * 2f * level01;
+            return GetMeshVolumeUnderLevelWS(level);
 
+        }
+
+
+        public float GetMeshVolumeWS() {
+            return GetMeshVolumeUnderLevelWS(float.MaxValue);
+        }
+
+        public float GetMeshVolumeUnderLevelWS(float level) {
+
+            Vector3 zeroPoint = mr.bounds.center;
             cutPlaneCenter = Vector3.zero;
             cutPoints.Clear();
             verts.Clear();
@@ -2658,7 +2694,7 @@ namespace LiquidVolumeFX {
         void UpdateTurbulence() {
             if (liqMat == null)
                 return;
-            float visibleLevel = levelMultipled > 0 ? 1f: 0f; // (_level<=0 || _level>=1f) ? 0.1f: 1f;	// commented out to allow animation even level is 0 or full
+            float visibleLevel = levelMultipled > 0 ? 1f : 0f; // (_level<=0 || _level>=1f) ? 0.1f: 1f;	// commented out to allow animation even level is 0 or full
             float isInsideContainer = (camInside && _allowViewFromInside) ? 0f : 1f;
             turb.x = _turbulence1 * visibleLevel * isInsideContainer;
             turb.y = Mathf.Max(_turbulence2, turbulenceDueForces) * visibleLevel * isInsideContainer;
@@ -2838,9 +2874,10 @@ namespace LiquidVolumeFX {
         /// </summary>
         /// <returns><c>true</c>, if spill point is detected, <c>false</c> otherwise.</returns>
         /// <param name="spillPosition">Returned spill position in world space coordinates.</param>
-        /// <param name="spillAmount">A returned value that represent the amount of liquid spilt.</param>
+        /// <param name="spillAmount">A returned value that represent the difference in liquid levels after the spilt. This value depends on the rotationCompensation parameter.</param>
         /// <param name="apertureStart">A value that determines where the aperture of the flask starts (0-1 where 0 is flask center and 1 is the very top).</param>
-        public bool GetSpillPoint(out Vector3 spillPosition, out float spillAmount, float apertureStart = 1f) {
+        /// <param name="rotationCompensation">If set to None (default), the spillAmount value is an approximation of the differences of levels in 0-1 range. Fast and Accurate modes will approximate the difference in volume. Use GetMeshVolumeWS or GetMeshVolumeWSFast to get the total volume.</param>
+        public bool GetSpillPoint(out Vector3 spillPosition, out float spillAmount, float apertureStart = 1f, LEVEL_COMPENSATION rotationCompensation = LEVEL_COMPENSATION.None) {
             spillPosition = Vector3.zero;
             spillAmount = 0;
             if (mesh == null || verticesSorted == null || levelMultipled <= 0)
@@ -2872,7 +2909,20 @@ namespace LiquidVolumeFX {
                 return false;
 
             spillPosition = vt;
-            spillAmount = (liquidLevelPos - vt.y) / (mesh.bounds.extents.y * 2f * transform.localScale.y);
+
+            switch (rotationCompensation) {
+                case LEVEL_COMPENSATION.Accurate:
+                    spillAmount = GetMeshVolumeUnderLevelWS(liquidLevelPos) - GetMeshVolumeUnderLevelWS(vt.y);
+                    break;
+
+                case LEVEL_COMPENSATION.Fast:
+                    spillAmount = GetMeshVolumeUnderLevelWSFast(liquidLevelPos) - GetMeshVolumeUnderLevelWSFast(vt.y);
+                    break;
+
+                default:
+                    spillAmount = (liquidLevelPos - vt.y) / (mr.bounds.extents.y * 2f);
+                    break;
+            }
             return true;
         }
 
@@ -3695,7 +3745,99 @@ namespace LiquidVolumeFX {
             liqMat.SetTexture(ShaderParams.NoiseTexUnwrapped, null);
         }
 
-#endregion
+        #endregion
 
+        public void CopyFrom(LiquidVolume lv) {
+            if (lv == null) return;
+            this._allowViewFromInside = lv._allowViewFromInside;
+            this._alpha = lv._alpha;
+            this._autoCloseMesh = lv._autoCloseMesh;
+            this._backDepthBias = lv._backDepthBias;
+            this._blurIntensity = lv._blurIntensity;
+            this._bubblesAmount = lv._bubblesAmount;
+            this._bubblesBrightness = lv._bubblesBrightness;
+            this._bubblesScale = lv._bubblesScale;
+            this._bubblesSeed = lv._bubblesSeed;
+            this._bubblesSizeMax = lv._bubblesSizeMax;
+            this._bubblesSizeMin = lv._bubblesSizeMin;
+            this._bubblesVerticalSpeed = lv._bubblesVerticalSpeed;
+            this._bumpDistortionOffset = lv._bumpDistortionOffset;
+            this._bumpDistortionScale = lv._bumpDistortionScale;
+            this._bumpMap = lv._bumpMap;
+            this._bumpStrength = lv._bumpStrength;
+            this._debugSpillPoint = lv._debugSpillPoint;
+            this._deepObscurance = lv._deepObscurance;
+            this._depthAware = lv._depthAware;
+            this._depthAwareCustomPass = lv._depthAwareCustomPass;
+            this._depthAwareCustomPassDebug = lv._depthAwareCustomPassDebug;
+            this._depthAwareOffset = lv._depthAwareOffset;
+            this._detail = lv._detail;
+            this._distortionAmount = lv._distortionAmount;
+            this._distortionMap = lv._distortionMap;
+            this._ditherShadows = lv._ditherShadows;
+            this._ditherStrength = lv._ditherStrength;
+            this._doubleSidedBias = lv._doubleSidedBias;
+            this._emissionColor = lv._emissionColor;
+            this._extentsScale = lv._extentsScale;
+            this._fixMesh = lv._fixMesh;
+            this._flaskThickness = lv._flaskThickness;
+            this._foamColor = lv._foamColor;
+            this._foamDensity = lv._foamDensity;
+            this._foamRaySteps = lv._foamRaySteps;
+            this._foamScale = lv._foamScale;
+            this._foamThickness = lv._foamThickness;
+            this._foamTurbulence = lv._foamTurbulence;
+            this._foamVisibleFromBottom = lv._foamVisibleFromBottom;
+            this._foamWeight = lv._foamWeight;
+            this._frecuency = lv._frecuency;
+            this._ignoreGravity = lv._ignoreGravity;
+            this._irregularDepthDebug = lv._irregularDepthDebug;
+            this._layersAdjustmentCompact = lv._layersAdjustmentCompact;
+            this._layersAdjustmentSpeed = lv._layersAdjustmentSpeed;
+            this._level = lv._level;
+            this._levelMultiplier = lv._levelMultiplier;
+            this._liquidColor1 = lv._liquidColor1;
+            this._liquidColor2 = lv._liquidColor2;
+            this._liquidLayers = lv._liquidLayers;
+            this._liquidRaySteps = lv._liquidRaySteps;
+            this._liquidScale1 = lv._liquidScale1;
+            this._liquidScale2 = lv._liquidScale2;
+            this._lowerLimit = lv._lowerLimit;
+            this._murkiness = lv._murkiness;
+            this._noiseVariation = lv._noiseVariation;
+            this._physicsAngularDamp = lv._physicsAngularDamp;
+            this._physicsMass = lv._physicsMass;
+            this._pivotOffset = lv._pivotOffset;
+            this._pointLightsEnabled = lv._pointLightsEnabled;
+            this._reactToForces = lv._reactToForces;
+            this._reflectionTexture = lv._reflectionTexture;
+            this._refractionBlur = lv._refractionBlur;
+            this._renderQueue = lv._renderQueue;
+            this._scatteringAmount = lv._scatteringAmount;
+            this._scatteringEnabled = lv._scatteringEnabled;
+            this._scatteringPower = lv._scatteringPower;
+            this._smokeBaseObscurance = lv._smokeBaseObscurance;
+            this._smokeColor = lv._smokeColor;
+            this._smokeEnabled = lv._smokeEnabled;
+            this._smokeHeightAtten = lv._smokeHeightAtten;
+            this._smokeRaySteps = lv._smokeRaySteps;
+            this._smokeScale = lv._smokeScale;
+            this._smokeSpeed = lv._smokeSpeed;
+            this._smoothContactSurface = lv._smoothContactSurface;
+            this._sparklingAmount = lv._sparklingAmount;
+            this._sparklingIntensity = lv._sparklingIntensity;
+            this._speed = lv._speed;
+            this._subMeshIndex = lv._subMeshIndex;
+            this._texture = lv._texture;
+            this._textureOffset = lv._textureOffset;
+            this._textureScale = lv._textureScale;
+            this._topology = lv._topology;
+            this._turbulence1 = lv._turbulence1;
+            this._turbulence2 = lv._turbulence2;
+            this._upperLimit = lv._upperLimit;
+            requireBubblesUpdate = true;
+            requireLayersUpdate = true;
+            shouldUpdateMaterialProperties = true;
+        }
     }
 }

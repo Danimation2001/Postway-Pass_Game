@@ -4,7 +4,7 @@
 		[HideInInspector] _FoamColor ("Foam Color", Color) = (1,1,1,0.9)
 		[HideInInspector] _Color2 ("Color 2", Color) = (1,0,0,0.3)
 		[HideInInspector] _Glossiness ("Smoothness", Range(0,1)) = 0.5
-		[HideInInspector] _GlossinessInt ("Internal Smoothness", Range(0,1)) = 0.5
+		[HideInInspector] _GlossinessInt ("Internal Smoothness", Vector) = (0.5, 180, 0.3)
 		[HideInInspector] _Muddy ("Muddy", Range(0,1)) = 1.0
 		[HideInInspector] _Turbulence ("Turbulence", Vector) = (1.0,1.0,1.0,0)
 		[HideInInspector] _TurbulenceSpeed("Turbulence Speed", Float) = 1

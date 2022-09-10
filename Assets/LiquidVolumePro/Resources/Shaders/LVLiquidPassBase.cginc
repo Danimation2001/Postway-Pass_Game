@@ -1,7 +1,7 @@
 ﻿// Set by the asset automatically
 #define FORCE_GLES_COMPATIBILITY 0
 #define LIQUID_VOLUME_SCATTERING
-//#define LIQUID_VOLUME_SMOKE
+#define LIQUID_VOLUME_SMOKE
 #define LIQUID_VOLUME_BUBBLES
 #define LIQUID_VOLUME_FP_RENDER_TEXTURES
 //#define LIQUID_VOLUME_ORTHO
@@ -97,6 +97,7 @@
     float4 _PointLightPosition[6];
     half4 _PointLightColor[6];
     float _PointLightInsideAtten;
+	int _PointLightCount;
 #endif
 
 int _LVForcedInvisible;
@@ -318,16 +319,20 @@ int _LVForcedInvisible;
 			return atten;
 		}
 
+
+		float3 SampleSceneColorLOD(float2 uv) {
+			return SAMPLE_TEXTURE2D_X_LOD(_CameraOpaqueTexture, sampler_CameraOpaqueTexture, UnityStereoTransformScreenSpaceTex(uv), 0).rgb;
+		}
+
 		half3 boxBlur(float2 uv) {
-			const int BOXRADIUS = 5;    
-			int kernel_window_size = BOXRADIUS*2+1;
-    
+			const int BOXRADIUS = 3;    
+			const float SPREAD = 3;
+
+			float2 spreadFactor = SPREAD / _ScreenParams.xy;
 			half3 color = 0.0.xxx;
-			UNITY_UNROLL
 			for (int ry = -BOXRADIUS; ry <= BOXRADIUS; ++ry) {
-				UNITY_UNROLL
 				for (int rx = -BOXRADIUS; rx <= BOXRADIUS; ++rx) {
-    				color += SampleSceneColor(uv + float2(rx,ry)/_ScreenParams.xy);
+    				color += SampleSceneColorLOD(uv + float2(rx,ry) * spreadFactor);
 				}
 			}
     
@@ -409,7 +414,7 @@ int _LVForcedInvisible;
          		rayLength -= _PointLightInsideAtten;
          		float3 ray = rd * rayLength;
          		float rayLengthSqr = rayLength * rayLength;
-         		for (int k=0;k<6;k++) {
+         		for (int k=0;k<_PointLightCount;k++) {
              		half pointLightInfluence = minimum_distance_sqr(rayLengthSqr, ray, _PointLightPosition[k].xyz - rayStart) / _PointLightColor[k].w;
              		co.rgb += _PointLightColor[k].rgb * (co.a / (1.0 + pointLightInfluence));
          		}

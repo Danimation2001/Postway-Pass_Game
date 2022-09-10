@@ -80,12 +80,11 @@ namespace LiquidVolumeFX {
                 cameraTextureDescriptor.colorFormat = LiquidVolume.useFPRenderTextures ? RenderTextureFormat.RHalf : RenderTextureFormat.ARGB32;
                 cameraTextureDescriptor.sRGB = false;
                 cameraTextureDescriptor.depthBufferBits = 16;
+                cameraTextureDescriptor.msaaSamples = 1;
                 cmd.GetTemporaryRT(targetId, cameraTextureDescriptor);
-                if (!interleavedRendering) 
-                {
-                    #pragma warning disable
-                    ConfigureTarget(targetId);
-                    #pragma warning restore
+                if (!interleavedRendering) {
+                    RenderTargetIdentifier destination = new RenderTargetIdentifier(targetId, 0, CubemapFace.Unknown, -1);
+                    ConfigureTarget(destination);
                 }
             }
 
@@ -102,7 +101,7 @@ namespace LiquidVolumeFX {
                     RenderTargetIdentifier destination = new RenderTargetIdentifier(targetId, 0, CubemapFace.Unknown, -1);
                     lvRenderers.ForEach((LiquidVolume lv) => {
                         if (lv != null && lv.isActiveAndEnabled) {
-                            cmd.SetRenderTarget(destination);
+                            cmd.SetRenderTarget(destination, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store);
                             if (LiquidVolume.useFPRenderTextures) {
                                 cmd.ClearRenderTarget(true, true, new Color(cam.farClipPlane, 0, 0, 0), 1f);
                                 cmd.EnableShaderKeyword(ShaderParams.SKW_FP_RENDER_TEXTURE);
@@ -111,12 +110,10 @@ namespace LiquidVolumeFX {
                                 cmd.DisableShaderKeyword(ShaderParams.SKW_FP_RENDER_TEXTURE);
                             }
                             cmd.SetGlobalFloat(ShaderParams.FlaskThickness, 1.0f - lv.flaskThickness);
-                            cmd.DrawRenderer(lv.mr, mat, lv.subMeshIndex >= 0 ? lv.subMeshIndex : 0, passId);
                             // draw back face
-                            #pragma warning disable
-                            cmd.SetRenderTarget(renderer.cameraColorTarget, renderer.cameraDepthTarget);
-                            #pragma warning restore
+                            cmd.DrawRenderer(lv.mr, mat, lv.subMeshIndex >= 0 ? lv.subMeshIndex : 0, passId);
                             // draw liquid
+                            cmd.SetRenderTarget(renderer.cameraColorTarget);
                             cmd.DrawRenderer(lv.mr, lv.liqMat, lv.subMeshIndex >= 0 ? lv.subMeshIndex : 0, shaderPass: 1);
                         }
                     });

@@ -10,6 +10,7 @@ namespace LiquidVolumeFX {
             public static int PointLightInsideAtten = Shader.PropertyToID("_PointLightInsideAtten");
             public static int PointLightColorArray = Shader.PropertyToID("_PointLightColor");
             public static int PointLightPositionArray = Shader.PropertyToID("_PointLightPosition");
+            public static int PointLightCount = Shader.PropertyToID("_PointLightCount");
             public static int GlossinessInt = Shader.PropertyToID("_GlossinessInt");
             public static int DoubleSidedBias = Shader.PropertyToID("_DoubleSidedBias");
             public static int BackDepthBias = Shader.PropertyToID("_BackDepthBias");
