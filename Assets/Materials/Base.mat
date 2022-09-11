@@ -23,7 +23,7 @@ Material:
   m_Name: Base
   m_Shader: {fileID: -6465566751694194690, guid: d87a8ac71e58442a9ae85bf8136e71a1,
     type: 3}
-  m_Parent: {fileID: 2100000, guid: 219dfceecb5224f1bb302f2f645dbe0b, type: 2}
+  m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -36,8 +36,29 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _RenderTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _SnowScale: 50
+    - _VertexOffset: 0.5
+    m_Colors:
+    - _SnowColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
