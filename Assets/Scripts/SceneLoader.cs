@@ -46,7 +46,7 @@ public class SceneLoader : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         _overworldScene = SceneManager.GetActiveScene();
-        GameManager.Instance.sceneID = _overworldScene.buildIndex;
+        GameManager.Instance.overworldSceneID = _overworldScene.buildIndex;
         StartCoroutine(LoadLevel(2));
     }
 
@@ -60,7 +60,7 @@ public class SceneLoader : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         GameManager.Instance.ResetAll();
-        GameManager.Instance.sceneID = 0;
+        GameManager.Instance.overworldSceneID = 0;
         StartCoroutine(LoadLevel(0));
     }
 

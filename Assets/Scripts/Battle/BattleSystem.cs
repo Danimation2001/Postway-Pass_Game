@@ -301,7 +301,7 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         player.playerAnim.Play("Buff");
         yield return new WaitForSeconds(2f);
-        SceneLoader.Instance.LoadOverworldScene(GameManager.Instance.sceneID);
+        SceneLoader.Instance.LoadOverworldScene(GameManager.Instance.overworldSceneID);
     }
 
     IEnumerator GameOver()
@@ -316,6 +316,6 @@ public class BattleSystem : MonoBehaviour
 
     public void OnRetryButton()
     {
-        SceneLoader.Instance.LoadOverworldScene(GameManager.Instance.sceneID);
+        SceneLoader.Instance.LoadOverworldScene(GameManager.Instance.overworldSceneID);
     }
 }

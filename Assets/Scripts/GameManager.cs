@@ -32,32 +32,38 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public int sceneID;
+    [HideInInspector] public int overworldSceneID;
 
-    [Header ("Enemy Tracking")]
-    public GameObject encounteredEnemyCombatPrefab;
-    public List<int> defeatedEnemies = new List<int>();
-    public int encounteredEnemy;
+    [Header("Enemy Tracking")]
+    [HideInInspector] public GameObject encounteredEnemyCombatPrefab;
+    [HideInInspector] public List<int> defeatedEnemies = new List<int>();
+    [HideInInspector] public int encounteredEnemy;
 
-    [Header ("Respawning")]
-    public bool needsReposition = false;
-    public Vector3 lastPlayerPosition;
-    public Quaternion lastPlayerRotation;
-    
-    [Header ("Collectables")]
-    public int potionCount;
-    public int mailCount;
-    public int goldMailCount;
-    public int maxMail;
-    public int maxGoldMail;
-    public bool maxCounted;
-    public List<int> collectedPotions = new List<int>();
-    public List<int> collectedMail = new List<int>();
-    public List<int> collectedGoldMail = new List<int>();
+    [Header("Respawning")]
+    [HideInInspector] public bool needsReposition = false;
+    [HideInInspector] public Vector3 lastPlayerPosition;
+    [HideInInspector] public Quaternion lastPlayerRotation;
 
-    [Header ("Winter Level")]
-    public bool hasFrozenKey;
-    public bool unlockedCemeteryGate;
+    [Header("Collectables")]
+    [HideInInspector] public int potionCount;
+    [HideInInspector] public int mailCount;
+    [HideInInspector] public int goldMailCount;
+    [HideInInspector] public int maxMail;
+    [HideInInspector] public int maxGoldMail;
+    [HideInInspector] public bool maxCounted;
+    [HideInInspector] public List<int> collectedPotions = new List<int>();
+    [HideInInspector] public List<int> collectedMail = new List<int>();
+    [HideInInspector] public List<int> collectedGoldMail = new List<int>();
+
+    //[Header("Summer Level")]
+
+    //[Header("Autumn Level")]
+
+    [Header("Winter Level")]
+    [HideInInspector] public bool hasFrozenKey;
+    [HideInInspector] public bool unlockedCemeteryGate;
+
+    //[Header("Spring Level")]
 
     public void CollectMaxMails()
     {
