@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using SonicBloom.Koreo;
 
-public class Note : MonoBehaviour
+public class Notev2 : MonoBehaviour
 {
+    public float noteDuration;
+    public SpriteRenderer tailSprite;
     bool _canBePressed; //can the note be hit?
     bool _beenHit; //has the note been hit?
     public InputAction hit;
@@ -12,7 +15,7 @@ public class Note : MonoBehaviour
 
     void OnEnable()
     {
-        hit.Enable(); 
+        hit.Enable();
     }
 
     void OnDisable()
@@ -23,17 +26,25 @@ public class Note : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Buttons Controller").GetComponent<ButtonControllerv2>();
+
+        if (noteDuration == 0)
+            noteDuration = 0.01f;
+
+        tailSprite.size = new Vector2(noteDuration, 0.2f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if the correct button is pressed and the note can be hit, hit
-        if (hit.WasPressedThisFrame())
+        if (noteDuration == 0.01f)
         {
-            if (_canBePressed)
+            //if the correct button is pressed and the note can be hit, hit
+            if (hit.WasPressedThisFrame())
             {
-                HitNote();
+                if (_canBePressed)
+                {
+                    HitNote();
+                }
             }
         }
     }

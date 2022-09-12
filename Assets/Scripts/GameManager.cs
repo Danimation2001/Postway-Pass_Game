@@ -65,6 +65,9 @@ public class GameManager : MonoBehaviour
 
     //[Header("Spring Level")]
 
+    [Header("Combat")]
+    [HideInInspector] public bool gameOver;
+
     public void CollectMaxMails()
     {
         GameObject[] mail = GameObject.FindGameObjectsWithTag("Mail");
@@ -99,5 +102,16 @@ public class GameManager : MonoBehaviour
         maxCounted = false;
         maxMail = 0;
         maxGoldMail = 0;
+    }
+
+    public void FinishedSong()
+    {
+        Conductor.instance.musicSource.Stop();
+    }
+
+    public void GameOver()
+    {
+        gameOver = true;
+        Conductor.instance.musicSource.Stop();
     }
 }

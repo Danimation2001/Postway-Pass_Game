@@ -81,23 +81,26 @@ public class Conductor : MonoBehaviour
 
         for (int i = 0; i < rhythmData.Timestamps.Length; i++)
         {
-            switch ((int)rhythmData.Timestamps[i].BeatTrackId)
+            if (!rhythmData.Timestamps[i].IsLong)
             {
-                case 1:
-                    upID.Add((int)rhythmData.Timestamps[i].Id);
-                    break;
+                switch ((int)rhythmData.Timestamps[i].BeatTrackId)
+                {
+                    case 1:
+                        upID.Add((int)rhythmData.Timestamps[i].Id);
+                        break;
 
-                case 2:
-                    downID.Add((int)rhythmData.Timestamps[i].Id);
-                    break;
+                    case 2:
+                        downID.Add((int)rhythmData.Timestamps[i].Id);
+                        break;
 
-                case 3:
-                    leftID.Add((int)rhythmData.Timestamps[i].Id);
-                    break;
+                    case 3:
+                        leftID.Add((int)rhythmData.Timestamps[i].Id);
+                        break;
 
-                case 4:
-                    rightID.Add((int)rhythmData.Timestamps[i].Id);
-                    break;
+                    case 4:
+                        rightID.Add((int)rhythmData.Timestamps[i].Id);
+                        break;
+                }
             }
         }
 
@@ -109,39 +112,42 @@ public class Conductor : MonoBehaviour
         int[] next = new int[4];
         for (int i = 0; i < rhythmData.Timestamps.Length; i++)
         {
-            if (next[0] < upID.Count)
+            if (!rhythmData.Timestamps[i].IsLong)
             {
-                if (rhythmData.Timestamps[i].Id == upID[next[0]])
+                if (next[0] < upID.Count)
                 {
-                    upTrack[next[0]] = rhythmData.Timestamps[i].TimeInBeats;
-                    next[0]++;
+                    if (rhythmData.Timestamps[i].Id == upID[next[0]])
+                    {
+                        upTrack[next[0]] = rhythmData.Timestamps[i].TimeInBeats;
+                        next[0]++;
+                    }
                 }
-            }
 
-            if (next[1] < downID.Count)
-            {
-                if (rhythmData.Timestamps[i].Id == downID[next[1]])
+                if (next[1] < downID.Count)
                 {
-                    downTrack[next[1]] = rhythmData.Timestamps[i].TimeInBeats;
-                    next[1]++;
+                    if (rhythmData.Timestamps[i].Id == downID[next[1]])
+                    {
+                        downTrack[next[1]] = rhythmData.Timestamps[i].TimeInBeats;
+                        next[1]++;
+                    }
                 }
-            }
 
-            if (next[2] < leftID.Count)
-            {
-                if (rhythmData.Timestamps[i].Id == leftID[next[2]])
+                if (next[2] < leftID.Count)
                 {
-                    leftTrack[next[2]] = rhythmData.Timestamps[i].TimeInBeats;
-                    next[2]++;
+                    if (rhythmData.Timestamps[i].Id == leftID[next[2]])
+                    {
+                        leftTrack[next[2]] = rhythmData.Timestamps[i].TimeInBeats;
+                        next[2]++;
+                    }
                 }
-            }
 
-            if (next[3] < rightID.Count)
-            {
-                if (rhythmData.Timestamps[i].Id == rightID[next[3]])
+                if (next[3] < rightID.Count)
                 {
-                    rightTrack[next[3]] = rhythmData.Timestamps[i].TimeInBeats;
-                    next[3]++;
+                    if (rhythmData.Timestamps[i].Id == rightID[next[3]])
+                    {
+                        rightTrack[next[3]] = rhythmData.Timestamps[i].TimeInBeats;
+                        next[3]++;
+                    }
                 }
             }
         }
@@ -160,10 +166,10 @@ public class Conductor : MonoBehaviour
                 songStarted = true;
                 //RhythmManager.instance.readyPanel.SetActive(false);
                 musicSource.Play(); //start the song
-                animSync.enabled = true; //start the circle pulsing animation
+                //animSync.enabled = true; //start the circle pulsing animation
                 _dspSongTime = (float)AudioSettings.dspTime; //record when the music starts 
             }
-        } 
+        }
 
         if (songStarted)
         {
@@ -185,7 +191,7 @@ public class Conductor : MonoBehaviour
 
         if (songFinished)
         {
-            RhythmManager.instance.FinishedSong();
+            GameManager.Instance.FinishedSong();
         }
     }
 
@@ -199,13 +205,13 @@ public class Conductor : MonoBehaviour
         }
     }
 
-    void SpawnNotesv2(Timestamp[] timestamp)
-    {
-        for (int i = 0; i < timestamp.Length; i++)
-        {
-            int indexDirection = (int)timestamp[i].BeatTrackId - 1;
-            GameObject note = Instantiate(notes[indexDirection], noteSpawns[indexDirection]);
-            note.transform.SetParent(scrollers[indexDirection]);
-        }
-    }
+    // void SpawnNotesv2(Timestamp[] timestamp)
+    // {
+    //     for (int i = 0; i < timestamp.Length; i++)
+    //     {
+    //         int indexDirection = (int)timestamp[i].BeatTrackId - 1;
+    //         GameObject note = Instantiate(notes[indexDirection], noteSpawns[indexDirection]);
+    //         note.transform.SetParent(scrollers[indexDirection]);
+    //     }
+    // }
 }

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2076007791, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
+  m_Name: ReloadKoreo
+  m_EditorClassIdentifier: 
+  mSourceClip: {fileID: 8300000, guid: bfe5179c33873c7498477ddd047138ef, type: 3}
+  mAudioFilePath: 
+  mSampleRate: 44100
+  mIgnoreLatencyOffset: 0
+  mTempoSections:
+  - sectionName: Silence
+    startSample: 0
+    samplesPerBeat: 20671.875
+    beatsPerMeasure: 4
+    bStartNewMeasure: 1
+  - sectionName: Main
+    startSample: 14826
+    samplesPerBeat: 20671.875
+    beatsPerMeasure: 4
+    bStartNewMeasure: 1
+  mTracks:
+  - {fileID: 11400000, guid: ec86cca29e1d4104ca990411b72aaf1f, type: 2}

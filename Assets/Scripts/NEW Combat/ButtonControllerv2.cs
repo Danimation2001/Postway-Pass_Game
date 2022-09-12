@@ -7,7 +7,7 @@ public class ButtonControllerv2 : MonoBehaviour
 {
     public Animator anim;
     public int health = 100;
-    int maxHealth = 100;
+    public int maxHealth = 100;
     public InputAction up, down, left, right;
 
     void OnEnable()
@@ -36,11 +36,15 @@ public class ButtonControllerv2 : MonoBehaviour
         right.Disable();
     }
 
-
+    void Start()
+    {
+        health = maxHealth;
+    }
+    
     // Update is called once per frame
     void Update()
     {
-        RhythmManager.instance.healthSlider.value = health;
+        //RhythmManager.instance.healthSlider.value = health;
 
         if (health <= 0)
         {
@@ -59,7 +63,7 @@ public class ButtonControllerv2 : MonoBehaviour
 
         if (health <= 0)
         {
-            RhythmManager.instance.GameOver();
+            GameManager.Instance.GameOver();
         }
 
     }
