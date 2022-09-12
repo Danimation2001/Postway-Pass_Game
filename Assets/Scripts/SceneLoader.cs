@@ -39,7 +39,7 @@ public class SceneLoader : MonoBehaviour
     IEnumerator Start()
     {
         yield return new WaitForSeconds(0.5f);
-        GetComponentInChildren<Animator>().SetTrigger("Start");
+        transition.Play("Fade Game In");
     }
 
     public void LoadCombatScene()
@@ -69,7 +69,7 @@ public class SceneLoader : MonoBehaviour
         Time.timeScale = 0f;
 
         //play animation
-        transition.SetTrigger("Start");
+        transition.Play("Fade Game Out");
 
         //wait for animation
         yield return new WaitForSecondsRealtime(transitionTime);
