@@ -29,11 +29,6 @@ namespace RhythmReaders
                 _readPosition++;
             }
 
-            // foreach (Timestamp stamp in data.Timestamps)
-            // {
-            //     Debug.Log(stamp.Id);
-            // }
-
             return data;
         }
 
@@ -53,7 +48,6 @@ namespace RhythmReaders
                 var isLong = lineInfo[4] == "1";
 
                 var timestamp = new Timestamp(time, id, prefabId, beatTrackId, isLong);
-                //Debug.Log("note " + i + ": " + timestamp.TimeInSeconds + ", " + timestamp.Id + ", " + timestamp.BeatTrackId);
 
                 if (isLong && lineInfo.Length > 5)
                 {

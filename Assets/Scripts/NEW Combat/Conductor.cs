@@ -74,11 +74,6 @@ public class Conductor : MonoBehaviour
 
     void InitArrayTrackData()
     {
-        // foreach (Timestamp stamp in rhythmData.Timestamps)
-        // {
-        //     Debug.Log(stamp.Id);
-        // }
-
         for (int i = 0; i < rhythmData.Timestamps.Length; i++)
         {
             if (!rhythmData.Timestamps[i].IsLong)
