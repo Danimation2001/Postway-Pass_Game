@@ -36,9 +36,14 @@ public class SceneLoader : MonoBehaviour
     public float transitionTime;
     Scene _overworldScene;
 
-    IEnumerator Start()
+    void Start()
     {
-        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(InitialFade());
+    }
+
+    IEnumerator InitialFade()
+    {
+        yield return new WaitForSeconds(transitionTime);
         transition.Play("Fade Game In");
     }
 
