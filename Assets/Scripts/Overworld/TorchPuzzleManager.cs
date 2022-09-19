@@ -19,6 +19,7 @@ public class TorchPuzzleManager : MonoBehaviour
     public bool puzzleFinished;
     public float puzzleTimer;
     FrozenKey _key;
+    IceBlock _iceBlock;
     float _timer;
     bool[] _litStatus;
     CaveTorch[] _torches;
@@ -41,6 +42,8 @@ public class TorchPuzzleManager : MonoBehaviour
         _timer = puzzleTimer;
 
         _key = GameObject.FindGameObjectWithTag("Frozen Key").GetComponent<FrozenKey>();
+        _iceBlock = GameObject.FindGameObjectWithTag("Frozen Block").GetComponent<IceBlock>();
+       
 
         // Get all the torch objects and assign their caveTorch components to the public array
         GameObject[] torchObs = GameObject.FindGameObjectsWithTag("Torch");
@@ -107,6 +110,7 @@ public class TorchPuzzleManager : MonoBehaviour
         Debug.Log("FINISHED");
         puzzleFinished = true;
         _key.canBeCollected = true;
+        _iceBlock.iceMelting = true;
 
         // KEY MELT ANIMATION?
 
