@@ -7,13 +7,16 @@ assignees: ''
 
 ---
 
-**Describe the bug**
-
-A clear and concise description of what the bug is.
-
 **Version**
 - In which version/build of the game did this happen?
 (your builds should be somehow labelled - possibly just exe name)
+
+**Level**
+- Which level does this bug occur?
+
+**Describe the bug**
+
+A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
