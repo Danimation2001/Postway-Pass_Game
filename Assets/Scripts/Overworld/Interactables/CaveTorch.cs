@@ -9,6 +9,8 @@ public class CaveTorch : MonoBehaviour
     public bool startTorch;
     public bool lit;
 
+    public GameObject Flame; 
+
     public InputAction interact;
     ConstraintSource _constraintSource;
     public GameObject interactCanvas;
@@ -79,13 +81,15 @@ public class CaveTorch : MonoBehaviour
 
     public void Extinguish()
     {
-        GetComponentInChildren<MeshRenderer>().material = offMat;
+        //GetComponentInChildren<MeshRenderer>().material = offMat;
+        Flame.SetActive(false);
         lit = false;
     }
 
     public void LightTorch()
     {
-        GetComponentInChildren<MeshRenderer>().material = onMat;
+        //GetComponentInChildren<MeshRenderer>().material = onMat;
+        Flame.SetActive(true);
         lit = true;
     }
 }
