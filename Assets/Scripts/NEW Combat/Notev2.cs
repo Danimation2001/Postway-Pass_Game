@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using SonicBloom.Koreo;
 
 public class Notev2 : MonoBehaviour
 {
