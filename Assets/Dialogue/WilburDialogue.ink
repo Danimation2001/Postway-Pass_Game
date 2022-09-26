@@ -1,0 +1,3 @@
+Ollie, how nice of you to come to work on time... 
+* the traffic was crazy
+* i needed ice coffee
