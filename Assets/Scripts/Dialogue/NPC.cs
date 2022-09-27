@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Animations;
 using TMPro;
 using Ink.Runtime;
+using UnityEngine.EventSystems;
 
 public class NPC : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class NPC : MonoBehaviour
     [Header ("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
     private Story currentStory;
+
+    [Header ("Ink Choices")]
+    [SerializeField] private GameObject[] choices;
+    private TextMeshProUGUI[] choicesText;
 
 
      private void Awake()
@@ -36,7 +41,16 @@ public class NPC : MonoBehaviour
         interact.Disable();
         dialogueIsPlaying = false;
         dialogueUI.SetActive(false);
-    }
+
+        //get all of the choices text
+        choicesText = new TextMeshProUGUI[choices.Length];
+        int index = 0;
+        foreach(GameObject choice in choices)
+        {
+            choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
+            index++;
+        }
+        }
 
     void OnEnable()
     {
@@ -80,7 +94,7 @@ public class NPC : MonoBehaviour
             return;
         }   
         //continue to next line in the dialogue when next is pressed
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (currentStory.currentChoices.Count == 0 && Input.GetKeyDown(KeyCode.Return))
         {
             ContinueStory();
         }
@@ -106,8 +120,10 @@ public class NPC : MonoBehaviour
         ContinueStory();
     }
 
-    private void ExitDialogueMode() 
+    private IEnumerator ExitDialogueMode() 
     {
+        yield return new WaitForSeconds(0.2f);
+
         dialogueIsPlaying = false;
         dialogueUI.SetActive(false);
         dialogueText.text = "";
@@ -119,11 +135,56 @@ public class NPC : MonoBehaviour
           if (currentStory.canContinue)
         {
             dialogueText.text = currentStory.Continue();
+            //display choices if there are any
+            DisplayChoices();
         }
         else
         {
-            ExitDialogueMode();
+            StartCoroutine(ExitDialogueMode());
         }
+    }
+
+    private void DisplayChoices() 
+    {
+        List<Choice> currentChoices = currentStory.currentChoices;
+
+        // defensive check to make sure our UI can support the number of choices coming in
+        if (currentChoices.Count > choices.Length)
+        {
+            Debug.LogError("More choices were given than the UI can support. Number of choices given: " 
+                + currentChoices.Count);
+        }
+
+        int index = 0;
+        // enable and initialize the choices up to the amount of choices for this line of dialogue
+        foreach(Choice choice in currentChoices) 
+        {
+            choices[index].gameObject.SetActive(true);
+            choicesText[index].text = choice.text;
+            index++;
+        }
+        // go through the remaining choices the UI supports and make sure they're hidden
+        for (int i = index; i < choices.Length; i++) 
+        {
+            choices[i].gameObject.SetActive(false);
+        }
+
+        StartCoroutine(SelectFirstChoice());
+    }
+
+    private IEnumerator SelectFirstChoice()
+    {
+        // Event system requires we clear it first and then wait for atleast one frame before we set the current selected object
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
+    }
+
+    public void MakeChoice(int choiceIndex)
+    {
+        currentStory.ChooseChoiceIndex(choiceIndex);
+        ContinueStory();
+        
     }
 
     
