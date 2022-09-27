@@ -89,6 +89,9 @@ public class ThirdPersonController : MonoBehaviour
 
     private bool _hasAnimator;
 
+    public bool canMove;
+
+    
     private void Awake()
     {
         // get a reference to our main camera
@@ -112,6 +115,8 @@ public class ThirdPersonController : MonoBehaviour
         // reset our timeouts on start
         _jumpTimeoutDelta = JumpTimeout;
         _fallTimeoutDelta = FallTimeout;
+
+        canMove = true;
     }
 
     public GameObject groundPos;
@@ -135,6 +140,16 @@ public class ThirdPersonController : MonoBehaviour
             GameManager.Instance.RepositionPlayer(transform);
             _controller.enabled = true;
             groundPos.transform.position = transform.position;
+        }
+
+        if (NPC.GetInstance().dialogueIsPlaying)
+        {
+            canMove = false;
+            return;
+        }
+       else
+        {
+            canMove = true;
         }
     }
 
@@ -218,7 +233,20 @@ public class ThirdPersonController : MonoBehaviour
         // normalise input direction
         Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
 
-        // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
+       
+
+
+        Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+        Vector3 directMovement = transform.forward;
+        targetDirection = Vector3.Lerp(targetDirection, directMovement, directMoveBlend * _directBlendDelay);
+        currentVelocity = Vector3.Lerp(currentVelocity, targetDirection.normalized, 5 * friction * Time.deltaTime);
+
+
+        // move the player
+        if (canMove){
+            _controller.Move(currentVelocity * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+
+             // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
         // if there is a move input rotate player when the player is moving
         if (_input.move != Vector2.zero)
         {
@@ -236,16 +264,8 @@ public class ThirdPersonController : MonoBehaviour
             _directBlendDelay -= Time.deltaTime * 2f;
             if (_directBlendDelay < -0.2f) _directBlendDelay = -0.2f;
         }
-
-
-        Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
-        Vector3 directMovement = transform.forward;
-        targetDirection = Vector3.Lerp(targetDirection, directMovement, directMoveBlend * _directBlendDelay);
-        currentVelocity = Vector3.Lerp(currentVelocity, targetDirection.normalized, 5 * friction * Time.deltaTime);
-
-
-        // move the player
-        _controller.Move(currentVelocity * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+        }
+        
 
         // update animator if using character
         if (_hasAnimator)

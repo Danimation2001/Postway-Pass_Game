@@ -12,7 +12,7 @@ public class NPC : MonoBehaviour
     
     [SerializeField] public GameObject interactDialogue; //Interact button for dialogue (e)
     [SerializeField] public GameObject dialogueUI; //UI Canvas for dialogue
-    private bool dialogueIsPlaying; //when dialogue is playing
+    public bool dialogueIsPlaying { get; private set; }//when dialogue is playing
     [SerializeField] public InputAction interact; //interact button to trigger the dialogue canvas as true
     [SerializeField] private TextMeshProUGUI dialogueText; //text that handles the dialogue
 
