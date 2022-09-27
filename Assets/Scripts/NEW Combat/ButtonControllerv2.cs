@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class ButtonControllerv2 : MonoBehaviour
 {
     public Animator anim;
+    public HealthBar healthBar;
     public int health = 100;
     public int maxHealth = 100;
     public InputAction up, down, left, right;
@@ -39,6 +40,7 @@ public class ButtonControllerv2 : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
     
     // Update is called once per frame
@@ -55,6 +57,7 @@ public class ButtonControllerv2 : MonoBehaviour
     public void TakeDamage(int amount)
     {
         health -= amount;
+        healthBar.SetHealth(health);
 
         if (health > maxHealth)
         {
