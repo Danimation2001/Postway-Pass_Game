@@ -12,6 +12,15 @@ public class NPC : MonoBehaviour
     [SerializeField] public InputAction interact;
     // Start is called before the first frame update
 
+    [Header ("Ink JSON")]
+    [SerializeField] private TextAsset inkJSON;
+
+    void Start()
+    {
+        interact.Disable();
+        dialogueUI.SetActive(false);
+    }
+
     void OnEnable()
     {
         interact.Enable();
@@ -48,20 +57,17 @@ public class NPC : MonoBehaviour
     }
 
     
-    void Interact(InputAction.CallbackContext context)
+    void Interact(InputAction.CallbackContext context) //set the dialogue UI 
     {
         if(!dialogueUI.activeSelf)
         {
             dialogueUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
+            Debug.Log(inkJSON.text);
         }
     }
 
     
-    void Start()
-    {
-        interact.Disable();
-        dialogueUI.SetActive(false);
-    }
+    
 
 }
