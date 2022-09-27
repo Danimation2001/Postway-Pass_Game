@@ -4,20 +4,37 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Animations;
 using TMPro;
+using Ink.Runtime;
 
 public class NPC : MonoBehaviour
 {
-    [SerializeField] public GameObject dialogueCanvas;
-    [SerializeField] public GameObject dialogueUI;
-    [SerializeField] public InputAction interact;
-    // Start is called before the first frame update
+    private static NPC instance;
+    
+    [SerializeField] public GameObject interactDialogue; //Interact button for dialogue (e)
+    [SerializeField] public GameObject dialogueUI; //UI Canvas for dialogue
+    private bool dialogueIsPlaying; //when dialogue is playing
+    [SerializeField] public InputAction interact; //interact button to trigger the dialogue canvas as true
+    [SerializeField] private TextMeshProUGUI dialogueText; //text that handles the dialogue
 
     [Header ("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
+    private Story currentStory;
+
+
+     private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.Log("Found more than Dialogue Manager in the scene");
+        }
+
+        instance = this;
+    }
 
     void Start()
     {
         interact.Disable();
+        dialogueIsPlaying = false;
         dialogueUI.SetActive(false);
     }
 
@@ -31,6 +48,10 @@ public class NPC : MonoBehaviour
     {
         interact.Disable();
     }
+    public static NPC GetInstance() 
+    {
+        return instance;
+    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -38,7 +59,7 @@ public class NPC : MonoBehaviour
         if (other.tag == "Player")
         {
             interact.Enable();
-            dialogueCanvas.GetComponent<Animator>().Play("Fade In");
+            interactDialogue.GetComponent<Animator>().Play("Fade In");
         }
     }
     private void OnTriggerExit(Collider other)
@@ -46,14 +67,23 @@ public class NPC : MonoBehaviour
         if (other.tag == "Player")
         {
             interact.Disable();
-            dialogueCanvas.GetComponent<Animator>().Play("Fade Out");
+            interactDialogue.GetComponent<Animator>().Play("Fade Out");
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+         //return if dialogue isn't playing
+        if(!dialogueIsPlaying)
+        {
+            return;
+        }   
+        //continue to next line in the dialogue when next is pressed
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            ContinueStory();
+        }
     }
 
     
@@ -63,11 +93,39 @@ public class NPC : MonoBehaviour
         {
             dialogueUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
-            Debug.Log(inkJSON.text);
+           EnterDialogueMode(inkJSON);
         }
     }
 
-    
+    private void EnterDialogueMode(TextAsset inkJSON)
+    {
+        currentStory = new Story(inkJSON.text);
+        dialogueIsPlaying = true;
+        dialogueUI.SetActive(true);
+
+        ContinueStory();
+    }
+
+    private void ExitDialogueMode() 
+    {
+        dialogueIsPlaying = false;
+        dialogueUI.SetActive(false);
+        dialogueText.text = "";
+
+    }
+
+    private void ContinueStory()
+    {
+          if (currentStory.canContinue)
+        {
+            dialogueText.text = currentStory.Continue();
+        }
+        else
+        {
+            ExitDialogueMode();
+        }
+    }
+
     
 
 }
