@@ -25,6 +25,14 @@ public class NPC : MonoBehaviour
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
 
+    [Header("Typing")]
+    [SerializeField] private float typingSpeed = 0.04f;
+    private Coroutine displayLineCoroutine;
+    private bool canContinueToNextLine = false;
+
+    [SerializeField] private GameObject continueIcon;
+
+
 
      private void Awake()
     {
@@ -34,6 +42,10 @@ public class NPC : MonoBehaviour
         }
 
         instance = this;
+    }
+
+    private void FixedUpdate() {
+        
     }
 
     void Start()
@@ -50,6 +62,7 @@ public class NPC : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+
         }
 
     void OnEnable()
@@ -94,7 +107,8 @@ public class NPC : MonoBehaviour
             return;
         }   
         //continue to next line in the dialogue when next is pressed
-        if (currentStory.currentChoices.Count == 0 && Input.GetKeyDown(KeyCode.Return))
+        if (canContinueToNextLine 
+            && currentStory.currentChoices.Count == 0 && Input.GetKeyDown(KeyCode.Return))
         {
             ContinueStory();
         }
@@ -134,13 +148,62 @@ public class NPC : MonoBehaviour
     {
           if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
+            // dialogueText.text = currentStory.Continue();
+            if (displayLineCoroutine != null )
+            {
+                StopCoroutine(displayLineCoroutine);
+            }
+            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
             //display choices if there are any
-            DisplayChoices();
+           
         }
         else
         {
             StartCoroutine(ExitDialogueMode());
+        }
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        //empty dialogue text so previous line no longer shows
+        dialogueText.text = "";
+        
+
+        //hide items when text is typing
+        continueIcon.SetActive(false);
+        HideChoices();
+
+        canContinueToNextLine = false;
+        //display each letter one at a time
+        foreach (char letter in line.ToCharArray())
+        {
+
+            // if(Input.GetKeyDown(KeyCode.Return))
+            // {
+            //     dialogueText.text = line;
+            //     break;
+
+
+            // }
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+
+
+        }
+
+        //actions to to take after the entire line has finished displaying
+        continueIcon.SetActive(true);
+        DisplayChoices();
+
+        canContinueToNextLine = true;
+
+    }
+
+    private void HideChoices()
+    {
+        foreach (GameObject choiceButton in choices)
+        {
+            choiceButton.SetActive(false);
         }
     }
 
@@ -182,8 +245,10 @@ public class NPC : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        currentStory.ChooseChoiceIndex(choiceIndex);
-        ContinueStory();
+    
+            currentStory.ChooseChoiceIndex(choiceIndex);
+            ContinueStory();
+        
         
     }
 
