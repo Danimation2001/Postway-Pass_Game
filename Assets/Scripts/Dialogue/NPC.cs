@@ -26,7 +26,8 @@ public class NPC : MonoBehaviour
     private TextMeshProUGUI[] choicesText;
 
     [Header("Typing")]
-    [SerializeField] private float typingSpeed = 0.02f;
+    [SerializeField] private float typingSpeed = 0.05f;
+    [SerializeField] private float typingSpeedFast = 0.001f;
     private Coroutine displayLineCoroutine;
     private bool canContinueToNextLine = false;
 
@@ -136,7 +137,7 @@ public class NPC : MonoBehaviour
 
     private IEnumerator ExitDialogueMode() 
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
 
         dialogueIsPlaying = false;
         dialogueUI.SetActive(false);
@@ -177,15 +178,19 @@ public class NPC : MonoBehaviour
         //display each letter one at a time
         foreach (char letter in line.ToCharArray())
         {
-
-        //     if(Input.GetKeyDown(KeyCode.Return))
-        //     {
-        //     dialogueText.text = line;
-        //     break;
-        //   }
-
+            {
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
+          }
+
+            if(Input.GetKeyDown(KeyCode.Return))
+            {
+            // dialogueText.text = line;
+            // break;
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typingSpeedFast);
+          }
+          
 
 
         }
