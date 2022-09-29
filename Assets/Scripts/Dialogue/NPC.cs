@@ -26,7 +26,7 @@ public class NPC : MonoBehaviour
     private TextMeshProUGUI[] choicesText;
 
     [Header("Typing")]
-    [SerializeField] private float typingSpeed = 0.04f;
+    [SerializeField] private float typingSpeed = 0.02f;
     private Coroutine displayLineCoroutine;
     private bool canContinueToNextLine = false;
 
@@ -178,11 +178,12 @@ public class NPC : MonoBehaviour
         foreach (char letter in line.ToCharArray())
         {
 
-            if(Input.GetKeyDown(KeyCode.Return))
-            {
-           dialogueText.text = line;
-            break;
-          }
+        //     if(Input.GetKeyDown(KeyCode.Return))
+        //     {
+        //     dialogueText.text = line;
+        //     break;
+        //   }
+
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
 
@@ -238,10 +239,8 @@ public class NPC : MonoBehaviour
         // Event system requires we clear it first and then wait for atleast one frame before we set the current selected object
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
-        if(Input.GetKeyDown("Down"))
-        {
-            EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
-        }
+        EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
+
     }
 
     public void MakeChoice(int choiceIndex)
