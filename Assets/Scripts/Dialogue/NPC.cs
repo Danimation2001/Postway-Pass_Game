@@ -129,9 +129,7 @@ public class NPC : MonoBehaviour
             dialoguecam.SetActive(true);
            EnterDialogueMode(inkJSON);
         }
-        else {
-            dialoguecam.SetActive(false);
-        }
+          
     }
 
     private void EnterDialogueMode(TextAsset inkJSON)
@@ -150,6 +148,7 @@ public class NPC : MonoBehaviour
         dialogueIsPlaying = false;
         dialogueUI.SetActive(false);
         dialogueText.text = "";
+        dialoguecam.SetActive(false);
 
     }
 
