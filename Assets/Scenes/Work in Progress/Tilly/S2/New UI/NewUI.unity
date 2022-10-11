@@ -322,7 +322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &679517379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 1098826486}
   m_Follow: {fileID: 2075044970}
   m_Lens:
-    FieldOfView: 45
+    FieldOfView: 65
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 300
@@ -368,8 +368,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 679517378}
-  m_LocalRotation: {x: 0.18620674, y: -0.12109785, z: 0.023133479, w: 0.97474474}
-  m_LocalPosition: {x: -1.3123653, y: 2.37, z: 1.4539998}
+  m_LocalRotation: {x: 0.22582191, y: 0.094667435, z: -0.022054913, w: 0.96930707}
+  m_LocalPosition: {x: -3.49, y: 2.27, z: 1.1400001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: -0.74, y: 2.37, z: 4.89}
+  m_FollowOffset: {x: -2.9176347, y: 2.27, z: 4.576}
   m_XDamping: 1.1
   m_YDamping: 1
   m_ZDamping: 1
@@ -673,52 +673,52 @@ PrefabInstance:
     - target: {fileID: 2234545198791764665, guid: 964ab9466e5b00d449ebe1d2f56ead32,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.9176347
       objectReference: {fileID: 0}
     - target: {fileID: 2234545198791764665, guid: 964ab9466e5b00d449ebe1d2f56ead32,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.074
+      value: 2.27
       objectReference: {fileID: 0}
     - target: {fileID: 2234545198791764665, guid: 964ab9466e5b00d449ebe1d2f56ead32,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.12
+      value: 4.576
       objectReference: {fileID: 0}
     - target: {fileID: 2234545198791764665, guid: 964ab9466e5b00d449ebe1d2f56ead32,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.96930707
       objectReference: {fileID: 0}
     - target: {fileID: 2234545198791764665, guid: 964ab9466e5b00d449ebe1d2f56ead32,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.22582191
       objectReference: {fileID: 0}
     - target: {fileID: 2234545198791764665, guid: 964ab9466e5b00d449ebe1d2f56ead32,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.094667435
       objectReference: {fileID: 0}
     - target: {fileID: 2234545198791764665, guid: 964ab9466e5b00d449ebe1d2f56ead32,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.022054913
       objectReference: {fileID: 0}
     - target: {fileID: 2234545198791764670, guid: 964ab9466e5b00d449ebe1d2f56ead32,
         type: 3}
       propertyPath: field of view
-      value: 44.38
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 2234545198791764670, guid: 964ab9466e5b00d449ebe1d2f56ead32,
         type: 3}
       propertyPath: far clip plane
-      value: 600
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2234545198791764670, guid: 964ab9466e5b00d449ebe1d2f56ead32,
         type: 3}
       propertyPath: near clip plane
-      value: 0.01
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2293737875901738038, guid: 964ab9466e5b00d449ebe1d2f56ead32,
         type: 3}
@@ -1925,6 +1925,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4231781671768953834, guid: d13d0e08e78514aaa90f4c6fe3be66ba,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4231781671768953835, guid: d13d0e08e78514aaa90f4c6fe3be66ba,
         type: 3}
       propertyPath: m_Radius
@@ -1938,6 +1943,11 @@ PrefabInstance:
     - target: {fileID: 4231781671768953835, guid: d13d0e08e78514aaa90f4c6fe3be66ba,
         type: 3}
       propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231781671768953835, guid: d13d0e08e78514aaa90f4c6fe3be66ba,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4231781671768953844, guid: d13d0e08e78514aaa90f4c6fe3be66ba,

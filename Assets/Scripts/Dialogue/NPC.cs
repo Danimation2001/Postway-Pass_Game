@@ -11,6 +11,9 @@ using Cinemachine;
 public class NPC : MonoBehaviour
 {
     private static NPC instance;
+
+    [SerializeField] public GameObject player;
+    [SerializeField] public Animator playerAnimation;
     
     [SerializeField] public GameObject interactDialogue; //Interact button for dialogue (e)
     [SerializeField] public GameObject dialogueUI; //UI Canvas for dialogue
@@ -92,6 +95,7 @@ public class NPC : MonoBehaviour
         {
             interact.Enable();
             interactDialogue.GetComponent<Animator>().Play("Fade In");
+            
         }
     }
     private void OnTriggerExit(Collider other)
@@ -125,6 +129,7 @@ public class NPC : MonoBehaviour
         if(!dialogueUI.activeSelf)
         {
             dialogueUI.SetActive(true);
+            player.GetComponent<Animator>().Play("Idle");
             Cursor.lockState = CursorLockMode.None;
             targetGroup.m_Targets[1].target = gameObject.transform;
             dialoguecam.SetActive(true);
