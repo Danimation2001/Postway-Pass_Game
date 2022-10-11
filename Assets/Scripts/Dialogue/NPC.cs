@@ -34,6 +34,7 @@ public class NPC : MonoBehaviour
 
     public CinemachineTargetGroup targetGroup;
     public GameObject dialoguecam;
+    public GameObject playercam;
 
     [SerializeField] private GameObject continueIcon;
 
@@ -127,6 +128,7 @@ public class NPC : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             targetGroup.m_Targets[1].target = gameObject.transform;
             dialoguecam.SetActive(true);
+            playercam.SetActive(false);
            EnterDialogueMode(inkJSON);
         }
           
@@ -149,6 +151,7 @@ public class NPC : MonoBehaviour
         dialogueUI.SetActive(false);
         dialogueText.text = "";
         dialoguecam.SetActive(false);
+        playercam.SetActive(true);
 
     }
 
