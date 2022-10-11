@@ -98,6 +98,7 @@ public class NPC : MonoBehaviour
             
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -129,7 +130,6 @@ public class NPC : MonoBehaviour
         if(!dialogueUI.activeSelf)
         {
             dialogueUI.SetActive(true);
-            player.GetComponent<Animator>().Play("Idle");
             Cursor.lockState = CursorLockMode.None;
             targetGroup.m_Targets[1].target = gameObject.transform;
             dialoguecam.SetActive(true);

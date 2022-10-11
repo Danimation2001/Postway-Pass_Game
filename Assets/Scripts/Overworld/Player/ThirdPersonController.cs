@@ -145,6 +145,7 @@ public class ThirdPersonController : MonoBehaviour
         if (NPC.GetInstance().dialogueIsPlaying)
         {
             canMove = false;
+            animator.GetComponent<Animator>().Play("Idle");
             return;
         }
        else
