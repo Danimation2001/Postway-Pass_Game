@@ -6,6 +6,7 @@ using UnityEngine.Animations;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using Cinemachine;
 
 public class NPC : MonoBehaviour
 {
@@ -31,9 +32,10 @@ public class NPC : MonoBehaviour
     private Coroutine displayLineCoroutine;
     private bool canContinueToNextLine = false;
 
+    public CinemachineTargetGroup targetGroup;
+    public GameObject dialoguecam;
+
     [SerializeField] private GameObject continueIcon;
-
-
 
      private void Awake()
     {
@@ -54,6 +56,7 @@ public class NPC : MonoBehaviour
         interact.Disable();
         dialogueIsPlaying = false;
         dialogueUI.SetActive(false);
+        dialoguecam.SetActive(false);
 
         //get all of the choices text
         choicesText = new TextMeshProUGUI[choices.Length];
@@ -122,7 +125,12 @@ public class NPC : MonoBehaviour
         {
             dialogueUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
+            targetGroup.m_Targets[1].target = gameObject.transform;
+            dialoguecam.SetActive(true);
            EnterDialogueMode(inkJSON);
+        }
+        else {
+            dialoguecam.SetActive(false);
         }
     }
 
