@@ -34,6 +34,7 @@ public class NPC : MonoBehaviour
     [SerializeField] private float typingSpeedFast = 0.001f;
     private Coroutine displayLineCoroutine;
     private bool canContinueToNextLine = false;
+    private bool returnButtonPressedThisFrame = false;
 
     public CinemachineTargetGroup targetGroup;
     public GameObject dialoguecam;
@@ -70,8 +71,7 @@ public class NPC : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
-
-        }
+    }
 
     void OnEnable()
     {
@@ -111,15 +111,20 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            returnButtonPressedThisFrame = true;
+        }
          //return if dialogue isn't playing
         if(!dialogueIsPlaying)
         {
             return;
         }   
         //continue to next line in the dialogue when next is pressed
-        if (canContinueToNextLine 
-            && currentStory.currentChoices.Count == 0 && Input.GetKeyDown(KeyCode.Return))
+        if (canContinueToNextLine && returnButtonPressedThisFrame && currentStory.currentChoices.Count == 0)
         {
+            returnButtonPressedThisFrame = false;
             ContinueStory();
         }
     }
@@ -179,6 +184,7 @@ public class NPC : MonoBehaviour
         }
     }
 
+
     private IEnumerator DisplayLine(string line)
     {
         //empty dialogue text so previous line no longer shows
@@ -193,21 +199,18 @@ public class NPC : MonoBehaviour
         //display each letter one at a time
         foreach (char letter in line.ToCharArray())
         {
+            if(returnButtonPressedThisFrame)
             {
+            returnButtonPressedThisFrame = false;
+            dialogueText.text = line;
+            break;
+            //dialogueText.text += letter;
+            //yield return new WaitForSeconds(typingSpeedFast);
+          }
+          else{
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
           }
-
-            if(Input.GetKeyDown(KeyCode.Return))
-            {
-            // dialogueText.text = line;
-            // break;
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(typingSpeedFast);
-          }
-          
-
-
         }
 
         //actions to to take after the entire line has finished displaying
