@@ -69,8 +69,6 @@ public class RBController : MonoBehaviour
     private int _animIDMotionSpeed;
 
 
-    public bool canMove;
-
     void Awake()
     {
         if (_mainCamera == null)
@@ -78,7 +76,6 @@ public class RBController : MonoBehaviour
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         }
 
-        canMove = true;
     }
     void Start()
     {
@@ -145,9 +142,14 @@ public class RBController : MonoBehaviour
 
          if (NPC.GetInstance().dialogueIsPlaying)
         {
-            canMove = false;
+            //canMove = false;
+            _RB.isKinematic = true;
             animator.GetComponent<Animator>().Play("Idle");
             return;
+        }
+        else
+        {
+            _RB.isKinematic = false;
         }
     }
 
