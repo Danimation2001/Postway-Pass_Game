@@ -68,12 +68,17 @@ public class RBController : MonoBehaviour
     private int _animIDFreeFall;
     private int _animIDMotionSpeed;
 
+
+    public bool canMove;
+
     void Awake()
     {
         if (_mainCamera == null)
         {
             _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         }
+
+        canMove = true;
     }
     void Start()
     {
@@ -137,6 +142,13 @@ public class RBController : MonoBehaviour
             _jumps = 0;
         }
         else _isAirborne = true;
+
+         if (NPC.GetInstance().dialogueIsPlaying)
+        {
+            canMove = false;
+            animator.GetComponent<Animator>().Play("Idle");
+            return;
+        }
     }
 
     void FixedUpdate()
