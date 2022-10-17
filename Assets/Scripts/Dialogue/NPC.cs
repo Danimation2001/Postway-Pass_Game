@@ -31,7 +31,7 @@ public class NPC : MonoBehaviour
 
     [Header("Typing")]
     [SerializeField] private float typingSpeed = 0.05f;
-    [SerializeField] private float typingSpeedFast = 0.001f;
+    //[SerializeField] private float typingSpeedFast = 0.001f;
     private Coroutine displayLineCoroutine;
     private bool canContinueToNextLine = false;
     private bool returnButtonPressedThisFrame = false;
@@ -112,7 +112,7 @@ public class NPC : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
         {
             returnButtonPressedThisFrame = true;
         }
