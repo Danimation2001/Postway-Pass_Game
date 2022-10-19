@@ -11,7 +11,13 @@ public class MapFileReader : MonoBehaviour
 
     void Awake()
     {
-        lines = beatMap.ToString().Split('\r');
+        lines = beatMap.ToString().Split(new char[] {'\n', '\r'});
+        
+        foreach(string line in lines)
+        {
+            Debug.Log(line);
+        }
+        
         RbmReader reader = new RbmReader(lines);
         data = reader.GetReadedData();
     }

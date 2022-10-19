@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -106,15 +106,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CombatUI_0
+      name: health_border
       rect:
         serializedVersion: 2
         x: 273
-        y: 1813
+        y: 1684
         width: 1552
         height: 218
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -127,15 +127,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CombatUI_1
+      name: health_back
       rect:
         serializedVersion: 2
-        x: 269
-        y: 1492
+        x: 273
+        y: 1384
         width: 1552
         height: 218
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -148,14 +148,14 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CombatUI_2
+      name: health_fill
       rect:
         serializedVersion: 2
-        x: 326
-        y: 1199
-        width: 1466
-        height: 180
-      alignment: 0
+        x: 273
+        y: 1084
+        width: 1552
+        height: 218
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -169,36 +169,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CombatUI_3
+      name: emote_healthy
       rect:
         serializedVersion: 2
-        x: 317
-        y: 906
-        width: 1466
-        height: 180
+        x: 524
+        y: 481
+        width: 500
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94249545c296cca4184c4b2b74130bff
-      internalID: -672625613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CombatUI_9
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 406
-        width: 380
-        height: 336
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -211,15 +190,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CombatUI_11
+      name: emote_hurt
       rect:
         serializedVersion: 2
-        x: 482
-        y: 406
-        width: 477
-        height: 336
+        x: 1024
+        y: 481
+        width: 500
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -232,15 +211,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CombatUI_12
+      name: emote_lose
       rect:
         serializedVersion: 2
-        x: 1054
-        y: 402
-        width: 380
-        height: 451
+        x: 1524
+        y: 481
+        width: 500
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -253,15 +232,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CombatUI_13
+      name: emote_win
       rect:
         serializedVersion: 2
-        x: 1518
-        y: 397
-        width: 466
-        height: 493
+        x: 24
+        y: 481
+        width: 500
+        height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -274,7 +253,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CombatUI_15
+      name: arrow_down
       rect:
         serializedVersion: 2
         x: 110
@@ -282,7 +261,7 @@ TextureImporter:
         width: 281
         height: 291
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -295,7 +274,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CombatUI_16
+      name: arrow_left
       rect:
         serializedVersion: 2
         x: 613
@@ -303,7 +282,7 @@ TextureImporter:
         width: 291
         height: 281
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -316,7 +295,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CombatUI_17
+      name: arrow_right
       rect:
         serializedVersion: 2
         x: 1098
@@ -324,7 +303,7 @@ TextureImporter:
         width: 291
         height: 281
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -337,7 +316,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CombatUI_18
+      name: arrow_up
       rect:
         serializedVersion: 2
         x: 1604
@@ -345,7 +324,7 @@ TextureImporter:
         width: 282
         height: 291
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -368,25 +347,25 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CombatUI_11: 249255001
-      CombatUI_12: 228738584
       CombatUI_6: 1786783871
       CombatUI_4: 33719405
-      CombatUI_0: -1501829543
-      CombatUI_15: -91874197
+      health_fill: 2000115761
+      arrow_down: -91874197
+      health_back: -44266297
       CombatUI_14: -1539581941
+      arrow_right: 1224924117
+      arrow_up: 1068562351
       CombatUI_5: -159913087
-      CombatUI_18: 1068562351
-      CombatUI_1: -44266297
+      emote_win: 2029962533
+      health_border: -1501829543
+      emote_healthy: 1117859131
       CombatUI_8: 1815135147
-      CombatUI_2: 2000115761
       CombatUI_10: 592377478
-      CombatUI_17: 1224924117
+      arrow_left: 1744532206
       CombatUI_3: -672625613
-      CombatUI_13: 2029962533
-      CombatUI_9: 1117859131
+      emote_lose: 228738584
+      emote_hurt: 249255001
       CombatUI_7: -480828367
-      CombatUI_16: 1744532206
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
