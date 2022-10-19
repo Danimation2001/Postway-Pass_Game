@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class AnimationSync : MonoBehaviour
 {
-    public AnimationClip anim;
-    public Animator animator;
+    Animator animator;
     public float tempo;
+    public float delay;
+
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("PlayAnim", 0.5f, tempo);
+        animator = GetComponent<Animator>();
+        InvokeRepeating("PlayAnim", delay, tempo);
     }
 
     void PlayAnim()
     {
-        if(!Conductor.instance.songFinished)
+        if(!Conductor.instance.songFinished && !GameManager.Instance.gameOver)
         {
-            animator.SetTrigger("Pulse");
+            animator.Play("Bounce", -1, 0f);
         }
     }
 }

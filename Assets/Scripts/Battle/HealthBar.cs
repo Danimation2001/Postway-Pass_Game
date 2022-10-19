@@ -29,34 +29,34 @@ public class HealthBar : MonoBehaviour
         _slider.value = health;
         if (_slider.value < _slider.maxValue)
         {
-            healthAnim.Play("Shake");
+            healthAnim.Play("Shake", -1 ,0);
         }
         EvaluateEmote();
     }
 
     void EvaluateEmote()
     {
-        if (_slider.value >= 75)
+        if (_slider.value >= _slider.maxValue * 0.75f)
         {
             if (emoteImage.sprite != emotes[0])
             {
-                emoteAnim.Play("Bounce");
+                emoteAnim.Play("Bounce", -1 ,0);
             }
             emoteImage.sprite = emotes[0];
         }
-        else if (_slider.value >= 50)
+        else if (_slider.value >= _slider.maxValue * 0.5f)
         {
             if (emoteImage.sprite != emotes[1])
             {
-                emoteAnim.Play("Bounce");
+                emoteAnim.Play("Bounce", -1 ,0);
             }
             emoteImage.sprite = emotes[1];
         }
-        else if (_slider.value >= 25)
+        else if (_slider.value >= _slider.maxValue * 0.25f)
         {
             if (emoteImage.sprite != emotes[2])
             {
-                emoteAnim.Play("Bounce");
+                emoteAnim.Play("Bounce", -1 ,0);
             }
             emoteImage.sprite = emotes[2];
         }
@@ -64,7 +64,7 @@ public class HealthBar : MonoBehaviour
         {
             if (emoteImage.sprite != emotes[3])
             {
-                emoteAnim.Play("Bounce");
+                emoteAnim.Play("Bounce", -1 ,0);
             }
             emoteImage.sprite = emotes[3];
         }
