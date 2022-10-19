@@ -109,9 +109,13 @@ public class GameManager : MonoBehaviour
         Conductor.instance.musicSource.Stop();
     }
 
+    GameObject gameOverUI;
+
     public void GameOver()
     {
         gameOver = true;
         Conductor.instance.musicSource.Stop();
+        gameOverUI = GameObject.Find("Game Over UI");
+        gameOverUI.GetComponent<Animator>().Play("Fade In");
     }
 }

@@ -41,10 +41,19 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(InitialFade());
     }
 
+    public float initialDelay;
+
     IEnumerator InitialFade()
     {
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSeconds(initialDelay);
         transition.Play("Fade Game In");
+    }
+
+    public void Retry()
+    {
+        GameManager.Instance.gameOver = false;
+        Scene current = SceneManager.GetActiveScene();
+        StartCoroutine(LoadLevel(current.buildIndex));
     }
 
     public void LoadCombatScene()

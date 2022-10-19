@@ -13,10 +13,10 @@ public class MapFileReader : MonoBehaviour
     {
         lines = beatMap.ToString().Split(new char[] {'\n', '\r'});
         
-        foreach(string line in lines)
-        {
-            Debug.Log(line);
-        }
+        // foreach(string line in lines)
+        // {
+        //     Debug.Log(line);
+        // }
         
         RbmReader reader = new RbmReader(lines);
         data = reader.GetReadedData();

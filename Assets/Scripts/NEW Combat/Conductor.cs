@@ -148,6 +148,8 @@ public class Conductor : MonoBehaviour
         }
     }
 
+    public float endTimer;
+
     // Update is called once per frame
     void Update()
     {
@@ -181,7 +183,14 @@ public class Conductor : MonoBehaviour
         if (nextIndex[0] >= upTrack.Length && nextIndex[1] >= downTrack.Length && nextIndex[2] >= leftTrack.Length && nextIndex[3] >= rightTrack.Length
         && scrollers[0].childCount == 0 && scrollers[1].childCount == 0 && scrollers[2].childCount == 0 && scrollers[3].childCount == 0)
         {
-            songFinished = true;
+            if (endTimer > 0)
+            {
+                endTimer -= Time.deltaTime;
+            }
+            if (endTimer <= 0)
+            {
+                songFinished = true;
+            }
         }
 
         if (songFinished)
