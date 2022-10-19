@@ -11,7 +11,7 @@ public class MapFileReader : MonoBehaviour
 
     void Awake()
     {
-        lines = beatMap.ToString().Split(new char[] {'\n', '\r'});
+        lines = beatMap.ToString().Split(new string[] {"\r\n", "\n", "\r"}, System.StringSplitOptions.None);
         
         // foreach(string line in lines)
         // {
