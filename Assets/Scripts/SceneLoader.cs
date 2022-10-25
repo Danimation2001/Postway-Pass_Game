@@ -64,10 +64,16 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadLevel(2));
     }
 
-    public void LoadOverworldScene(int _index)
+    public void LoadWinterScene()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        StartCoroutine(LoadLevel(_index));
+        StartCoroutine(LoadLevel(2));
+    }
+
+     public void LoadOfficeScene()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        StartCoroutine(LoadLevel(1));
     }
 
     public void LoadMainMenu()
@@ -88,9 +94,9 @@ public class SceneLoader : MonoBehaviour
         //wait for animation
         yield return new WaitForSecondsRealtime(transitionTime);
 
-        Time.timeScale = 1f;
-
         //load scene
         SceneManager.LoadScene(_levelIndex);
+
+        Time.timeScale = 1f;
     }
 }

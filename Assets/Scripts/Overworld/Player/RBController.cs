@@ -80,6 +80,7 @@ public class RBController : MonoBehaviour
     void Start()
     {
         _RB = GetComponent<Rigidbody>();
+        _RB.isKinematic = true;
         _input = GetComponent<StarterAssetsInputs>();
         _activeLength = rayLength;
 
@@ -91,8 +92,18 @@ public class RBController : MonoBehaviour
         AssignAnimationIDs();
     }
 
+    float startTimer = 0.1f;
     void Update()
     {
+        if(startTimer > 0)
+        {
+            startTimer -= Time.deltaTime;
+        }
+        else if(startTimer <= 0)
+        {
+            _RB.isKinematic = false;
+        }
+
         //reposition the player if they need to be
         if (GameManager.Instance.needsReposition)
         {

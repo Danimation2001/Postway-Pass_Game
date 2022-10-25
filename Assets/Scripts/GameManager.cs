@@ -102,6 +102,9 @@ public class GameManager : MonoBehaviour
         maxCounted = false;
         maxMail = 0;
         maxGoldMail = 0;
+        hasFrozenKey = false;
+        unlockedCemeteryGate = false;
+        gameOver = false;
     }
 
     public void FinishedSong()
