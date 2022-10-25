@@ -14,6 +14,7 @@ public class NPC : MonoBehaviour
 
     [SerializeField] public GameObject player;
     [SerializeField] public Animator playerAnimation;
+    public Animator npcAnimator;
     
     [SerializeField] public GameObject interactDialogue; //Interact button for dialogue (e)
     [SerializeField] public GameObject dialogueUI; //UI Canvas for dialogue
@@ -134,6 +135,8 @@ public class NPC : MonoBehaviour
     {
         if(!dialogueUI.activeSelf)
         {
+            interact.Disable();
+            interactDialogue.GetComponent<Animator>().Play("Fade Out");
             dialogueUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             targetGroup.m_Targets[1].target = gameObject.transform;
@@ -155,20 +158,20 @@ public class NPC : MonoBehaviour
 
     private IEnumerator ExitDialogueMode() 
     {
+        Cursor.lockState = CursorLockMode.Locked;
         yield return new WaitForSeconds(0.5f);
-
         dialogueIsPlaying = false;
         dialogueUI.SetActive(false);
         dialogueText.text = "";
         dialoguecam.SetActive(false);
         playercam.SetActive(true);
-
     }
 
     private void ContinueStory()
     {
           if (currentStory.canContinue)
         {
+            npcAnimator.SetBool("isTalking", true);
             // dialogueText.text = currentStory.Continue();
             if (displayLineCoroutine != null )
             {
@@ -216,7 +219,7 @@ public class NPC : MonoBehaviour
         //actions to to take after the entire line has finished displaying
         continueIcon.SetActive(true);
         DisplayChoices();
-
+        npcAnimator.SetBool("isTalking", false);
         canContinueToNextLine = true;
 
     }
