@@ -22,4 +22,5 @@ public class AnimationSync : MonoBehaviour
             animator.Play("Bounce", -1, 0f);
         }
     }
+
 }
