@@ -20,6 +20,8 @@ TagManager:
   - Hidden Mail
   - Torch
   - Frozen Block
+  - Conductor
+  - Note
   layers:
   - Default
   - TransparentFX
@@ -31,9 +33,9 @@ TagManager:
   - Enemy
   - Particles
   - Flowers
-  - 
-  - 
-  - 
+  - Striker
+  - Arrows
+  - HitSparkles
   - 
   - 
   - 
@@ -57,6 +59,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Striker
+    uniqueID: 1341954273
+    locked: 0
+  - name: StrikerArrows
+    uniqueID: 615073969
+    locked: 0
   - name: Arrows
     uniqueID: 2540212767
+    locked: 0
+  - name: HitSparkles
+    uniqueID: 3568428991
     locked: 0
