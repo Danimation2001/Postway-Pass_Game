@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 393613997012897017}
   - component: {fileID: 2670094155376552804}
   - component: {fileID: 7385353750016581801}
+  - component: {fileID: 8143684334204820605}
   m_Layer: 0
   m_Name: Hit Effect
   m_TagString: Untagged
@@ -749,7 +750,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.02
+      value: 1.5
       mode: 0
       spread: 0
       speed:
@@ -4814,6 +4815,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!210 &8143684334204820605
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2938993453736810665}
+  m_Enabled: 1
+  m_SortingLayerID: -726538305
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &3972112999128990741
 GameObject:
   m_ObjectHideFlags: 0
@@ -4975,7 +4988,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1754754529
-  m_SortingLayer: 1
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 372756887, guid: 6870a9ec552184f4b8ba99894cd8992f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
