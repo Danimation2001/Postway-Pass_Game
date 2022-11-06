@@ -995,7 +995,7 @@ PrefabInstance:
     - target: {fileID: 7082096892734162074, guid: 372df59c74794c348a4665ddb06146a5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -18083,8 +18083,8 @@ MonoBehaviour:
   anim: {fileID: 1646981124}
   enemyAnim: {fileID: 1445984953}
   healthBar: {fileID: 1461771736}
-  health: 1000
-  maxHealth: 1000
+  health: 100
+  maxHealth: 100
   up:
     m_Name: Up
     m_Type: 1
