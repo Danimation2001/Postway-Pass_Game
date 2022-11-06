@@ -599,8 +599,9 @@ AudioSource:
   m_GameObject: {fileID: 357025079}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bfe5179c33873c7498477ddd047138ef, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 6a71293fc591a704f89eb968e1ee66a8,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 0076c24d4abb75e41b80ebf43b6e4c18, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -698,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7192c909cd1ee4f8a0f86612273847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatMap: {fileID: 4900000, guid: 42d38b1e921bafc4a9a592bb6240996a, type: 3}
+  beatMap: {fileID: 4900000, guid: 451d89841503f4d4db94038ad365788f, type: 3}
 --- !u!114 &357025082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,11 +712,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d421755d626b5a34eadbc5237c4c6112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songName: Reload
-  scrollSpeed: 3
+  songName: Tombstone
+  scrollSpeed: 3.5
   beatsOnScreen: 4
-  songBpm: 128
-  firstBeatOffset: 1.33
+  songBpm: 142
+  firstBeatOffset: 0.85
   notes:
   - {fileID: 3972112999128990741, guid: f9f1ff6e86d57c34cb71b9a420d646f4, type: 3}
   - {fileID: 3972112999128990741, guid: 8d9760750acd2fa4dbb9cfb8c8c208dd, type: 3}
@@ -742,7 +743,7 @@ MonoBehaviour:
   songStarted: 0
   songFinished: 0
   songPosInBeats: 0
-  endTimer: 2
+  endTimer: 10
 --- !u!4 &357025083
 Transform:
   m_ObjectHideFlags: 0
@@ -994,7 +995,7 @@ PrefabInstance:
     - target: {fileID: 7082096892734162074, guid: 372df59c74794c348a4665ddb06146a5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -3287,8 +3288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5d0d38551a6ec4d87cbf0fb75b1534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempo: 0.4677
-  delay: 1.1
+  tempo: 0.41
+  delay: 0.85
 --- !u!1 &1513265909
 GameObject:
   m_ObjectHideFlags: 0
@@ -3754,8 +3755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5d0d38551a6ec4d87cbf0fb75b1534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempo: 0.4677
-  delay: 1.1
+  tempo: 0.41
+  delay: 0.85
 --- !u!1001 &1664446950
 PrefabInstance:
   m_ObjectHideFlags: 0

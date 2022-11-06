@@ -74,7 +74,7 @@ public class Notev2 : MonoBehaviour
         _beenHit = true;
 
         //gain health and destroy
-        player.Heal(10);
+        player.Heal(5);
         gameObject.transform.parent = null;
         sprite.SetActive(false);
         hitParticle.Play();
