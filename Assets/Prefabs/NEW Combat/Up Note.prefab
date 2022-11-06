@@ -73,6 +73,8 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   hitParticle: {fileID: 8981669234769512095}
+  missParticle: {fileID: 6696047025729285465, guid: d82ebe19738e1454ca1d5e0eeb22a5e1,
+    type: 3}
   sprite: {fileID: 5678276026398892289}
 --- !u!58 &4254201731510656626
 CircleCollider2D:
@@ -185,7 +187,6 @@ GameObject:
   - component: {fileID: 3352157796890947973}
   - component: {fileID: 8981669234769512095}
   - component: {fileID: 32093198626372746}
-  - component: {fileID: 4639988090635126952}
   m_Layer: 0
   m_Name: Hit Effect
   m_TagString: Untagged
@@ -841,7 +842,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.49
+    radiusThickness: 0.8
     donutRadius: 0.62
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -4956,8 +4957,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -726538305
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4989,15 +4990,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!210 &4639988090635126952
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9169104728712932651}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_SortAtRoot: 0

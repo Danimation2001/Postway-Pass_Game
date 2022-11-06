@@ -101,7 +101,6 @@ GameObject:
   - component: {fileID: 2000178467354567169}
   - component: {fileID: 1938686994002217163}
   - component: {fileID: 2528795168338929222}
-  - component: {fileID: 5766739509124659115}
   m_Layer: 0
   m_Name: Hit Effect
   m_TagString: Untagged
@@ -757,7 +756,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.49
+    radiusThickness: 0.8
     donutRadius: 0.62
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -4872,8 +4871,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -726538305
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4905,18 +4904,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!210 &5766739509124659115
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4574529269063121760}
-  m_Enabled: 1
-  m_SortingLayerID: -726538305
-  m_SortingLayer: 4
-  m_SortingOrder: 0
-  m_SortAtRoot: 0
 --- !u!1 &5869526656294989288
 GameObject:
   m_ObjectHideFlags: 0
@@ -4929,7 +4916,7 @@ GameObject:
   - component: {fileID: 2989360355756123739}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

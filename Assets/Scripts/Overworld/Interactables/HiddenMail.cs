@@ -62,7 +62,7 @@ public class HiddenMail : MonoBehaviour
             //triggerActive = true;
             interact.Enable();
             interactCanvas.GetComponent<Animator>().Play("Fade In");
-            Debug.Log("ENTERED trigger radius");
+            //Debug.Log("ENTERED trigger radius");
         }
     }
 
@@ -73,7 +73,7 @@ public class HiddenMail : MonoBehaviour
             //triggerActive = false;
             interact.Disable();
             interactCanvas.GetComponent<Animator>().Play("Fade Out");
-            Debug.Log("LEFT trigger radius");
+            //Debug.Log("LEFT trigger radius");
 
             foreach (int id in GameManager.Instance.collectedMail) // check if this mail is marked as been collected
             {
