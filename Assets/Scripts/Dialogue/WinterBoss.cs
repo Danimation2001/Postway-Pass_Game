@@ -173,7 +173,7 @@ public class WinterBoss : MonoBehaviour
     {
           if (currentStory.canContinue)
         {
-            npcAnimator.SetBool("isTalking", true);
+            //npcAnimator.SetBool("isTalking", true);
             // dialogueText.text = currentStory.Continue();
             if (displayLineCoroutine != null )
             {
@@ -221,7 +221,7 @@ public class WinterBoss : MonoBehaviour
         //actions to to take after the entire line has finished displaying
         continueIcon.SetActive(true);
         DisplayChoices();
-        npcAnimator.SetBool("isTalking", false);
+        //npcAnimator.SetBool("isTalking", false);
         canContinueToNextLine = true;
 
     }
