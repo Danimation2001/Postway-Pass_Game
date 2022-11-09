@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class RBController : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class RBController : MonoBehaviour
     GameObject _mainCamera;
     private float _cinemachineTargetYaw;
     private float _cinemachineTargetPitch;
+    public CinemachineFreeLook cineCam;
 
     [Header("Respawning")]
     public GameObject groundPos;
