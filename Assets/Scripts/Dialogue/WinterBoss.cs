@@ -174,7 +174,7 @@ public class WinterBoss : MonoBehaviour
           if (currentStory.canContinue)
         {
             //npcAnimator.SetBool("isTalking", true);
-            // dialogueText.text = currentStory.Continue();
+           // dialogueText.text = currentStory.Continue();
             if (displayLineCoroutine != null )
             {
                 StopCoroutine(displayLineCoroutine);

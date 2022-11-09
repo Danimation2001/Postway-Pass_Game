@@ -153,11 +153,11 @@ public class RBController : MonoBehaviour
         }
         else _isAirborne = true;
 
-        if (GameObject.FindGameObjectWithTag("NPC") != null && NPC.GetInstance().dialogueIsPlaying)
+        if (GameObject.FindGameObjectWithTag("NPC") != null && WinterBoss.GetInstance().dialogueIsPlaying)
         {
             //canMove = false;
-            //_RB.isKinematic = true;
-            GetComponent<PlayerInput>().enabled = false;
+            _RB.isKinematic = true;
+            //GetComponent<PlayerInput>().enabled = false;
             animator.GetComponent<Animator>().Play("Idle");
             return;
         }
