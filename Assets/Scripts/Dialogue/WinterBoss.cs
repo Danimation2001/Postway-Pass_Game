@@ -7,6 +7,7 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class WinterBoss : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class WinterBoss : MonoBehaviour
 
     [SerializeField] public GameObject player;
     [SerializeField] public Animator playerAnimation;
-    public Animator npcAnimator;
+    //public Animator npcAnimator;
     
     [SerializeField] public GameObject interactDialogue; //Interact button for dialogue (e)
     [SerializeField] public GameObject dialogueUI; //UI Canvas for dialogue
@@ -41,6 +42,8 @@ public class WinterBoss : MonoBehaviour
     public CinemachineTargetGroup targetGroup;
     public GameObject dialoguecam;
     public GameObject playercam;
+    public int enemyID;
+    public GameObject combatPrefab;
 
     [SerializeField] private GameObject continueIcon;
 
@@ -73,6 +76,16 @@ public class WinterBoss : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+
+
+
+         foreach (int id in GameManager.Instance.defeatedEnemies) // check if this enemy is marked as being defeated
+        {
+            if (id == enemyID)
+            {
+                gameObject.SetActive(false);
+            }
+        }
     }
 
     void OnEnable()
@@ -97,6 +110,12 @@ public class WinterBoss : MonoBehaviour
         {
             interact.Enable();
             interactDialogue.GetComponent<Animator>().Play("Fade In");
+            
+
+            //GameManager.Instance.encounteredEnemy = enemyID;
+            //GameManager.Instance.encounteredEnemyCombatPrefab = combatPrefab;
+            GameManager.Instance.lastPlayerPosition = other.transform.localPosition;
+            GameManager.Instance.lastPlayerRotation = other.transform.localRotation;
             
         }
     }
