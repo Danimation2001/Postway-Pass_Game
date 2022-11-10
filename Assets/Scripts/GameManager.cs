@@ -60,8 +60,8 @@ public class GameManager : MonoBehaviour
     //[Header("Autumn Level")]
 
     [Header("Winter Level")]
-    [HideInInspector] public bool hasFrozenKey;
-    [HideInInspector] public bool unlockedCemeteryGate;
+    public bool hasFrozenKey;
+    public bool unlockedCemeteryGate;
 
     //[Header("Spring Level")]
 
@@ -107,9 +107,15 @@ public class GameManager : MonoBehaviour
         gameOver = false;
     }
 
-    public void FinishedSong()
+    public void FinishedSong(string name)
     {
         Conductor.instance.musicSource.Stop();
+        switch(name)
+        {
+            case "Winter":
+                SceneLoader.Instance.LoadWinterScene();
+                break;
+        }
     }
 
     GameObject gameOverUI;

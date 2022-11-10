@@ -149,7 +149,6 @@ public class Conductor : MonoBehaviour
     }
 
     public float endTimer;
-
     // Update is called once per frame
     void Update()
     {
@@ -195,7 +194,7 @@ public class Conductor : MonoBehaviour
 
         if (songFinished)
         {
-            GameManager.Instance.FinishedSong();
+            GameManager.Instance.FinishedSong(songName);
         }
     }
 

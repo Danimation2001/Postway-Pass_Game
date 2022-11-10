@@ -9,6 +9,7 @@ public class WinterGate : MonoBehaviour
     public InputAction interact;
     ConstraintSource _constraintSource;
     public GameObject interactCanvas;
+    public GameObject noticePanel;
     bool gateOpen;
 
     void OnEnable()
@@ -63,18 +64,30 @@ public class WinterGate : MonoBehaviour
             StartCoroutine(OpenGate());
         // INFORM THE PLAYER THAT THEY NEED THE KEY!
         else
-            Debug.Log("YOU DON'T HAVE THE KEY!");
+        {
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            noticePanel.SetActive(true);
+        }
     }
 
+    public void CloseNotice()
+    {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        noticePanel.SetActive(false);
+    }
+
+    public GameObject barrier;
+    public Animator gateAnim;
     IEnumerator OpenGate()
     {
         gateOpen = true;
         interact.Disable();
         interactCanvas.GetComponent<Animator>().Play("Fade Out");
         // PLAY OPENNING ANIMATION.
-        yield return new WaitForSeconds(0);
-
-        // PLACEHOLDER
-        gameObject.SetActive(false);
+        gateAnim.Play("Gate_Open");
+        yield return new WaitForSeconds(1.5f);
+        barrier.SetActive(false);
     }
 }
