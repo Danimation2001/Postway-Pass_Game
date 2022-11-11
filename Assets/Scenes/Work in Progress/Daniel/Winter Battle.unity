@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1824837, g: 0.2281943, b: 0.3072455, a: 1}
+  m_IndirectSpecularColor: {r: 0.18248314, g: 0.22819331, b: 0.30724373, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -995,7 +995,7 @@ PrefabInstance:
     - target: {fileID: 7082096892734162074, guid: 372df59c74794c348a4665ddb06146a5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -17968,7 +17968,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636129125}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -18320,6 +18320,11 @@ PrefabInstance:
     - target: {fileID: 1468465340905485389, guid: 1c3ee6d8e76ffdf4b8985c35df09d286,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468465341155690488, guid: 1c3ee6d8e76ffdf4b8985c35df09d286,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2217488255251361486, guid: 1c3ee6d8e76ffdf4b8985c35df09d286,
