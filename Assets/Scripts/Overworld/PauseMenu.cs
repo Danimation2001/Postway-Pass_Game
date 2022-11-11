@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     CanvasGroup _pauseGroup;
     bool _isPaused;
 
-    public TMP_Text potionText;
+    //public TMP_Text potionText;
     public TMP_Text mailText;
     public TMP_Text goldMailText;
 
@@ -42,12 +42,13 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
-        overworldCounters.SetActive(false);
+        overworldCounters.SetActive(true);
+        //pauseScreen.SetActive(true);
         _pauseGroup.alpha = 1;
         _pauseGroup.blocksRaycasts = true;
         _pauseGroup.interactable = true;
         mailText.text = GameManager.Instance.mailCount.ToString();
-        potionText.text = GameManager.Instance.potionCount.ToString();
+        //spotionText.text = GameManager.Instance.potionCount.ToString();
         goldMailText.text = GameManager.Instance.goldMailCount.ToString();
         Time.timeScale = 0;
         _isPaused = true;
@@ -56,7 +57,8 @@ public class PauseMenu : MonoBehaviour
     public void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        overworldCounters.SetActive(true);
+        overworldCounters.SetActive(false);
+        //pauseScreen.SetActive(false);
         _pauseGroup.alpha = 0;
         _pauseGroup.blocksRaycasts = false;
         _pauseGroup.interactable = false;
