@@ -42,7 +42,7 @@ public class PauseMenu : MonoBehaviour
     public void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
-        overworldCounters.SetActive(true);
+        overworldCounters.SetActive(false);
         //pauseScreen.SetActive(true);
         _pauseGroup.alpha = 1;
         _pauseGroup.blocksRaycasts = true;
