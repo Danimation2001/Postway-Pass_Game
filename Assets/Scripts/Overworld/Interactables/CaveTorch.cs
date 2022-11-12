@@ -33,6 +33,11 @@ public class CaveTorch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(GameManager.Instance.hasFrozenKey)
+        {
+            LightTorch();
+        }
+        
         interact.Disable();
         _constraintSource.sourceTransform = Camera.main.transform;
         _constraintSource.weight = 1;

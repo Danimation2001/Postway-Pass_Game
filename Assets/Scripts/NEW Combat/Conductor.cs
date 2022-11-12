@@ -53,6 +53,7 @@ public class Conductor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.needsReposition = true;
         _startTimer = startTimer;
         MapFileReader fileReader = GetComponent<MapFileReader>();
         rhythmData = fileReader.data;

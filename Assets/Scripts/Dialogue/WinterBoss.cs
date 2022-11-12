@@ -63,6 +63,11 @@ public class WinterBoss : MonoBehaviour
 
     void Start()
     {
+        if(GameManager.Instance.defeatedWinterBoss)
+        {
+            gameObject.SetActive(false);
+        }
+
         interact.Disable();
         dialogueIsPlaying = false;
         dialogueUI.SetActive(false);
@@ -103,6 +108,7 @@ public class WinterBoss : MonoBehaviour
         return instance;
     }
 
+    GameObject playerTransform;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -110,13 +116,10 @@ public class WinterBoss : MonoBehaviour
         {
             interact.Enable();
             interactDialogue.GetComponent<Animator>().Play("Fade In");
-            
+            playerTransform = other.gameObject;
 
             //GameManager.Instance.encounteredEnemy = enemyID;
             //GameManager.Instance.encounteredEnemyCombatPrefab = combatPrefab;
-            GameManager.Instance.lastPlayerPosition = other.transform.localPosition;
-            GameManager.Instance.lastPlayerRotation = other.transform.localRotation;
-            
         }
     }
 
@@ -155,6 +158,8 @@ public class WinterBoss : MonoBehaviour
     {
         if(!dialogueUI.activeSelf)
         {
+            GameManager.Instance.lastPlayerPosition = playerTransform.transform.position;
+            GameManager.Instance.lastPlayerRotation = playerTransform.transform.rotation;
             interact.Disable();
             interactDialogue.GetComponent<Animator>().Play("Fade Out");
             dialogueUI.SetActive(true);
@@ -162,7 +167,7 @@ public class WinterBoss : MonoBehaviour
             targetGroup.m_Targets[1].target = gameObject.transform;
             dialoguecam.SetActive(true);
             playercam.SetActive(false);
-           EnterDialogueMode(inkJSON);
+            EnterDialogueMode(inkJSON);
         }
           
     }

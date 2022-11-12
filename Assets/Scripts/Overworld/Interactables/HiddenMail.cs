@@ -34,6 +34,12 @@ public class HiddenMail : MonoBehaviour
 
     void OnAwake()
     {
+
+    }
+
+    //starts with the mail object not visible
+    void Start()
+    {
         foreach (int id in GameManager.Instance.collectedMail) // check if this mail is marked as been collected
         {
             if (id == hiddenMail.mailID)
@@ -41,11 +47,7 @@ public class HiddenMail : MonoBehaviour
                 gameObject.SetActive(false);
             }
         }
-    }
 
-    //starts with the mail object not visible
-    void Start()
-    {
         interact.Disable();
         _constraintSource.sourceTransform = Camera.main.transform;
         _constraintSource.weight = 1;

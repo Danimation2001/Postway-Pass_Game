@@ -52,11 +52,6 @@ public class TorchPuzzleManager : MonoBehaviour
         {
             _torches[i] = torchObs[i].GetComponent<CaveTorch>();
         }
-
-        if (GameManager.Instance.hasFrozenKey)
-        {
-            CompletePuzzle();
-        }
     }
 
     // Update is called once per frame

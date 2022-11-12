@@ -11,6 +11,10 @@ public class IceBlock : MonoBehaviour
 
     void Start()
     {
+        if(GameManager.Instance.hasFrozenKey)
+        {
+            gameObject.SetActive(false);
+        }
         _anim = GetComponent<Animator>();
     }
 

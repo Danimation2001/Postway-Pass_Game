@@ -40,16 +40,16 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int encounteredEnemy;
 
     [Header("Respawning")]
-    [HideInInspector] public bool needsReposition = false;
-    [HideInInspector] public Vector3 lastPlayerPosition;
-    [HideInInspector] public Quaternion lastPlayerRotation;
+    public bool needsReposition = false;
+    public Vector3 lastPlayerPosition;
+    public Quaternion lastPlayerRotation;
 
     [Header("Collectables")]
-    [HideInInspector] public int potionCount;
-    [HideInInspector] public int mailCount;
-    [HideInInspector] public int goldMailCount;
-    [HideInInspector] public int maxMail;
-    [HideInInspector] public int maxGoldMail;
+    public int potionCount;
+    public int mailCount;
+    public int goldMailCount;
+    public int maxMail;
+    public int maxGoldMail;
     [HideInInspector] public bool maxCounted;
     [HideInInspector] public List<int> collectedPotions = new List<int>();
     [HideInInspector] public List<int> collectedMail = new List<int>();
@@ -62,16 +62,19 @@ public class GameManager : MonoBehaviour
     [Header("Winter Level")]
     public bool hasFrozenKey;
     public bool unlockedCemeteryGate;
+    public bool defeatedWinterBoss;
 
     //[Header("Spring Level")]
 
     [Header("Combat")]
-    [HideInInspector] public bool gameOver;
+    public bool gameOver;
 
     public void CollectMaxMails()
     {
-        GameObject[] mail = GameObject.FindGameObjectsWithTag("Mail");
-        maxMail = mail.Length;
+        List<GameObject> mail = new List<GameObject>();
+        mail.AddRange(GameObject.FindGameObjectsWithTag("Mail"));
+        mail.AddRange(GameObject.FindGameObjectsWithTag("Hidden Mail"));
+        maxMail = mail.Count;
 
         GameObject[] goldMail = GameObject.FindGameObjectsWithTag("GoldMail");
         maxGoldMail = goldMail.Length;
@@ -80,8 +83,12 @@ public class GameManager : MonoBehaviour
 
     public void RepositionPlayer(Transform _player)
     {
-        _player.localPosition = lastPlayerPosition;
-        _player.localRotation = lastPlayerRotation;
+        _player.GetComponent<Rigidbody>().isKinematic = true;
+        _player.GetComponent<RBController>().enabled = false;
+        _player.position = lastPlayerPosition;
+        _player.rotation = lastPlayerRotation;
+        _player.GetComponent<RBController>().enabled = true;
+        _player.GetComponent<Rigidbody>().isKinematic = false;
         needsReposition = false;
     }
 
@@ -104,6 +111,7 @@ public class GameManager : MonoBehaviour
         maxGoldMail = 0;
         hasFrozenKey = false;
         unlockedCemeteryGate = false;
+        defeatedWinterBoss = false;
         gameOver = false;
     }
 
@@ -113,6 +121,7 @@ public class GameManager : MonoBehaviour
         switch(name)
         {
             case "Winter":
+                defeatedWinterBoss = true;
                 SceneLoader.Instance.LoadWinterScene();
                 break;
         }
@@ -122,6 +131,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        Cursor.lockState = CursorLockMode.None;
         gameOver = true;
         Conductor.instance.musicSource.Stop();
         gameOverUI = GameObject.Find("Game Over UI");

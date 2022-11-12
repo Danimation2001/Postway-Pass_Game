@@ -52,8 +52,9 @@ public class SceneLoader : MonoBehaviour
     public void Retry()
     {
         GameManager.Instance.gameOver = false;
-        Scene current = SceneManager.GetActiveScene();
-        StartCoroutine(LoadLevel(current.buildIndex));
+        // Scene current = SceneManager.GetActiveScene();
+        // StartCoroutine(LoadLevel(current.buildIndex));
+        LoadWinterScene();
     }
 
     public void LoadCombatScene()

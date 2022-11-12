@@ -7,6 +7,7 @@ using TMPro;
 
 public class Mailbox : MonoBehaviour
 {
+    public string levelName;
     public int minMail;
     bool _canWin;
 
@@ -56,7 +57,15 @@ public class Mailbox : MonoBehaviour
         {
             if (GameManager.Instance.mailCount >= minMail)
             {
-                _canWin = true;
+                switch(levelName)
+                {
+                    case "Winter":
+                        if(GameManager.Instance.defeatedWinterBoss)
+                        {
+                            _canWin = true; 
+                        }
+                    break;
+                }
             }
 
             if (_canWin == true)
@@ -109,7 +118,7 @@ public class Mailbox : MonoBehaviour
         }
         else
         {
-            canWinText.text = "Wilbur's words echo in your head: 'You need atleast 4 pieces of mail to finish work for the day'";
+            canWinText.text = "Wilbur's words echo in your head: \"You need at least " + minMail + " pieces of mail to finish work for the day\"";
         }
 
         mailCountText.text = "Mail: " + GameManager.Instance.mailCount.ToString() + "/" + GameManager.Instance.maxMail.ToString();
