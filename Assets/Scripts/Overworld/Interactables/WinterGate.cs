@@ -89,5 +89,6 @@ public class WinterGate : MonoBehaviour
         gateAnim.Play("Gate_Open");
         yield return new WaitForSeconds(1.5f);
         barrier.SetActive(false);
+        GameManager.Instance.unlockedCemeteryGate = true;
     }
 }

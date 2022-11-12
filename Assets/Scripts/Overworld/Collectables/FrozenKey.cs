@@ -22,9 +22,6 @@ public class FrozenKey : MonoBehaviour
         }
         
         _anim = GetComponent<Animator>();
-
-        if (GameManager.Instance.hasFrozenKey)
-            Destroy(gameObject);
     }
 
     // Update is called once per frame

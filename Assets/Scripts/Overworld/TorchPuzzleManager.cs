@@ -34,17 +34,21 @@ public class TorchPuzzleManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        _key = GameObject.FindGameObjectWithTag("Frozen Key").GetComponent<FrozenKey>();
+        _iceBlock = GameObject.FindGameObjectWithTag("Frozen Block").GetComponent<IceBlock>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        if(GameManager.Instance.hasFrozenKey)
+        {
+            gameObject.SetActive(false);
+        }
+
         _timer = puzzleTimer;
-
-        _key = GameObject.FindGameObjectWithTag("Frozen Key").GetComponent<FrozenKey>();
-        _iceBlock = GameObject.FindGameObjectWithTag("Frozen Block").GetComponent<IceBlock>();
-       
-
+        
         // Get all the torch objects and assign their caveTorch components to the public array
         GameObject[] torchObs = GameObject.FindGameObjectsWithTag("Torch");
         _torches = new CaveTorch[torchObs.Length];
