@@ -82,7 +82,7 @@ public class Mailbox : MonoBehaviour
 
     public void EndLevel()
     {
-        SceneLoader.Instance.LoadMainMenu();
+        SceneLoader.Instance.LoadEnding();
     }
 
     public void ClosePopup()

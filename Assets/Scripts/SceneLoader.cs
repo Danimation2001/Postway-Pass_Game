@@ -77,6 +77,13 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadLevel(1));
     }
 
+    public void LoadEnding()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        GameManager.Instance.ResetAll();
+        StartCoroutine(LoadLevel(4));
+    }
+
 
     public void LoadMainMenu()
     {
@@ -89,7 +96,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadWinterBattleScene()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        StartCoroutine(LoadLevel(4));
+        StartCoroutine(LoadLevel(3));
     }
 
     IEnumerator LoadLevel(int _levelIndex)
