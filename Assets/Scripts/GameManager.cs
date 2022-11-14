@@ -83,12 +83,14 @@ public class GameManager : MonoBehaviour
 
     public void RepositionPlayer(Transform _player)
     {
-        _player.GetComponent<Rigidbody>().isKinematic = true;
         _player.GetComponent<RBController>().enabled = false;
+        _player.GetComponent<Rigidbody>().isKinematic = true;
+        _player.GetComponent<UnityEngine.InputSystem.PlayerInput>().enabled = false;
         _player.position = lastPlayerPosition;
         _player.rotation = lastPlayerRotation;
-        _player.GetComponent<RBController>().enabled = true;
+        _player.GetComponent<UnityEngine.InputSystem.PlayerInput>().enabled = true;
         _player.GetComponent<Rigidbody>().isKinematic = false;
+        _player.GetComponent<RBController>().enabled = true;
         needsReposition = false;
     }
 

@@ -37,7 +37,7 @@ public class InteractTeleport : MonoBehaviour
         {
             _player = other.transform.parent.gameObject;
             interact.Enable();
-            Debug.Log("Triggered");
+            // Debug.Log(_player.name);
             interactUI.GetComponent<Animator>().Play("Fade In");
         }
     }
@@ -54,10 +54,11 @@ public class InteractTeleport : MonoBehaviour
     IEnumerator Teleport()
     {
         // fade out and disable control
+        _player.GetComponent<RBController>().enabled = false;
+        _player.GetComponent<PlayerInput>().enabled = false;
         SceneLoader.Instance.transition.Play("Fade Game Out");
         _player.GetComponent<Rigidbody>().isKinematic = true;
         yield return new WaitForSeconds(1);
-        _player.GetComponent<RBController>().enabled = false;
 
         // teleport
         _player.transform.position = destination.position;
@@ -65,8 +66,9 @@ public class InteractTeleport : MonoBehaviour
 
         //fade in and enable control
         SceneLoader.Instance.transition.Play("Fade Game In");
-        _player.GetComponent<RBController>().enabled = true;
+        _player.GetComponent<PlayerInput>().enabled = true;
         _player.GetComponent<Rigidbody>().isKinematic = false;
+        _player.GetComponent<RBController>().enabled = true;
         yield return new WaitForSeconds(1);
     }
 }
