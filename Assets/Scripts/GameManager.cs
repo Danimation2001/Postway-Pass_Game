@@ -68,7 +68,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Combat")]
     public bool gameOver;
-
     public void CollectMaxMails()
     {
         List<GameObject> mail = new List<GameObject>();
@@ -127,14 +126,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    GameObject gameOverUI;
+    public GameObject gameOverUI;
 
     public void GameOver()
     {
         Cursor.lockState = CursorLockMode.None;
         gameOver = true;
         Conductor.instance.musicSource.Stop();
-        gameOverUI = GameObject.Find("Game Over UI");
-        gameOverUI.GetComponent<Animator>().Play("Fade In");
+        //gameOverUI = GameObject.Find("Game Over UI");
+        //gameOverUI.GetComponent<Animator>().Play("Fade In");
+        gameOverUI.SetActive(true);
     }
 }
