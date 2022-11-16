@@ -15,7 +15,6 @@ public class TorchPuzzleManager : MonoBehaviour
         }
     }
 
-
     public bool puzzleHasStarted;
     public bool puzzleFinished;
     public float puzzleTimer;
