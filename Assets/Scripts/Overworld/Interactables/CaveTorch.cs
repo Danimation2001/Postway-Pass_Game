@@ -18,6 +18,9 @@ public class CaveTorch : MonoBehaviour
     [Header("PLACEHOLDER. REMOVE WHEN FINAL ASSET IS READY")]
     public Material offMat, onMat;
 
+    //holds flame sound effect
+    public AudioSource audioSource;
+
     void OnEnable()
     {
         interact.Enable();
@@ -95,6 +98,7 @@ public class CaveTorch : MonoBehaviour
     {
         //GetComponentInChildren<MeshRenderer>().material = onMat;
         Flame.SetActive(true);
+        audioSource.Play();
         lit = true;
     }
 }
