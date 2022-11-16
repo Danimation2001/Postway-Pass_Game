@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TorchPuzzleManager : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class TorchPuzzleManager : MonoBehaviour
     float _timer;
     bool[] _litStatus;
     CaveTorch[] _torches;
+
+    //for timer UI
+    public GameObject timerUI;
+    public Image timer_radial;
+
 
     void Awake()
     {
@@ -64,7 +70,9 @@ public class TorchPuzzleManager : MonoBehaviour
         // count down the timer
         if (puzzleHasStarted && !puzzleFinished)
         {
+            timerUI.SetActive(true);
             _timer -= Time.deltaTime;
+            timer_radial.fillAmount = _timer / puzzleTimer;
 
             if (CheckIfAllLit())
                 CompletePuzzle();
@@ -101,6 +109,7 @@ public class TorchPuzzleManager : MonoBehaviour
         }
 
         puzzleHasStarted = false;
+        timerUI.SetActive(false);
         _timer = puzzleTimer;
     }
 
@@ -108,6 +117,7 @@ public class TorchPuzzleManager : MonoBehaviour
     {
         Debug.Log("FINISHED");
         puzzleFinished = true;
+        timerUI.SetActive(false);
         _key.canBeCollected = true;
         _iceBlock.iceMelting = true;
 
