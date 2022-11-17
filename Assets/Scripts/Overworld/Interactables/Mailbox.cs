@@ -17,6 +17,8 @@ public class Mailbox : MonoBehaviour
     public TMP_Text mailCountText;
     public TMP_Text goldMailCountText;
     public TMP_Text canWinText;
+    public GameObject happyWilbur;
+    public GameObject angryWilbur;
     // public TMP_Text minimumText;
 
 
@@ -115,10 +117,14 @@ public class Mailbox : MonoBehaviour
         if (_canWin)
         {
             canWinText.text = "great work! you've collected enough mail for the day!";
+            happyWilbur.SetActive(true);
+            angryWilbur.SetActive(false);
         }
         else
         {
             canWinText.text = "Wilbur's words echo in your head: \"You need at least " + minMail + " pieces of mail to finish work for the day\"";
+            angryWilbur.SetActive(true);
+            happyWilbur.SetActive(false);
         }
 
         mailCountText.text =  GameManager.Instance.mailCount.ToString() + "/" + GameManager.Instance.maxMail.ToString();
