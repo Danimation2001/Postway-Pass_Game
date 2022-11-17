@@ -16,6 +16,9 @@ public class PauseMenu : MonoBehaviour
     public TMP_Text mailText;
     public TMP_Text goldMailText;
 
+    public AudioSource bookOpenSound;
+    public AudioSource bookCloseSound;
+
     void OnEnable()
     {
         pause.Enable();
@@ -52,10 +55,14 @@ public class PauseMenu : MonoBehaviour
         goldMailText.text = GameManager.Instance.goldMailCount.ToString();
         Time.timeScale = 0;
         _isPaused = true;
+        bookOpenSound.Play();
+        bookCloseSound.Stop();
     }
 
     public void Unpause()
     {
+        bookCloseSound.Play();
+        bookOpenSound.Stop();
         Cursor.lockState = CursorLockMode.Locked;
         overworldCounters.SetActive(false);
         //pauseScreen.SetActive(false);
@@ -75,5 +82,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         _pauseGroup = pauseScreen.GetComponent<CanvasGroup>();
+        bookCloseSound.Stop();
+        bookOpenSound.Stop();
     }
 }
