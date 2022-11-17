@@ -121,8 +121,8 @@ public class Mailbox : MonoBehaviour
             canWinText.text = "Wilbur's words echo in your head: \"You need at least " + minMail + " pieces of mail to finish work for the day\"";
         }
 
-        mailCountText.text = "Mail: " + GameManager.Instance.mailCount.ToString() + "/" + GameManager.Instance.maxMail.ToString();
-        goldMailCountText.text = "Gold Mail: " + GameManager.Instance.goldMailCount.ToString() + "/" + GameManager.Instance.maxGoldMail.ToString();
+        mailCountText.text =  GameManager.Instance.mailCount.ToString() + "/" + GameManager.Instance.maxMail.ToString();
+        goldMailCountText.text = GameManager.Instance.goldMailCount.ToString() + "/" + GameManager.Instance.maxGoldMail.ToString();
 
         // minimumText.text = "You need " + minMail + " pieces of mail to continue!";
     }

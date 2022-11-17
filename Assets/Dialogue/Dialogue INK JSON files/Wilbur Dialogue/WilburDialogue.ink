@@ -1,3 +1,19 @@
+You're late, Ollie.
+I sincerely hope you didn't think that as your uncle.
+I wouldn't fire you.
+Because I would..
+Easily.
+Without hesitation.
+You see those frames on the wall?
+I fired all of them.
+
++ [Hello to you too.]
++ [I'm sorry I'm late]
+
+
+
+
+
 Ollie, thanks for joining the team. We've been rather understaffed lately,
 so it's good to have my grandson join the family business.
 To be frank, we are having a little issue lately...
