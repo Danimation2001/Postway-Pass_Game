@@ -13628,6 +13628,7 @@ GameObject:
   - component: {fileID: 8347936701868129684}
   - component: {fileID: 376883608}
   - component: {fileID: 1275559401}
+  - component: {fileID: 695460109070633536}
   m_Layer: 3
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -13709,6 +13710,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dustEmitterR: {fileID: 419506281}
   dustEmitterL: {fileID: 961550532}
+--- !u!114 &695460109070633536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307317493779176809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e576935c419fedf42ab01eb5b9b860dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 19d2e3cd0a7ef284c80d71ccbc3aae9b, type: 3}
+  - {fileID: 8300000, guid: b788507e32318d347839ffd43693acde, type: 3}
+  - {fileID: 8300000, guid: 3d353379773803b42ad2828620d2fc52, type: 3}
+  - {fileID: 8300000, guid: e887002d6c3c25f4fb800181ddd9f55b, type: 3}
 --- !u!1 &5399209968611074382
 GameObject:
   m_ObjectHideFlags: 0
@@ -15801,6 +15819,7 @@ MonoBehaviour:
   bottomClamp: -30
   cameraAngleOverride: 0
   lockCameraPosition: 0
+  cineCam: {fileID: 0}
   groundPos: {fileID: 8347936700731741749}
   rideHeight: 1.13
   rideSpringStrength: 2000
