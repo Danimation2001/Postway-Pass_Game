@@ -99,6 +99,8 @@ public class CaveTorch : MonoBehaviour
         //GetComponentInChildren<MeshRenderer>().material = onMat;
         Flame.SetActive(true);
         audioSource.Play();
+        TorchPuzzleManager.Instance.litCount++;
         lit = true;
+        TorchPuzzleManager.Instance.UpdateGauge();
     }
 }

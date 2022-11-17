@@ -21,13 +21,13 @@ public class TorchPuzzleManager : MonoBehaviour
     FrozenKey _key;
     IceBlock _iceBlock;
     float _timer;
-    bool[] _litStatus;
     CaveTorch[] _torches;
 
     //for timer UI
     public GameObject timerUI;
     public Image timer_radial;
-
+    public GameObject[] flames;
+    public int litCount;
 
     void Awake()
     {
@@ -82,6 +82,14 @@ public class TorchPuzzleManager : MonoBehaviour
         }
     }
 
+    public void UpdateGauge()
+    {
+        for(int i = 0; i < litCount; i++)
+        {
+            flames[i].SetActive(true);
+        }
+    }
+
     // check if all the torches have been lit.
     bool CheckIfAllLit()
     {
@@ -108,6 +116,10 @@ public class TorchPuzzleManager : MonoBehaviour
         }
 
         puzzleHasStarted = false;
+        foreach(GameObject flame in flames)
+        {
+            flame.SetActive(false);
+        }
         timerUI.SetActive(false);
         _timer = puzzleTimer;
     }
