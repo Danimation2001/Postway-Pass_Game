@@ -43,6 +43,9 @@ public class NPC : MonoBehaviour
 
     [SerializeField] private GameObject continueIcon;
 
+    public AudioSource wilburMusic;
+    public AudioSource postofficeMusic;
+
      private void Awake()
     {
         if (instance != null)
@@ -63,6 +66,7 @@ public class NPC : MonoBehaviour
         dialogueIsPlaying = false;
         dialogueUI.SetActive(false);
         dialoguecam.SetActive(false);
+        wilburMusic.Stop();
 
         //get all of the choices text
         choicesText = new TextMeshProUGUI[choices.Length];
@@ -149,10 +153,11 @@ public class NPC : MonoBehaviour
 
     private void EnterDialogueMode(TextAsset inkJSON)
     {
+        wilburMusic.Play();
+        postofficeMusic.Stop();
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialogueUI.SetActive(true);
-
         ContinueStory();
     }
 
@@ -165,6 +170,8 @@ public class NPC : MonoBehaviour
         dialogueText.text = "";
         dialoguecam.SetActive(false);
         playercam.SetActive(true);
+        wilburMusic.Stop();
+        postofficeMusic.Play();
     }
 
     private void ContinueStory()
