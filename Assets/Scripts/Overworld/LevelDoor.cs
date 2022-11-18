@@ -9,6 +9,8 @@ public class LevelDoor : MonoBehaviour
     public GameObject popupUI;
     public InputAction interact;
 
+    bool activePopup;
+
     void OnEnable()
     {
         interact.Enable();
@@ -25,6 +27,7 @@ public class LevelDoor : MonoBehaviour
         interact.Disable();
         interactUI.GetComponent<Animator>().Play("Fade Out");
         popupUI.SetActive(true);
+        activePopup = true;
         Cursor.lockState = CursorLockMode.None;
     }
 
@@ -32,6 +35,14 @@ public class LevelDoor : MonoBehaviour
     void Start()
     {
         interact.Disable();
+    }
+
+    void Update()
+    {
+        if(activePopup)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,6 +66,8 @@ public class LevelDoor : MonoBehaviour
     public void LockMouse()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        popupUI.SetActive(false);
+        activePopup = false;
     }
 
     public void UnlockMouse()
