@@ -96,6 +96,8 @@ public class RBController : MonoBehaviour
         }
 
         AssignAnimationIDs();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     float startTimer = 0.1f;
