@@ -132,6 +132,10 @@ public class NPC : MonoBehaviour
             returnButtonPressedThisFrame = false;
             ContinueStory();
         }
+        if(Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     
