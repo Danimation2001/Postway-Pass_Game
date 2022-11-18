@@ -9,6 +9,8 @@ public class IceBlock : MonoBehaviour
     public bool iceMelted;
     Animator _anim;
 
+    public AudioSource iceSFX;
+
     void Start()
     {
         if(GameManager.Instance.hasFrozenKey)
@@ -27,6 +29,7 @@ public class IceBlock : MonoBehaviour
     IEnumerator MeltIce()
     {
         _anim.Play("IceMelt");
+        iceSFX.Play();
         yield return new WaitForSeconds (1.5f);
         iceMelted = true;
         gameObject.SetActive(false);

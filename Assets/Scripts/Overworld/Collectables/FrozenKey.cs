@@ -8,6 +8,8 @@ public class FrozenKey : MonoBehaviour
     public bool canBeCollected;
     //public GameObject key; 
 
+    public AudioSource keySound; 
+
     Animator _anim;
 
     //[Header ("PLACEHOLDER. REMOVE WHEN FINAL ASSET IS READY!")]
@@ -34,6 +36,7 @@ public class FrozenKey : MonoBehaviour
     {
         // ADD ANIMATIONS AND EFFECTS
         _anim.Play("KeyCollect");
+        keySound.Play();
         yield return new WaitForSeconds(4f);
         gameObject.SetActive(false);
         GameManager.Instance.hasFrozenKey = true;
