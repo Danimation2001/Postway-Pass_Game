@@ -68,6 +68,7 @@ public class SceneLoader : MonoBehaviour
     public void LoadWinterScene()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        GameManager.Instance.goldMailCount = 0;
         StartCoroutine(LoadLevel(2));
     }
 
