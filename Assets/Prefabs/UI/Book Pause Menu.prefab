@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.8962264, g: 0.5997246, b: 0.2240566, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -330,10 +330,22 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1041455183539615482}
+  m_TargetGraphic: {fileID: 36833132809590246}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4101421914629112749}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Unpause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3516684799664997842
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +421,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7173250327717688408}
   - component: {fileID: 4101421914629112749}
-  - component: {fileID: 3003430708203993395}
+  - component: {fileID: 6241483966334751761}
+  - component: {fileID: 6241483966334751760}
+  - component: {fileID: 6241483966334751766}
   m_Layer: 5
   m_Name: Book Pause Menu
   m_TagString: Untagged
@@ -470,11 +484,35 @@ MonoBehaviour:
       m_Action: Pause
       m_Flags: 0
     m_Flags: 0
-  pauseScreen: {fileID: 0}
+  pauseScreen: {fileID: 3998470146657353189}
   overworldCounters: {fileID: 0}
-  mailText: {fileID: 0}
-  goldMailText: {fileID: 0}
---- !u!225 &3003430708203993395
+  mailText: {fileID: 6303184631396014204}
+  goldMailText: {fileID: 2431928993446493875}
+  bookOpenSound: {fileID: 0}
+  bookCloseSound: {fileID: 0}
+--- !u!223 &6241483966334751761
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3998470146657353189}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!225 &6241483966334751760
 CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -482,10 +520,27 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3998470146657353189}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &6241483966334751766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3998470146657353189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &4327360370288468459
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,7 +554,7 @@ GameObject:
   - component: {fileID: 7148393749236347603}
   - component: {fileID: 2147935930811746748}
   m_Layer: 5
-  m_Name: Play Button (1)
+  m_Name: Quit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -604,10 +659,22 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 7148393749236347603}
+  m_TargetGraphic: {fileID: 6437032025056804792}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4101421914629112749}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: BackToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4682300749032722442
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +900,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Counters
       objectReference: {fileID: 0}
+    - target: {fileID: 3785687168047659565, guid: 6083613fede744103b9a4012c33e063a,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 3785687168047659565, guid: 6083613fede744103b9a4012c33e063a,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4778299284907515106, guid: 6083613fede744103b9a4012c33e063a,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 4778299284907515106, guid: 6083613fede744103b9a4012c33e063a,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6413814015451220799, guid: 6083613fede744103b9a4012c33e063a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -941,9 +1030,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6083613fede744103b9a4012c33e063a, type: 3}
+--- !u!114 &2431928993446493875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4778299284907515106, guid: 6083613fede744103b9a4012c33e063a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7201290347751907921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4247579133780420974 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6413814015451220799, guid: 6083613fede744103b9a4012c33e063a,
     type: 3}
   m_PrefabInstance: {fileID: 7201290347751907921}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6303184631396014204 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3785687168047659565, guid: 6083613fede744103b9a4012c33e063a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7201290347751907921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

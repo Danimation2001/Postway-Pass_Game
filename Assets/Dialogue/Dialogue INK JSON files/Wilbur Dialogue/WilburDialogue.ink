@@ -35,16 +35,16 @@ to find lost mail and defeat spirits.
 -> objective
 
 === objective ===
-These spirits are the echoes of people long gone,
-With so little of their own identity left, they search for
+these spirits are the echoes of people long gone,
+with so little of their own identity left, they search for
 meaning and connection by stealing letters from the living.
 It’s a tragic existence, and it’s a courier’s duty
 to help them find rest.
 your job is quite simple.
-go to the various areas of The Postway Pass,
-Find the lost mail,
-And lay the spirits to rest.
-Are we clear?
+go to the various areas of the postway pass,
+find the lost mail,
+and lay the spirits to rest.
+are we clear?
 + [ sounds easy enough... ]
 glad to hear
 -> finish

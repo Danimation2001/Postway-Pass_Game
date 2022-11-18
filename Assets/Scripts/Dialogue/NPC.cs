@@ -164,6 +164,7 @@ public class NPC : MonoBehaviour
         dialogueIsPlaying = true;
         dialogueUI.SetActive(true);
         ContinueStory();
+        interactDialogue.SetActive(false);
     }
 
     private IEnumerator ExitDialogueMode()
