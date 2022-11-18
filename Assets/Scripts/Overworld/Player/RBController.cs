@@ -27,6 +27,10 @@ public class RBController : MonoBehaviour
     int _jumps;
 
     [Header("Camera")]
+    [Range(0.1f, 3f)]
+    public float xSensitivity;
+    [Range(0.1f, 3f)]
+    public float ySensitivity;
     public GameObject cinemachineCameraTarget;
     public float topClamp = 70.0f;
     public float bottomClamp = -30.0f;
@@ -186,8 +190,8 @@ public class RBController : MonoBehaviour
         // if there is an input and camera position is not fixed
         if (_input.look.sqrMagnitude >= _threshold && !lockCameraPosition)
         {
-            _cinemachineTargetYaw += _input.look.x * Time.deltaTime;
-            _cinemachineTargetPitch += _input.look.y * Time.deltaTime;
+            _cinemachineTargetYaw += _input.look.x * xSensitivity * Time.deltaTime;
+            _cinemachineTargetPitch += _input.look.y * ySensitivity * Time.deltaTime;
         }
 
         // clamp our rotations so our values are limited 360 degrees
