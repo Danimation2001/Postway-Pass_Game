@@ -20,6 +20,7 @@ public class Mailbox : MonoBehaviour
     public GameObject happyWilbur;
     public GameObject angryWilbur;
     // public TMP_Text minimumText;
+    bool activePopup;
 
 
     void OnEnable()
@@ -77,6 +78,7 @@ public class Mailbox : MonoBehaviour
 
             UpdateText();
             popupUI.SetActive(true);
+            activePopup = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0f;
         }
@@ -92,6 +94,7 @@ public class Mailbox : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
         popupUI.SetActive(false);
+        activePopup = false;
     }
 
     ConstraintSource _constraintSource;
@@ -109,6 +112,14 @@ public class Mailbox : MonoBehaviour
         _constraintSource.weight = 1;
 
         GetComponentInChildren<LookAtConstraint>().AddSource(_constraintSource);
+    }
+
+    void Update()
+    {
+        if(activePopup)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     // Update is called once per frame
