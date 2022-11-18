@@ -115,6 +115,7 @@ public class TorchPuzzleManager : MonoBehaviour
             torch.Extinguish();
         }
 
+        litCount = 0;
         puzzleHasStarted = false;
         foreach(GameObject flame in flames)
         {
