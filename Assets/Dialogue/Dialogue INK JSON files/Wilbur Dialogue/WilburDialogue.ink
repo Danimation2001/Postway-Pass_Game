@@ -23,15 +23,20 @@ well, you're now our newest courier.
 congratulations or whatever.
 i expect you to do your best,
 or else i will fire you.
-
+but i digreess,
 as a courier, your job would usually consist of delivering mail..
++[ but? ...] 
+-> intro
+
+=== intro ===
 but to be frank, nefarious spirits are stealing the mail..
 this isn't the first time this has happened,
 in fact, so much so that it's part of a courier's job
 to find lost mail and defeat spirits.
 +['defeat' spirits?]
 -> objective
-+[sounds simple enough]
++[I HAVE TO FIGHT GHOSTS?]
+... indeed.
 -> objective
 
 === objective ===
@@ -45,8 +50,8 @@ go to the various areas of the postway pass,
 find the lost mail,
 and lay the spirits to rest.
 are we clear?
-+ [ sounds easy enough... ]
-glad to hear
++ [ sounds simple enough... ]
+glad you think so, but don't get too cocky..
 -> finish
 + [ can i quit? ]
 ..no
