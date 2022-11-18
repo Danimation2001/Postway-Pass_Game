@@ -165,6 +165,14 @@ public class RBController : MonoBehaviour
             animator.GetComponent<Animator>().Play("Idle");
             return;
         }
+         if (GameObject.FindGameObjectWithTag("NPC") != null && NPC.GetInstance() != null && NPC.GetInstance().dialogueIsPlaying)
+        {
+            //canMove = false;
+            _RB.isKinematic = true;
+            GetComponent<PlayerInput>().enabled = false;
+            animator.GetComponent<Animator>().Play("Idle");
+            return;
+        }
         else
         {
             //_RB.isKinematic = false;

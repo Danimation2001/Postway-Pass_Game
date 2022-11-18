@@ -1,36 +1,63 @@
-You're late, Ollie.
-I sincerely hope you didn't think that as your uncle.
-I wouldn't fire you.
-Because I would..
-Easily.
-Without hesitation.
-You see those frames on the wall?
-I fired all of them.
+you're late, ollie.
+i sincerely hope you didn't think that as your uncle,
+i wouldn't fire you.
+because I would..
+easily.
+without hesitation.
+you see those frames on the wall?
+i fired all of them.
 
-+ [Hello to you too.]
-+ [I'm sorry I'm late]
++ [hello to you too]
+..hello, ollie.
+-> story
++ [i'm sorry I'm late]
+you should be.
+-> story
++ [then fire me, coward.]
+don't tempt me, kid.
+-> story
+
+
+=== story ===
+well, you're now our newest courier.
+congratulations or whatever.
+i expect you to do your best,
+or else i will fire you.
+
+as a courier, your job would usually consist of delivering mail..
+but to be frank, nefarious spirits are stealing the mail..
+this isn't the first time this has happened,
+in fact, so much so that it's part of a courier's job
+to find lost mail and defeat spirits.
++['defeat' spirits?]
+-> objective
++[sounds simple enough]
+-> objective
+
+=== objective ===
+These spirits are the echoes of people long gone,
+With so little of their own identity left, they search for
+meaning and connection by stealing letters from the living.
+It’s a tragic existence, and it’s a courier’s duty
+to help them find rest.
+your job is quite simple.
+go to the various areas of The Postway Pass,
+Find the lost mail,
+And lay the spirits to rest.
+Are we clear?
++ [ sounds easy enough... ]
+glad to hear
+-> finish
++ [ can i quit? ]
+..no
+-> finish
+
+
+=== finish ===
+now, 
+there are portals upstairs that will take you to the various areas of the pass,
+i would suggest starting with the one marked with the snowflake.
+-> DONE
 
 
 
-
-
-Ollie, thanks for joining the team. We've been rather understaffed lately,
-so it's good to have my grandson join the family business.
-To be frank, we are having a little issue lately...
-Nefarious spirits are stealing mail and hiding them in a purgatory realm..
-we need someone to go and find them and send the spirits off
-    + [What do you mean 'send them off'?]
-    You will need to first defeat them in a dance battle
-        ++ [A Dance Battle?]
-        Yes, my grandson.
-        ++ [??]
-        Yes, you'll need to do some training.
-        
-    -> DONE
-    + ['Spirits'?]
-    The spirits are still connected to their past lives
-    They're stealing mail that their friends and family have written
-    -> DONE
-    + [Okay]
-    Thanks son
-    -> DONE
