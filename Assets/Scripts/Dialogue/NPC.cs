@@ -15,18 +15,18 @@ public class NPC : MonoBehaviour
     [SerializeField] public GameObject player;
     [SerializeField] public Animator playerAnimation;
     public Animator npcAnimator;
-    
+
     [SerializeField] public GameObject interactDialogue; //Interact button for dialogue (e)
     [SerializeField] public GameObject dialogueUI; //UI Canvas for dialogue
     public bool dialogueIsPlaying { get; private set; }//when dialogue is playing
     [SerializeField] public InputAction interact; //interact button to trigger the dialogue canvas as true
     [SerializeField] private TextMeshProUGUI dialogueText; //text that handles the dialogue
 
-    [Header ("Ink JSON")]
+    [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
     private Story currentStory;
 
-    [Header ("Ink Choices")]
+    [Header("Ink Choices")]
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
 
@@ -46,7 +46,7 @@ public class NPC : MonoBehaviour
     public AudioSource wilburMusic;
     public AudioSource postofficeMusic;
 
-     private void Awake()
+    private void Awake()
     {
         if (instance != null)
         {
@@ -56,8 +56,9 @@ public class NPC : MonoBehaviour
         instance = this;
     }
 
-    private void FixedUpdate() {
-        
+    private void FixedUpdate()
+    {
+
     }
 
     void Start()
@@ -71,7 +72,7 @@ public class NPC : MonoBehaviour
         //get all of the choices text
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
-        foreach(GameObject choice in choices)
+        foreach (GameObject choice in choices)
         {
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
@@ -88,7 +89,7 @@ public class NPC : MonoBehaviour
     {
         interact.Disable();
     }
-    public static NPC GetInstance() 
+    public static NPC GetInstance()
     {
         return instance;
     }
@@ -100,7 +101,7 @@ public class NPC : MonoBehaviour
         {
             interact.Enable();
             interactDialogue.GetComponent<Animator>().Play("Fade In");
-            
+
         }
     }
 
@@ -117,31 +118,31 @@ public class NPC : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
         {
             returnButtonPressedThisFrame = true;
         }
-         //return if dialogue isn't playing
-        if(!dialogueIsPlaying)
+        //return if dialogue isn't playing
+        if (!dialogueIsPlaying)
         {
             return;
-        }   
+        }
         //continue to next line in the dialogue when next is pressed
         if (canContinueToNextLine && returnButtonPressedThisFrame && currentStory.currentChoices.Count == 0)
         {
             returnButtonPressedThisFrame = false;
             ContinueStory();
         }
-        if(Cursor.lockState == CursorLockMode.Locked)
+        if (Cursor.lockState == CursorLockMode.Locked && dialogueIsPlaying)
         {
             Cursor.lockState = CursorLockMode.None;
         }
     }
 
-    
+
     void Interact(InputAction.CallbackContext context) //set the dialogue UI 
     {
-        if(!dialogueUI.activeSelf)
+        if (!dialogueUI.activeSelf)
         {
             interact.Disable();
             interactDialogue.GetComponent<Animator>().Play("Fade Out");
@@ -150,9 +151,9 @@ public class NPC : MonoBehaviour
             targetGroup.m_Targets[1].target = gameObject.transform;
             dialoguecam.SetActive(true);
             playercam.SetActive(false);
-           EnterDialogueMode(inkJSON);
+            EnterDialogueMode(inkJSON);
         }
-          
+
     }
 
     private void EnterDialogueMode(TextAsset inkJSON)
@@ -165,11 +166,11 @@ public class NPC : MonoBehaviour
         ContinueStory();
     }
 
-    private IEnumerator ExitDialogueMode() 
+    private IEnumerator ExitDialogueMode()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         yield return new WaitForSeconds(0.5f);
         dialogueIsPlaying = false;
+        Cursor.lockState = CursorLockMode.Locked;
         dialogueUI.SetActive(false);
         dialogueText.text = "";
         dialoguecam.SetActive(false);
@@ -180,17 +181,17 @@ public class NPC : MonoBehaviour
 
     private void ContinueStory()
     {
-          if (currentStory.canContinue)
+        if (currentStory.canContinue)
         {
             npcAnimator.SetBool("isTalking", true);
             // dialogueText.text = currentStory.Continue();
-            if (displayLineCoroutine != null )
+            if (displayLineCoroutine != null)
             {
                 StopCoroutine(displayLineCoroutine);
             }
             displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
             //display choices if there are any
-           
+
         }
         else
         {
@@ -203,7 +204,7 @@ public class NPC : MonoBehaviour
     {
         //empty dialogue text so previous line no longer shows
         dialogueText.text = "";
-        
+
 
         //hide items when text is typing
         continueIcon.SetActive(false);
@@ -213,18 +214,19 @@ public class NPC : MonoBehaviour
         //display each letter one at a time
         foreach (char letter in line.ToCharArray())
         {
-            if(returnButtonPressedThisFrame)
+            if (returnButtonPressedThisFrame)
             {
-            returnButtonPressedThisFrame = false;
-            dialogueText.text = line;
-            break;
-            //dialogueText.text += letter;
-            //yield return new WaitForSeconds(typingSpeedFast);
-          }
-          else{
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
-          }
+                returnButtonPressedThisFrame = false;
+                dialogueText.text = line;
+                break;
+                //dialogueText.text += letter;
+                //yield return new WaitForSeconds(typingSpeedFast);
+            }
+            else
+            {
+                dialogueText.text += letter;
+                yield return new WaitForSeconds(typingSpeed);
+            }
         }
 
         //actions to to take after the entire line has finished displaying
@@ -243,27 +245,27 @@ public class NPC : MonoBehaviour
         }
     }
 
-    private void DisplayChoices() 
+    private void DisplayChoices()
     {
         List<Choice> currentChoices = currentStory.currentChoices;
 
         // defensive check to make sure our UI can support the number of choices coming in
         if (currentChoices.Count > choices.Length)
         {
-            Debug.LogError("More choices were given than the UI can support. Number of choices given: " 
+            Debug.LogError("More choices were given than the UI can support. Number of choices given: "
                 + currentChoices.Count);
         }
 
         int index = 0;
         // enable and initialize the choices up to the amount of choices for this line of dialogue
-        foreach(Choice choice in currentChoices) 
+        foreach (Choice choice in currentChoices)
         {
             choices[index].gameObject.SetActive(true);
             choicesText[index].text = choice.text;
             index++;
         }
         // go through the remaining choices the UI supports and make sure they're hidden
-        for (int i = index; i < choices.Length; i++) 
+        for (int i = index; i < choices.Length; i++)
         {
             choices[i].gameObject.SetActive(false);
         }
@@ -282,13 +284,13 @@ public class NPC : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-    
-            currentStory.ChooseChoiceIndex(choiceIndex);
-            ContinueStory();
-        
-        
+
+        currentStory.ChooseChoiceIndex(choiceIndex);
+        ContinueStory();
+
+
     }
 
-    
+
 
 }
