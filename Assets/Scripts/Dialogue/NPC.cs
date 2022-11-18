@@ -118,6 +118,7 @@ public class NPC : MonoBehaviour
     void Update()
     {
 
+
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
         {
             returnButtonPressedThisFrame = true;
@@ -145,7 +146,7 @@ public class NPC : MonoBehaviour
         if (!dialogueUI.activeSelf)
         {
             interact.Disable();
-            interactDialogue.GetComponent<Animator>().Play("Fade Out");
+           
             dialogueUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             targetGroup.m_Targets[1].target = gameObject.transform;
@@ -164,7 +165,7 @@ public class NPC : MonoBehaviour
         dialogueIsPlaying = true;
         dialogueUI.SetActive(true);
         ContinueStory();
-        interactDialogue.SetActive(false);
+        
     }
 
     private IEnumerator ExitDialogueMode()
