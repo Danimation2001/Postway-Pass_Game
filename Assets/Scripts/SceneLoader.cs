@@ -99,6 +99,16 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadLevel(3));
     }
 
+    public void LoadTutorial()
+    {
+        StartCoroutine(LoadLevel(5));
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     IEnumerator LoadLevel(int _levelIndex)
     {
         Time.timeScale = 0f;
