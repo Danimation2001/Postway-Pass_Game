@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24008259, g: 0.081451386, b: 0.18430941, a: 1}
+  m_IndirectSpecularColor: {r: 0.2400828, g: 0.081451535, b: 0.18430999, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12540,7 +12540,7 @@ PrefabInstance:
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6575513
+      value: 0.65755135
       objectReference: {fileID: 0}
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
@@ -12550,7 +12550,7 @@ PrefabInstance:
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.75320065
+      value: -0.75320077
       objectReference: {fileID: 0}
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
@@ -13708,9 +13708,24 @@ PrefabInstance:
       propertyPath: mailID
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1275228228, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
       propertyPath: m_text
-      value: wilbur needs to clean up fr
+      value: "\r\nMy dear Ollie,\r\n\r\nCongratulations on becoming a courier ! Everyone
+        is so proud of you, myself especially. I thought you might like some advice
+        from a former courier!\r\n\r\nFirstly, if you ever find yourself fighting
+        a ghost, which happens more than you\u2019d think, remember; it\u2019s all
+        about the rhythm.\r\n\r\nSecond, it reading other people\u2019s mail is a
+        crime. Don\u2019t go sticking your beak where it doesn\u2019t belong!\r\n\r\nLastly
+        -- have fun! Life is an adventure and it\u2019s far too short to let it be
+        a miserable one.\r\n\r\nWith all my love,\r\n\r\nGrandma\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
+      propertyPath: m_margin.z
+      value: -271.7697
       objectReference: {fileID: 0}
     - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
       propertyPath: m_fontAsset
@@ -13718,8 +13733,13 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 937429d04289a4a7d931a05b3db72048,
         type: 2}
     - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -32107742186098463, guid: 937429d04289a4a7d931a05b3db72048,
+        type: 2}
+    - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3800362883092799243, guid: 590c34b5e0d36491885cfd980dc8434b,
         type: 3}
@@ -13729,8 +13749,14 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 3800362883092799243, guid: 590c34b5e0d36491885cfd980dc8434b,
         type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -32107742186098463, guid: 937429d04289a4a7d931a05b3db72048,
+        type: 2}
+    - target: {fileID: 3800362883092799243, guid: 590c34b5e0d36491885cfd980dc8434b,
+        type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5148913172168022534, guid: 590c34b5e0d36491885cfd980dc8434b,
         type: 3}
@@ -31966,9 +31992,30 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1281255730}
     m_Modifications:
+    - target: {fileID: 1275228228, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469801946, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
       propertyPath: m_text
-      value: "bottom text \n"
+      value: "Wilbur,\r\n\r\nYou could have given me a heads up that you were planning
+        on hiring a new courier! I hope you weren\u2019t planning on sending them
+        out without a weapon! don\u2019t know if you realise this Wilbur, but ghost
+        are notoriously hard to hit due to being incorporeal! \r\n\r\nYou are one
+        of my oldest and most loyal customers. Without your post office, my business
+        wouldn\u2019t be anything like it is today, so I\u2019ve decided to make
+        your order my number one priority. Don\u2019t go getting used to this special
+        treatment though! This is a one time only deal. \r\n\r\nDon\u2019t you dare
+        let your courier out without a weapon, Wilbur. Not after last time.\r\n\r\nRespectfully
+        yours,\r\n\r\nEdith\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
+      propertyPath: m_margin.z
+      value: -263.54477
       objectReference: {fileID: 0}
     - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
       propertyPath: m_fontAsset
@@ -31976,8 +32023,13 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 937429d04289a4a7d931a05b3db72048,
         type: 2}
     - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -32107742186098463, guid: 937429d04289a4a7d931a05b3db72048,
+        type: 2}
+    - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3800362883092799243, guid: 590c34b5e0d36491885cfd980dc8434b,
         type: 3}
@@ -31987,9 +32039,21 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 3800362883092799243, guid: 590c34b5e0d36491885cfd980dc8434b,
         type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -32107742186098463, guid: 937429d04289a4a7d931a05b3db72048,
+        type: 2}
+    - target: {fileID: 3800362883092799243, guid: 590c34b5e0d36491885cfd980dc8434b,
+        type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3973499665685415514, guid: 590c34b5e0d36491885cfd980dc8434b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a0c4039812e7454c94fe495c9d98f27,
+        type: 3}
     - target: {fileID: 5148913172168022534, guid: 590c34b5e0d36491885cfd980dc8434b,
         type: 3}
       propertyPath: m_Name
@@ -41201,9 +41265,17 @@ PrefabInstance:
       propertyPath: mailID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1275228228, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
       propertyPath: m_text
-      value: slay
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
+      propertyPath: m_margin.z
+      value: -256.8145
       objectReference: {fileID: 0}
     - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
       propertyPath: m_fontAsset
@@ -41211,8 +41283,13 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 937429d04289a4a7d931a05b3db72048,
         type: 2}
     - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -32107742186098463, guid: 937429d04289a4a7d931a05b3db72048,
+        type: 2}
+    - target: {fileID: 1469801948, guid: 590c34b5e0d36491885cfd980dc8434b, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3800362883092799243, guid: 590c34b5e0d36491885cfd980dc8434b,
         type: 3}
@@ -43660,7 +43737,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh33730
+  m_Name: pb_Mesh93920
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -43865,12 +43942,12 @@ PrefabInstance:
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.048875555
+      value: 0.048875283
       objectReference: {fileID: 0}
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0072410386
+      value: 0.007241008
       objectReference: {fileID: 0}
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
@@ -43880,7 +43957,7 @@ PrefabInstance:
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.14637753
+      value: -0.14637774
       objectReference: {fileID: 0}
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
@@ -45716,7 +45793,7 @@ PrefabInstance:
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.66032046
+      value: 0.6603204
       objectReference: {fileID: 0}
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
@@ -45726,12 +45803,12 @@ PrefabInstance:
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7507472
+      value: -0.75074726
       objectReference: {fileID: 0}
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.014158933
+      value: -0.014158934
       objectReference: {fileID: 0}
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
@@ -46113,12 +46190,12 @@ PrefabInstance:
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.059152674
+      value: 0.05915258
       objectReference: {fileID: 0}
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.008731644
+      value: 0.008731631
       objectReference: {fileID: 0}
     - target: {fileID: 3370836381058467616, guid: acceafa5ec74ce344a74804658b76730,
         type: 3}
@@ -47588,12 +47665,12 @@ PrefabInstance:
     - target: {fileID: 7843976665739098928, guid: 617fae7d065d7a448ab737bffaaf5e1c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000042687054
+      value: -0.000000004268707
       objectReference: {fileID: 0}
     - target: {fileID: 7843976665739098928, guid: 617fae7d065d7a448ab737bffaaf5e1c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -5.3091664e-10
+      value: 5.3091687e-10
       objectReference: {fileID: 0}
     - target: {fileID: 7843976665739098935, guid: 617fae7d065d7a448ab737bffaaf5e1c,
         type: 3}
@@ -47693,12 +47770,12 @@ PrefabInstance:
     - target: {fileID: 8147703351392120667, guid: 617fae7d065d7a448ab737bffaaf5e1c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000042687054
+      value: -0.000000004268707
       objectReference: {fileID: 0}
     - target: {fileID: 8147703351392120667, guid: 617fae7d065d7a448ab737bffaaf5e1c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -5.3091664e-10
+      value: 5.3091687e-10
       objectReference: {fileID: 0}
     - target: {fileID: 8221709232381704471, guid: 617fae7d065d7a448ab737bffaaf5e1c,
         type: 3}
